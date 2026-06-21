@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ברק קרן | אוטומציות AI לעסקים — חוסכים שעות, מרוויחים לקוחות</title>
+<meta name="description" content="בניית סוכני AI ואוטומציות לעסקים: מענה אוטומטי ללקוחות, חיבור CRM, דשבורדים. חוסכים שעות עבודה ומונעים אובדן לידים — בלי מתכנת.">
+<meta property="og:title" content="ברק קרן | אוטומציות AI לעסקים">
+<meta property="og:description" content="פחות עבודה ידנית. יותר לקוחות. סוכני AI ואוטומציות שעובדים בשבילכם 24/7.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2540; --navy2:#143A66; --blue:#1E6FB8; --blue-l:#6FB4F0;
+    --green:#0EA47E; --green-d:#0C7A5E; --gold:#D4A53A; --bg:#F6F9FC;
+    --card:#FFFFFF; --txt:#16202E; --muted:#5A6B7B; --line:#E6ECF3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--txt);line-height:1.75;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  a{text-decoration:none;color:inherit}
+  section{padding:88px 0}
+  .btn{display:inline-block;background:var(--green);color:#fff;padding:15px 32px;border-radius:14px;
+       font-weight:700;font-size:1.05rem;transition:.25s;border:none;cursor:pointer;box-shadow:0 8px 20px rgba(14,164,126,.25)}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(14,164,126,.4)}
+  .btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.5);color:#fff;box-shadow:none}
+  .btn-ghost:hover{background:#fff;color:var(--navy);border-color:#fff}
+  .sec-title{font-size:2.3rem;font-weight:800;color:var(--navy);text-align:center;margin-bottom:12px;letter-spacing:-.5px}
+  .sec-sub{text-align:center;color:var(--muted);margin-bottom:56px;font-size:1.15rem;max-width:640px;margin-inline:auto}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,37,64,.92);backdrop-filter:blur(10px);
+      box-shadow:0 2px 20px rgba(0,0,0,.12)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{color:#fff;font-weight:900;font-size:1.25rem;display:flex;align-items:center;gap:8px}
+  .logo span{color:var(--blue-l)}
+  .navlinks{display:flex;gap:28px;align-items:center}
+  .navlinks a{color:#D7E3F0;font-weight:500;transition:.2s}
+  .navlinks a:hover{color:#fff}
+  .navlinks .btn{padding:9px 20px;font-size:.95rem}
+  @media(max-width:780px){.navlinks a:not(.btn){display:none}}
+
+  /* HERO */
+  header{background:linear-gradient(140deg,#0B2540 0%,#143A66 60%,#1B4E86 100%);color:#fff;
+         padding:96px 0 100px;position:relative;overflow:hidden}
+  header::before{content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:44px 44px;mask-image:radial-gradient(circle at 70% 30%,#000,transparent 75%)}
+  header::after{content:"";position:absolute;left:-160px;top:-100px;width:480px;height:480px;
+    background:radial-gradient(circle,rgba(111,180,240,.4),transparent 70%);border-radius:50%}
+  header .wrap{position:relative;z-index:2;max-width:780px}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(111,180,240,.15);
+    border:1px solid rgba(111,180,240,.35);color:#BFD9F5;padding:7px 16px;border-radius:30px;font-size:.9rem;font-weight:500;margin-bottom:22px}
+  .badge .dot{width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 0 4px rgba(14,164,126,.25)}
+  header h1{font-size:3.4rem;font-weight:900;line-height:1.15;margin-bottom:20px;letter-spacing:-1px}
+  header h1 span{background:linear-gradient(90deg,#6FB4F0,#9FD0FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+  header p.lead{font-size:1.3rem;color:#D7E3F0;max-width:640px;margin-bottom:38px;font-weight:400}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .trust{margin-top:42px;display:flex;gap:26px;flex-wrap:wrap;color:#9FB6CC;font-size:.97rem}
+  .trust b{color:#fff}
+  @media(max-width:780px){header h1{font-size:2.3rem}}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* SERVICES */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:32px 28px;transition:.25s}
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(11,37,64,.12);border-color:#CFE0F0}
+  .card .ico{width:58px;height:58px;border-radius:15px;background:linear-gradient(135deg,#EAF2FA,#D7E9FB);
+    display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:18px}
+  .card h3{font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+  .card p{color:var(--muted)}
+
+  /* PROCESS */
+  .proc{background:#fff}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .step{text-align:center;padding:18px;position:relative}
+  .step .n{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--blue));
+    color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.3rem;
+    box-shadow:0 8px 18px rgba(30,111,184,.3)}
+  .step h4{color:var(--navy);font-weight:700;margin-bottom:6px;font-size:1.1rem}
+  .step p{color:var(--muted);font-size:.97rem}
+
+  /* RESULTS */
+  .proof{background:linear-gradient(140deg,#0B2540,#16406F);color:#fff}
+  .proof .sec-title{color:#fff}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;text-align:center}
+  .metric .big{font-size:3rem;font-weight:900;background:linear-gradient(90deg,#6FB4F0,#9FD0FF);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .metric p{color:#C9D9E8;margin-top:6px}
+
+  /* ABOUT */
+  .about{background:#fff}
+  .about-grid{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:center}
+  .photo{aspect-ratio:1;border-radius:24px;background:linear-gradient(135deg,#143A66,#1E6FB8);
+    display:flex;align-items:center;justify-content:center;color:#9FD0FF;font-size:5rem;
+    box-shadow:0 20px 50px rgba(11,37,64,.25);position:relative;overflow:hidden}
+  .photo small{position:absolute;bottom:14px;font-size:.8rem;color:#BFD9F5}
+  .about h2{font-size:2rem;font-weight:800;color:var(--navy);margin-bottom:8px}
+  .about .role{color:var(--green-d);font-weight:700;margin-bottom:16px}
+  .about p{color:var(--muted);margin-bottom:14px}
+  .about .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .chip{background:#EAF2FA;color:var(--navy);padding:7px 15px;border-radius:20px;font-size:.9rem;font-weight:600}
+  @media(max-width:780px){.about-grid{grid-template-columns:1fr}.photo{max-width:240px;margin:0 auto}}
+
+  /* PRICING */
+  .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch}
+  .price{background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px 28px;text-align:center;position:relative;transition:.25s}
+  .price:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(11,37,64,.1)}
+  .price.feat{border:2px solid var(--gold);box-shadow:0 16px 40px rgba(212,165,58,.18);transform:scale(1.03)}
+  .price.feat:hover{transform:scale(1.03) translateY(-5px)}
+  .price .tag{position:absolute;top:-15px;right:50%;transform:translateX(50%);
+    background:linear-gradient(90deg,#D4A53A,#E5BC5B);color:#fff;padding:5px 18px;border-radius:20px;font-size:.85rem;font-weight:700;white-space:nowrap}
+  .price h3{color:var(--navy);font-size:1.4rem;font-weight:800;margin-bottom:6px}
+  .price .amt{font-size:2.3rem;font-weight:900;color:var(--green-d);margin:12px 0}
+  .price .amt small{font-size:1rem;color:var(--muted);font-weight:500}
+  .price ul{list-style:none;text-align:right;margin:20px 0;color:var(--muted)}
+  .price li{padding:7px 0;border-bottom:1px dashed #EDF1F6}
+  .price li::before{content:"✓";color:var(--green);font-weight:800;margin-left:8px}
+  .price .btn{width:100%;margin-top:8px}
+
+  /* FAQ */
+  .faq{background:var(--bg)}
+  .faq-item{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .faq-q{padding:20px 24px;font-weight:700;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:1.08rem}
+  .faq-q::after{content:"+";font-size:1.5rem;color:var(--blue);transition:.2s}
+  .faq-item.open .faq-q::after{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:.3s ease;color:var(--muted);padding:0 24px}
+  .faq-item.open .faq-a{max-height:240px;padding:0 24px 22px}
+
+  /* FINAL */
+  .final{background:linear-gradient(135deg,var(--green-d),var(--green));color:#fff;text-align:center}
+  .final h2{font-size:2.4rem;font-weight:900;margin-bottom:14px}
+  .final p{font-size:1.2rem;margin-bottom:30px;color:#E6F5EF}
+  .final .btn{background:#fff;color:var(--green-d);font-size:1.15rem}
+  .final .alt{margin-top:22px;color:#D6F0E7}
+
+  footer{background:var(--navy);color:#8FA6BC;text-align:center;padding:34px 0;font-size:.95rem}
+  footer b{color:#fff}
+
+  /* WhatsApp float */
+  .wa{position:fixed;bottom:24px;left:24px;z-index:60;width:60px;height:60px;border-radius:50%;
+    background:#25D366;display:flex;align-items:center;justify-content:center;font-size:2rem;
+    box-shadow:0 8px 24px rgba(37,211,102,.5);transition:.2s;animation:pulse 2.5s infinite}
+  .wa:hover{transform:scale(1.1)}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">🤖 ברק קרן <span>· AI</span></div>
+    <div class="navlinks">
+      <a href="#services">שירותים</a>
+      <a href="#how">איך זה עובד</a>
+      <a href="#pricing">מחירים</a>
+      <a href="#about">עליי</a>
+      <a href="#contact" class="btn">שיחת ייעוץ חינם</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="badge"><span class="dot"></span> זמין לפרויקטים חדשים</div>
+    <h1>פחות עבודה ידנית.<br><span>יותר לקוחות.</span></h1>
+    <p class="lead">אני בונה לעסקים סוכני AI ואוטומציות שעובדים בשבילכם 24/7 — עונים ללקוחות, מסננים לידים ומעדכנים מערכות. בלי מתכנת, בלי מחלקת IT.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn">קבעו שיחת ייעוץ חינם</a>
+      <a href="#services" class="btn btn-ghost">מה אני בונה</a>
+    </div>
+    <div class="trust">
+      <span><b>10 שנות</b> ניהול תפעול ושירות</span>
+      <span><b>סוכני AI</b> בייצור אמיתי</span>
+      <span><b>פתרון</b> מקצה לקצה</span>
+    </div>
+  </div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <h2 class="sec-title reveal">מה אני בונה לכם</h2>
+    <p class="sec-sub reveal">פתרונות מוכנים שמתחילים לעבוד תוך שבועות — לא חודשים</p>
+    <div class="grid">
+      <div class="card reveal"><div class="ico">💬</div><h3>סוכן WhatsApp ללידים</h3><p>מקבל כל פנייה, עונה תוך שניות, מסנן לידים חמים ומעביר לצוות. אפס לידים שנופלים בין הכיסאות.</p></div>
+      <div class="card reveal"><div class="ico">🤖</div><h3>בוט שירות לקוחות</h3><p>מענה אוטומטי 24/7 לשאלות נפוצות, תיאום תורים ומעקב הזמנות — בלי להעסיק עוד נציג.</p></div>
+      <div class="card reveal"><div class="ico">🔗</div><h3>אוטומציית CRM</h3><p>חיבור אוטומטי בין טפסים, וואטסאפ ואתר ל-CRM. סוף להקלדה ידנית ולטעויות אנוש.</p></div>
+      <div class="card reveal"><div class="ico">📊</div><h3>דשבורד ניהולי</h3><p>נתונים חיים, חישוב KPIs והתראות על חריגות בזמן אמת — שליטה מלאה במספרים שלכם.</p></div>
+      <div class="card reveal"><div class="ico">⚙️</div><h3>אוטומציית תהליכים</h3><p>מזהה תהליך ידני שגוזל זמן ובונה אוטומציה שמחליפה אותו (n8n / Make).</p></div>
+      <div class="card reveal"><div class="ico">🧭</div><h3>ייעוץ AI לעסק</h3><p>יום אבחון + מפת דרכים: מה כדאי להפוך לאוטומטי קודם, ואיפה ה-ROI הכי גבוה.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="proc" id="how">
+  <div class="wrap">
+    <h2 class="sec-title reveal">איך זה עובד</h2>
+    <p class="sec-sub reveal">תהליך פשוט, שקוף, בלי הפתעות</p>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h4>שיחת אפיון</h4><p>מבינים את הכאב ואיפה מבזבזים זמן. חינם, 20 דקות.</p></div>
+      <div class="step reveal"><div class="n">2</div><h4>הצעה ברורה</h4><p>3 אפשרויות עם מחיר ותוצאה מדויקים. אתם בוחרים.</p></div>
+      <div class="step reveal"><div class="n">3</div><h4>בנייה והרצה</h4><p>בונה, בודק ומפעיל. 1-3 שבועות לפי היקף.</p></div>
+      <div class="step reveal"><div class="n">4</div><h4>הדרכה וליווי</h4><p>מלמד אתכם לתפעל, ונשאר זמין לתמיכה.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <h2 class="sec-title reveal">מה אוטומציה נכונה עושה לעסק</h2>
+    <p class="sec-sub reveal" style="color:#C9D9E8">היתרונות שאתם מקבלים מהיום הראשון</p>
+    <div class="metrics">
+      <div class="metric reveal"><div class="big">+15</div><p>שעות עבודה שנחסכות בכל שבוע</p></div>
+      <div class="metric reveal"><div class="big">24/7</div><p>מענה אוטומטי לכל פנייה — גם בלילה ובסופ"ש</p></div>
+      <div class="metric reveal"><div class="big">0</div><p>לידים שנופלים — מענה מיידי לכל לקוח</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="photo reveal">👨‍💻<small>הוסיפו כאן תמונה שלכם</small></div>
+      <div class="reveal">
+        <h2>נעים להכיר, אני ברק</h2>
+        <div class="role">מנהל תפעול ושירות · בונה אוטומציות AI</div>
+        <p>10 שנים ניהלתי צוותים, מוקדים ותהליכים בארגונים גדולים — אני יודע איך עסק עובד באמת ואיפה מבזבזים זמן וכסף.</p>
+        <p>בשנים האחרונות אני ממקד את כל הניסיון הזה ב-AI: בונה סוכנים ואוטומציות שמחליפים עבודה ידנית. אני לא רק "טכנולוג" — אני קודם מבין את הבעיה העסקית, ואז בונה את הפתרון הנכון.</p>
+        <div class="chips">
+          <span class="chip">Claude</span><span class="chip">n8n</span><span class="chip">Make</span>
+          <span class="chip">WhatsApp API</span><span class="chip">CRM</span><span class="chip">דשבורדים</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <h2 class="sec-title reveal">חבילות ומחירים</h2>
+    <p class="sec-sub reveal">שקיפות מלאה. בלי כוכביות קטנות.</p>
+    <div class="prices">
+      <div class="price reveal">
+        <h3>בסיס</h3><div class="amt">2,900 ₪</div>
+        <ul><li>אוטומציה אחת מקצה לקצה</li><li>הדרכה לתפעול</li><li>שבוע תמיכה</li></ul>
+        <a href="#contact" class="btn" style="background:var(--navy)">דברו איתי</a>
+      </div>
+      <div class="price feat reveal">
+        <div class="tag">⭐ הכי משתלם</div>
+        <h3>מומלץ</h3><div class="amt">6,900 ₪</div>
+        <ul><li>2-3 אוטומציות</li><li>חיבור CRM</li><li>דשבורד ניהולי</li><li>חודש תמיכה</li></ul>
+        <a href="#contact" class="btn">דברו איתי</a>
+      </div>
+      <div class="price reveal">
+        <h3>פרימיום</h3><div class="amt">14,900 ₪</div>
+        <ul><li>פתרון מלא</li><li>כל האינטגרציות</li><li>ליווי והדרכת צוות</li></ul>
+        <a href="#contact" class="btn" style="background:var(--navy)">דברו איתי</a>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--muted);margin-top:28px">+ ריטיינר חודשי לתחזוקה ושיפורים: החל מ-<b>1,900 ₪/חודש</b></p>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap" style="max-width:820px">
+    <h2 class="sec-title reveal">שאלות נפוצות</h2>
+    <p class="sec-sub reveal">כל מה שרציתם לשאול לפני שמתחילים</p>
+    <div class="reveal">
+      <div class="faq-item"><div class="faq-q">כמה זמן לוקח להקים אוטומציה?</div><div class="faq-a">רוב הפרויקטים מוכנים תוך 1-3 שבועות, תלוי בהיקף. אוטומציה בודדת אפשר לפעמים להעמיד תוך ימים.</div></div>
+      <div class="faq-item"><div class="faq-q">אני לא טכני — אצטרך לתחזק את זה לבד?</div><div class="faq-a">לא. אני בונה, מפעיל ומדריך אתכם לתפעול היומיומי הפשוט. לכל השאר יש ריטיינר תמיכה חודשי אופציונלי.</div></div>
+      <div class="faq-item"><div class="faq-q">זה בטוח? מה עם המידע של הלקוחות שלי?</div><div class="faq-a">העבודה נעשית מול הכלים והחשבונות שלכם, עם הרשאות מינימליות. המידע נשאר אצלכם — אני לא שומר נתוני לקוחות.</div></div>
+      <div class="faq-item"><div class="faq-q">מה אם זה לא יתאים לעסק שלי?</div><div class="faq-a">בשביל זה יש שיחת אפיון חינם ופיילוט קטן. מתחילים בקטן, מוכיחים ערך, ורק אז מרחיבים. אפס סיכון.</div></div>
+      <div class="faq-item"><div class="faq-q">באילו עסקים זה עובד הכי טוב?</div><div class="faq-a">כל עסק שמקבל פניות מלקוחות ומבצע תהליכים חוזרים: קליניקות, נדל"ן, חנויות אונליין, משרדי שירות, סוכנויות ועוד.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contact">
+  <div class="wrap">
+    <h2 class="reveal">מוכנים לחסוך שעות עבודה?</h2>
+    <p class="reveal">שיחת ייעוץ ראשונה חינם — נראה יחד איפה AI יכול לעזור לעסק שלכם.</p>
+    <a href="https://wa.me/972548080657?text=היי%20ברק,%20אשמח%20לשמוע%20איך%20אוטומציה%20יכולה%20לעזור%20לעסק%20שלי" class="btn reveal">📱 שלחו לי וואטסאפ</a>
+    <div class="alt reveal">או: 054-8080657 · bke1302@gmail.com</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><b>ברק קרן</b> · אוטומציות AI לעסקים · נתניה והשרון · 054-8080657</div>
+</footer>
+
+<a class="wa" href="https://wa.me/972548080657?text=היי%20ברק,%20אשמח%20לשמוע%20פרטים" aria-label="WhatsApp">💬</a>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+</script>
+</body>
+</html>
