@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FlowOps | אוטומציות AI לעסקים — חוסכים שעות, מרוויחים לקוחות</title>
-<meta name="description" content="FlowOps — בניית סוכני AI ואוטומציות לעסקים: מענה אוטומטי ללקוחות, חיבור CRM, דשבורדים. מנהל תפעול עם 10 שנות ניסיון שבונה AI — מבין עסק, לא רק קוד.">
-<meta property="og:title" content="FlowOps | אוטומציות AI לעסקים">
+<title>FlowOps AI | אוטומציות AI לעסקים — חוסכים שעות, מרוויחים לקוחות</title>
+<meta name="description" content="FlowOps AI — בניית סוכני AI ואוטומציות לעסקים: מענה אוטומטי ללקוחות, חיבור CRM, דשבורדים. מנהל תפעול עם 10 שנות ניסיון שבונה AI — מבין עסק, לא רק קוד.">
+<meta property="og:title" content="FlowOps AI | אוטומציות AI לעסקים">
 <meta property="og:description" content="פחות עבודה ידנית. יותר לקוחות. סוכני AI ואוטומציות שעובדים בשבילכם 24/7.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bke1302.github.io/">
@@ -195,6 +195,7 @@
   /* ===== FlowOps interactive hero ===== */
   .logo{direction:ltr;gap:9px}
   .logo .wm em{color:var(--green);font-style:normal}
+  .logo .wm .ai{color:#5FC9F0;font-weight:800;font-size:.72em;margin-left:6px;letter-spacing:.5px}
   .logo .mark{flex-shrink:0;filter:drop-shadow(0 4px 10px rgba(30,111,184,.4))}
   header{padding:0;min-height:100vh;display:flex;align-items:center;perspective:1400px}
   .hero-stage{position:absolute;inset:0;z-index:1;transform-style:preserve-3d}
@@ -236,9 +237,9 @@
   @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
   .hero-content{position:relative;z-index:5}
   /* cursor spotlight */
-  .spot{position:absolute;top:0;left:0;width:680px;height:680px;border-radius:50%;pointer-events:none;z-index:2;
-    background:radial-gradient(circle,rgba(120,200,255,.16),rgba(66,232,224,.08) 35%,transparent 62%);
-    transform:translate(-50%,-50%);will-change:transform;mix-blend-mode:screen;opacity:0;transition:opacity .4s}
+  .spot{position:absolute;top:0;left:0;width:440px;height:440px;border-radius:50%;pointer-events:none;z-index:3;
+    background:radial-gradient(circle,rgba(150,210,255,.24) 0%,rgba(90,160,255,.10) 28%,transparent 58%);
+    transform:translate(-50%,-50%);will-change:transform;mix-blend-mode:screen;opacity:0;transition:opacity .5s}
   #hero:hover .spot{opacity:1}
   .btn{will-change:transform}
   /* grain overlay */
@@ -249,13 +250,44 @@
   @keyframes shine{to{background-position:200% center}}
   @media(max-width:880px){.core,.glass,.spot{display:none}header{min-height:auto;padding:90px 0}}
   @media(prefers-reduced-motion:reduce){.ring,.core-dot,.glass,.orb,.hero-content h1 span{animation:none!important}.spot{display:none}}
+
+  /* ===== Dark space theme — matches the galaxy ===== */
+  body{background:#0A1424;color:#E8EFF8}
+  nav{background:rgba(8,18,34,.5)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:none}
+  .tools{background:#0C1A2E;border-bottom:1px solid rgba(255,255,255,.07)}
+  .tools span{color:#8DA0B8}.tchip{color:#C7D6E8;opacity:.9}
+  .pain,.faq{background:#0A1424}
+  .proc,.about{background:#0C1A2E}
+  .proof{background:#0E1B30}
+  .sec-title{color:#EAF2FB}
+  .sec-sub{color:#9DB0C6}
+  .card,.price,.metric,.faq-item{background:#101F36;border-color:rgba(255,255,255,.08)}
+  .card:hover,.price:hover{box-shadow:0 18px 44px rgba(0,0,0,.5)}
+  .card h3,.price h3,.step h4,.about h2,.faq-q{color:#EAF2FB}
+  .about .role{color:#42E8E0}
+  .card p,.price .who,.metric p,.about p,.step p,.pain-card p,.faq-a{color:#A9B9CC}
+  .card .feat{color:#90A2B8}
+  .price ul{color:#CBD7E6}
+  .card .ico{background:linear-gradient(135deg,#13243E,#1A3252)}
+  .pain-card{background:#101F36;border-color:rgba(255,255,255,.08);border-right-color:#E0A53C}
+  .pain-card h4{color:#EAF2FB}
+  .chip{background:rgba(255,255,255,.08);color:#D7E3F0}
+  .price li{border-bottom-color:rgba(255,255,255,.07)}
+  .price .amt{color:#2FC79A}
+  .btn[style*="navy"]{background:#1B406B!important;border:1px solid rgba(111,180,240,.4)!important}
+  .guar{background:linear-gradient(135deg,#0E2A4A,#16406F)}
+  .ecard{background:#101F36;border-color:rgba(111,180,240,.45)}
+  .ecard h4{color:#EAF2FB}.ecard p{color:#A9B9CC}
+  .about .photo{box-shadow:0 20px 50px rgba(0,0,0,.55)}
+  footer{background:#070F1C}
+  .eyebrow{color:#5FC9F0}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="wrap">
-    <div class="logo"><svg class="mark" viewBox="0 0 64 64" width="30" height="30"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B2540"/><stop offset="1" stop-color="#1B4E86"/></linearGradient><linearGradient id="fl" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#6FB4F0"/><stop offset=".55" stop-color="#42E8E0"/><stop offset="1" stop-color="#0EA47E"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#bg)"/><path d="M14 42 C 23 42, 23 22, 32 22 S 41 42, 50 42" fill="none" stroke="url(#fl)" stroke-width="5" stroke-linecap="round"/><circle cx="14" cy="42" r="5" fill="#6FB4F0"/><circle cx="32" cy="22" r="6.5" fill="#42E8E0"/><circle cx="32" cy="22" r="2.5" fill="#0B2540"/><circle cx="50" cy="42" r="5" fill="#0EA47E"/></svg><span class="wm">Flow<em>Ops</em></span></div>
+    <div class="logo"><svg class="mark" viewBox="0 0 64 64" width="30" height="30"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B2540"/><stop offset="1" stop-color="#1B4E86"/></linearGradient><linearGradient id="fl" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#6FB4F0"/><stop offset=".55" stop-color="#42E8E0"/><stop offset="1" stop-color="#0EA47E"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#bg)"/><path d="M14 42 C 23 42, 23 22, 32 22 S 41 42, 50 42" fill="none" stroke="url(#fl)" stroke-width="5" stroke-linecap="round"/><circle cx="14" cy="42" r="5" fill="#6FB4F0"/><circle cx="32" cy="22" r="6.5" fill="#42E8E0"/><circle cx="32" cy="22" r="2.5" fill="#0B2540"/><circle cx="50" cy="42" r="5" fill="#0EA47E"/></svg><span class="wm">Flow<em>Ops</em><b class="ai">AI</b></span></div>
     <div class="navlinks">
       <a href="#services">שירותים</a>
       <a href="#why">למה אני</a>
@@ -274,16 +306,12 @@
     <div class="spot" id="spot"></div>
     <div class="orb o3" data-depth="0.20"></div>
     <div class="orb o4" data-depth="0.14"></div>
-    <div class="glass g1" data-depth="0.55"><span class="pdot"></span> סוכן AI · פעיל 24/7</div>
-    <div class="glass g2" data-depth="0.70">✓ ליד חדש נקלט ונשלח לצוות</div>
-    <div class="glass g3" data-depth="0.45">⚡ אוטומציה רצה — 0 התערבות ידנית</div>
-    <div class="glass g4" data-depth="0.62">📊 CRM מתעדכן אוטומטית</div>
   </div>
   <div class="wrap">
     <div class="hero-content" data-depth="0.05">
-      <div class="badge"><span class="dot"></span> FlowOps · זמין לפרויקטים חדשים</div>
+      <div class="badge"><span class="dot"></span> FlowOps AI · זמין לפרויקטים חדשים</div>
       <h1>פחות עבודה ידנית.<br><span>יותר לקוחות.</span></h1>
-      <p class="lead">FlowOps מפתחת לעסקים סוכני AI ואוטומציות שפועלים עבורכם מסביב לשעון — משיבים ללקוחות, מסננים לידים ומעדכנים מערכות. מנהל תפעול ושירות עם עשור ניסיון שבונה AI: קודם מבין את העסק, ורק אז את הטכנולוגיה.</p>
+      <p class="lead">FlowOps AI מפתחת לעסקים סוכני AI ואוטומציות שפועלים עבורכם מסביב לשעון — משיבים ללקוחות, מסננים לידים ומעדכנים מערכות. מנהל תפעול ושירות עם עשור ניסיון שבונה AI: קודם מבין את העסק, ורק אז את הטכנולוגיה.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn">קבעו שיחת ייעוץ חינם</a>
         <a href="#services" class="btn btn-ghost">מה אנחנו בונים</a>
@@ -500,7 +528,7 @@
 </section>
 
 <footer>
-  <div class="wrap"><b>FlowOps</b> · ברק קרן · אוטומציות AI לעסקים · נתניה והשרון · 054-8080657 · bke1302@gmail.com</div>
+  <div class="wrap"><b>FlowOps AI</b> · ברק קרן · אוטומציות AI לעסקים · נתניה והשרון · 054-8080657 · bke1302@gmail.com</div>
 </footer>
 
 <div class="grain"></div>
@@ -566,20 +594,22 @@
     const layers = [...document.querySelectorAll('#hero [data-depth]')];
     let tx=0,ty=0,cx=0,cy=0;
     const spot = document.getElementById('spot');
-    let sx=0,sy=0;
+    let sx=0,sy=0,esx=0,esy=0,spotInit=false;
     hero.addEventListener('pointermove', e=>{
       const r = hero.getBoundingClientRect();
       tx = ((e.clientX - r.left)/r.width - .5);
       ty = ((e.clientY - r.top)/r.height - .5);
       sx = e.clientX - r.left; sy = e.clientY - r.top;
-      if(spot) spot.style.transform = `translate(${sx}px, ${sy}px) translate(-50%,-50%)`;
+      if(!spotInit){esx=sx;esy=sy;spotInit=true;}
     });
     hero.addEventListener('pointerleave', ()=>{tx=0;ty=0;});
     (function loop(){
-      cx += (tx-cx)*0.06; cy += (ty-cy)*0.06;
+      cx += (tx-cx)*0.05; cy += (ty-cy)*0.05;          // smoother parallax
+      esx += (sx-esx)*0.14; esy += (sy-esy)*0.14;       // smooth light-point follow
+      if(spot) spot.style.transform = `translate(${esx}px, ${esy}px) translate(-50%,-50%)`;
       layers.forEach(l=>{
-        const d = parseFloat(l.dataset.depth)*60;
-        const rot = parseFloat(l.dataset.depth)*8;
+        const d = parseFloat(l.dataset.depth)*55;
+        const rot = parseFloat(l.dataset.depth)*7;
         l.style.transform = `translate3d(${-cx*d}px, ${-cy*d}px, 0) rotateY(${cx*rot}deg) rotateX(${-cy*rot}deg)`;
       });
       requestAnimationFrame(loop);
