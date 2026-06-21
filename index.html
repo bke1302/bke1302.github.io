@@ -228,8 +228,20 @@
   .g4{bottom:16%;left:30%;animation:drift 6.5s ease-in-out infinite reverse}
   @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
   .hero-content{position:relative;z-index:5}
-  @media(max-width:880px){.core,.glass{display:none}header{min-height:auto;padding:90px 0}}
-  @media(prefers-reduced-motion:reduce){.ring,.core-dot,.glass,.orb{animation:none!important}}
+  /* cursor spotlight */
+  .spot{position:absolute;top:0;left:0;width:680px;height:680px;border-radius:50%;pointer-events:none;z-index:2;
+    background:radial-gradient(circle,rgba(120,200,255,.16),rgba(66,232,224,.08) 35%,transparent 62%);
+    transform:translate(-50%,-50%);will-change:transform;mix-blend-mode:screen;opacity:0;transition:opacity .4s}
+  #hero:hover .spot{opacity:1}
+  .btn{will-change:transform}
+  /* grain overlay */
+  .grain{position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .hero-content h1{position:relative}
+  .hero-content h1 span{background-size:200% auto;animation:shine 6s linear infinite}
+  @keyframes shine{to{background-position:200% center}}
+  @media(max-width:880px){.core,.glass,.spot{display:none}header{min-height:auto;padding:90px 0}}
+  @media(prefers-reduced-motion:reduce){.ring,.core-dot,.glass,.orb,.hero-content h1 span{animation:none!important}.spot{display:none}}
 </style>
 </head>
 <body>
@@ -249,6 +261,7 @@
 
 <header id="hero">
   <div class="hero-stage" id="stage">
+    <div class="spot" id="spot"></div>
     <div class="orb o1" data-depth="0.10"></div>
     <div class="orb o2" data-depth="0.16"></div>
     <div class="orb o3" data-depth="0.22"></div>
@@ -486,6 +499,7 @@
   <div class="wrap"><b>FlowOps</b> · ברק קרן · אוטומציות AI לעסקים · נתניה והשרון · 054-8080657 · bke1302@gmail.com</div>
 </footer>
 
+<div class="grain"></div>
 <a class="wa" href="https://wa.me/972548080657?text=היי%20ברק,%20אשמח%20לשמוע%20פרטים" aria-label="WhatsApp">💬</a>
 
 <script>
@@ -499,10 +513,14 @@
     const hero = document.getElementById('hero');
     const layers = [...document.querySelectorAll('#hero [data-depth]')];
     let tx=0,ty=0,cx=0,cy=0;
+    const spot = document.getElementById('spot');
+    let sx=0,sy=0;
     hero.addEventListener('pointermove', e=>{
       const r = hero.getBoundingClientRect();
       tx = ((e.clientX - r.left)/r.width - .5);
       ty = ((e.clientY - r.top)/r.height - .5);
+      sx = e.clientX - r.left; sy = e.clientY - r.top;
+      if(spot) spot.style.transform = `translate(${sx}px, ${sy}px) translate(-50%,-50%)`;
     });
     hero.addEventListener('pointerleave', ()=>{tx=0;ty=0;});
     (function loop(){
@@ -523,6 +541,14 @@
         c.style.transform=`perspective(800px) rotateY(${px*6}deg) rotateX(${-py*6}deg) translateY(-4px)`;
       });
       c.addEventListener('pointerleave', ()=>{c.style.transform='';});
+    });
+    // Magnetic buttons
+    document.querySelectorAll('.btn').forEach(b=>{
+      b.addEventListener('pointermove', e=>{
+        const r=b.getBoundingClientRect();
+        b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*0.25}px, ${(e.clientY-r.top-r.height/2)*0.35}px)`;
+      });
+      b.addEventListener('pointerleave', ()=>{b.style.transform='';});
     });
   }
 </script>
