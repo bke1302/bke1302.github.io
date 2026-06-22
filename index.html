@@ -645,7 +645,7 @@
   }
 </script>
 
-<!-- ===== WebGL particle galaxy (Three.js) ===== -->
+<!-- ===== WebGL 3D node network (Three.js) ===== -->
 <script type="module">
   const canvas = document.getElementById('gl');
   const reduceM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -659,36 +659,61 @@
       renderer.setSize(w, h, false);
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(55, w/h, 0.1, 100);
-      camera.position.set(0, 2.4, 6);
+      camera.position.set(0, 0, 11);
 
-      const count = Math.min(30000, Math.floor(w*h/45));
-      const positions = new Float32Array(count*3);
-      const colors = new Float32Array(count*3);
-      const inside = new THREE.Color('#ffb259');   // gold core
-      const outside = new THREE.Color('#1f73d6');   // blue arms
-      const radius = 6, branches = 4, spin = 1.05, randPow = 3, rnd = 0.55;
-      for (let i=0; i<count; i++){
-        const i3 = i*3;
-        const r = Math.random()*radius;
-        const branch = (i % branches) / branches * Math.PI * 2;
-        const spinA = r * spin;
-        const rx = Math.pow(Math.random(),randPow)*(Math.random()<.5?1:-1)*rnd*r;
-        const ry = Math.pow(Math.random(),randPow)*(Math.random()<.5?1:-1)*rnd*r*0.45;
-        const rz = Math.pow(Math.random(),randPow)*(Math.random()<.5?1:-1)*rnd*r;
-        positions[i3]   = Math.cos(branch+spinA)*r + rx;
-        positions[i3+1] = ry;
-        positions[i3+2] = Math.sin(branch+spinA)*r + rz;
-        const c = inside.clone().lerp(outside, r/radius);
-        colors[i3]=c.r; colors[i3+1]=c.g; colors[i3+2]=c.b;
+      // round soft glow texture for nodes
+      const tc = document.createElement('canvas'); tc.width = tc.height = 64;
+      const tg = tc.getContext('2d');
+      const grd = tg.createRadialGradient(32,32,0,32,32,32);
+      grd.addColorStop(0,'rgba(255,255,255,1)'); grd.addColorStop(.25,'rgba(210,240,255,.95)'); grd.addColorStop(1,'rgba(120,190,255,0)');
+      tg.fillStyle = grd; tg.fillRect(0,0,64,64);
+      const dot = new THREE.CanvasTexture(tc);
+
+      const group = new THREE.Group();
+      group.position.x = -0.8;
+      scene.add(group);
+
+      // nodes in a flattened sphere
+      const N = Math.max(70, Math.min(150, Math.floor(w/12)));
+      const nodes = [];
+      const cA = new THREE.Color('#42E8E0'), cB = new THREE.Color('#1f73d6'), cG = new THREE.Color('#0EA47E');
+      const R = 5.2;
+      const nPos = new Float32Array(N*3), nCol = new Float32Array(N*3);
+      for (let i=0;i<N;i++){
+        const u = Math.random(), v = Math.random();
+        const theta = u*Math.PI*2, phi = Math.acos(2*v-1);
+        const rr = R*Math.cbrt(Math.random());
+        const x = rr*Math.sin(phi)*Math.cos(theta);
+        const y = rr*Math.sin(phi)*Math.sin(theta)*0.8;
+        const z = rr*Math.cos(phi);
+        nodes.push(new THREE.Vector3(x,y,z));
+        const t = rr/R;
+        const c = (t<0.5? cA.clone().lerp(cB, t*2) : cB.clone().lerp(cG, (t-0.5)*2));
+        nPos[i*3]=x; nPos[i*3+1]=y; nPos[i*3+2]=z;
+        nCol[i*3]=c.r; nCol[i*3+1]=c.g; nCol[i*3+2]=c.b;
       }
-      const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.BufferAttribute(positions,3));
-      geo.setAttribute('color', new THREE.BufferAttribute(colors,3));
-      const mat = new THREE.PointsMaterial({size:0.022, sizeAttenuation:true, depthWrite:false, blending:THREE.AdditiveBlending, vertexColors:true, transparent:true});
-      const galaxy = new THREE.Points(geo, mat);
-      galaxy.position.x = -1.7;      // shift left, keep right side clear for text
-      galaxy.rotation.x = 0.55;
-      scene.add(galaxy);
+      const ngeo = new THREE.BufferGeometry();
+      ngeo.setAttribute('position', new THREE.BufferAttribute(nPos,3));
+      ngeo.setAttribute('color', new THREE.BufferAttribute(nCol,3));
+      const nmat = new THREE.PointsMaterial({size:0.5, map:dot, sizeAttenuation:true, depthWrite:false, blending:THREE.AdditiveBlending, vertexColors:true, transparent:true});
+      group.add(new THREE.Points(ngeo, nmat));
+
+      // connections between nearby nodes
+      const lp = [], lc = [], TH = 2.6;
+      for (let i=0;i<N;i++) for (let j=i+1;j<N;j++){
+        const d = nodes[i].distanceTo(nodes[j]);
+        if (d < TH){
+          const a = 1 - d/TH;
+          lp.push(nodes[i].x,nodes[i].y,nodes[i].z, nodes[j].x,nodes[j].y,nodes[j].z);
+          const ci=i*3, cj=j*3;
+          lc.push(nCol[ci]*a,nCol[ci+1]*a,nCol[ci+2]*a, nCol[cj]*a,nCol[cj+1]*a,nCol[cj+2]*a);
+        }
+      }
+      const lgeo = new THREE.BufferGeometry();
+      lgeo.setAttribute('position', new THREE.Float32BufferAttribute(lp,3));
+      lgeo.setAttribute('color', new THREE.Float32BufferAttribute(lc,3));
+      const lmat = new THREE.LineBasicMaterial({vertexColors:true, transparent:true, opacity:0.5, depthWrite:false, blending:THREE.AdditiveBlending});
+      group.add(new THREE.LineSegments(lgeo, lmat));
 
       let tmx=0, tmy=0, mx=0, my=0;
       hero.addEventListener('pointermove', e=>{const r=hero.getBoundingClientRect(); tmx=(e.clientX-r.left)/r.width-.5; tmy=(e.clientY-r.top)/r.height-.5;});
@@ -698,11 +723,11 @@
       (function animate(){
         const t = clock.getElapsedTime();
         mx += (tmx-mx)*0.05; my += (tmy-my)*0.05;
-        galaxy.rotation.y = t*0.06 + mx*0.7;
-        galaxy.rotation.x = 0.55 - my*0.35;
-        camera.position.x = mx*1.0;
-        camera.position.y = 2.4 - my*0.7;
-        camera.lookAt(galaxy.position.x, 0, 0);
+        group.rotation.y = t*0.07 + mx*0.9;
+        group.rotation.x = -my*0.6 + Math.sin(t*0.2)*0.06;
+        camera.position.x = mx*1.2;
+        camera.position.y = -my*1.0;
+        camera.lookAt(group.position.x, 0, 0);
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
       })();
