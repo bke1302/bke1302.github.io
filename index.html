@@ -9,7 +9,36 @@
 <meta property="og:description" content="פחות עבודה ידנית. יותר לקוחות. סוכני AI ואוטומציות שעובדים בשבילכם 24/7.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bke1302.github.io/">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+<meta property="og:image" content="https://bke1302.github.io/galaxy.jpg">
+<meta name="theme-color" content="#0A1424">
+<link rel="canonical" href="https://bke1302.github.io/">
+<link rel="icon" href="flowops-mark.svg">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"FlowOps AI",
+  "description":"בניית סוכני AI ואוטומציות לעסקים — מענה אוטומטי ללקוחות, חיבור CRM, דשבורדים.",
+  "url":"https://bke1302.github.io/",
+  "telephone":"+972548080657",
+  "email":"bke1302@gmail.com",
+  "areaServed":"IL",
+  "address":{"@type":"PostalAddress","addressLocality":"נתניה","addressRegion":"מחוז המרכז","addressCountry":"IL"},
+  "priceRange":"₪₪"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"כמה זמן לוקח להקים אוטומציה?","acceptedAnswer":{"@type":"Answer","text":"רוב הפרויקטים מוכנים תוך 1-3 שבועות, תלוי בהיקף. אוטומציה בודדת אפשר לפעמים להעמיד תוך ימים."}},
+    {"@type":"Question","name":"אני לא טכני — אצטרך לתחזק את זה לבד?","acceptedAnswer":{"@type":"Answer","text":"לא. אנחנו בונים, מפעילים ומדריכים אתכם לתפעול היומיומי. לכל השאר יש ריטיינר תמיכה חודשי אופציונלי."}},
+    {"@type":"Question","name":"זה בטוח? מה עם המידע של הלקוחות שלי?","acceptedAnswer":{"@type":"Answer","text":"העבודה נעשית מול הכלים והחשבונות שלכם עם הרשאות מינימליות. המידע נשאר אצלכם — אנחנו לא שומרים נתוני לקוחות."}},
+    {"@type":"Question","name":"באילו עסקים זה עובד הכי טוב?","acceptedAnswer":{"@type":"Answer","text":"כל עסק שמקבל פניות מלקוחות ומבצע תהליכים חוזרים: קליניקות, נדל\"ן, חנויות אונליין, משרדי שירות, סוכנויות ועוד."}}
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -43,7 +72,21 @@
   .navlinks a{color:#D7E3F0;font-weight:500;transition:.2s}
   .navlinks a:hover{color:#fff}
   .navlinks .btn{padding:9px 20px;font-size:.95rem}
-  @media(max-width:880px){.navlinks a:not(.btn){display:none}}
+  .navtoggle{display:none;background:none;border:none;cursor:pointer;padding:9px;flex-direction:column;gap:5px;margin-inline-start:auto}
+  .navtoggle span{width:25px;height:2px;background:#fff;border-radius:2px;transition:.25s}
+  .navtoggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .navtoggle.open span:nth-child(2){opacity:0}
+  .navtoggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  @media(max-width:880px){
+    .navtoggle{display:flex}
+    .navlinks{position:absolute;top:70px;right:0;left:0;flex-direction:column;align-items:stretch;gap:0;
+      background:rgba(8,18,34,.98);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.1);padding:6px 24px 18px;
+      max-height:0;overflow:hidden;transition:max-height .32s ease;box-shadow:0 14px 30px rgba(0,0,0,.3)}
+    .navlinks.open{max-height:360px}
+    .navlinks a{padding:15px 4px;border-bottom:1px solid rgba(255,255,255,.07);font-size:1.06rem}
+    .navlinks .btn{margin-top:14px;text-align:center;padding:15px;border-bottom:none}
+  }
 
   /* HERO */
   header{background:linear-gradient(140deg,#0B2540 0%,#143A66 60%,#1B4E86 100%);color:#fff;padding:100px 0 90px;position:relative;overflow:hidden}
@@ -98,7 +141,8 @@
   .diff .sec-title{color:#fff}.diff .sec-sub{color:#C9D9E8}.diff .eyebrow{color:var(--blue-l)}
   .diff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:46px}
   .diff-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:26px 28px;display:flex;gap:18px}
-  .diff-card .di{font-size:2rem;flex-shrink:0}
+  .diff-card .di{flex-shrink:0;color:#6FB4F0;display:flex;align-items:flex-start}
+  .diff-card .di svg{width:34px;height:34px}
   .diff-card h4{color:#fff;font-weight:700;font-size:1.18rem;margin-bottom:4px}
   .diff-card p{color:#C9D9E8;font-size:.99rem}
   .vs{max-width:880px;margin:0 auto;background:rgba(255,255,255,.04);border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
@@ -143,11 +187,13 @@
   .price{background:#fff;border:1px solid var(--line);border-radius:22px;padding:34px 28px;position:relative;transition:.25s;display:flex;flex-direction:column}
   .price:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(11,37,64,.1)}
   .price.feat{border:2px solid var(--gold);box-shadow:0 16px 40px rgba(212,165,58,.18)}
-  .price .tag{position:absolute;top:-15px;right:50%;transform:translateX(50%);background:linear-gradient(90deg,#D4A53A,#E5BC5B);color:#fff;padding:5px 18px;border-radius:20px;font-size:.85rem;font-weight:700;white-space:nowrap}
+  .price .tag{position:absolute;top:-15px;right:50%;transform:translateX(50%);background:linear-gradient(90deg,#D4A53A,#E5BC5B);color:#fff;padding:5px 18px;border-radius:20px;font-size:.85rem;font-weight:700;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
   .price h3{color:var(--navy);font-size:1.45rem;font-weight:800;margin-bottom:4px}
   .price .who{color:var(--muted);font-size:.92rem;min-height:42px}
   .price .amt{font-size:2.4rem;font-weight:900;color:var(--green-d);margin:8px 0 2px}
-  .price .deliv{color:var(--blue);font-size:.9rem;font-weight:600;margin-bottom:14px}
+  .price .roi{color:#2FC79A;font-size:.86rem;font-weight:600;margin:2px 0 6px}
+  .price .deliv{color:var(--blue);font-size:.9rem;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+  .price .deliv svg{width:15px;height:15px;flex-shrink:0}
   .price ul{list-style:none;text-align:right;margin:8px 0 20px;color:var(--txt);flex-grow:1}
   .price li{padding:8px 0;border-bottom:1px dashed #EDF1F6;font-size:.97rem}
   .price li::before{content:"✓";color:var(--green);font-weight:800;margin-left:8px}
@@ -155,7 +201,9 @@
   .price.feat .btn{background:var(--gold);box-shadow:0 8px 20px rgba(212,165,58,.3)}
   .extra{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
   .ecard{background:#fff;border:1px dashed var(--blue);border-radius:18px;padding:24px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-  .ecard h4{color:var(--navy);font-size:1.2rem;margin-bottom:2px}.ecard p{color:var(--muted);font-size:.93rem}
+  .ecard h4{color:var(--navy);font-size:1.2rem;margin-bottom:2px;display:flex;align-items:center;gap:8px}
+  .ecard h4 svg{width:20px;height:20px;color:var(--blue);flex-shrink:0}
+  .ecard p{color:var(--muted);font-size:.93rem}
   .ecard .pr{color:var(--green-d);font-weight:900;font-size:1.3rem;white-space:nowrap}
   @media(max-width:780px){.extra{grid-template-columns:1fr}}
 
@@ -265,9 +313,15 @@
   nav{background:rgba(8,18,34,.5)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:none}
   .tools{background:#0C1A2E;border-bottom:1px solid rgba(255,255,255,.07)}
   .tools span{color:#8DA0B8}.tchip{color:#C7D6E8;opacity:.9}
-  .pain,.faq{background:#0A1424}
-  .proc,.about{background:#0C1A2E}
-  .proof{background:#0E1B30}
+  .pain,.faq,#pricing{background:#0A1626}
+  .proc,.about{background:#0B1A30}
+  #services{background:#0C1E38}
+  .proof{background:#0E2440}
+  section{border-top:1px solid rgba(120,170,230,.07)}
+  .diff,.guar,.final{border-top:none}
+  #services,#pricing,.diff{padding:108px 0}
+  .proof{padding:78px 0}
+  .eyebrow{margin-bottom:16px}
   .sec-title{color:#EAF2FB}
   .sec-sub{color:#9DB0C6}
   .card,.price,.metric,.faq-item{background:#101F36;border-color:rgba(255,255,255,.08)}
@@ -298,6 +352,36 @@
   .wa svg{width:32px;height:32px;display:block}
   a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid #5FC9F0;outline-offset:3px;border-radius:6px}
   .btn{cursor:pointer}
+  /* ===== Mobile polish ===== */
+  .vs{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  @media(max-width:600px){
+    .wrap{padding:0 18px}
+    section{padding:62px 0}
+    #services,#pricing,.diff{padding:62px 0}
+    .proof{padding:54px 0}
+    .sec-title{font-size:1.78rem}
+    .sec-sub{font-size:1.04rem;margin-bottom:40px}
+    header h1{font-size:2.05rem}
+    header p.lead{font-size:1.06rem}
+    .hero-cta{flex-direction:column;align-items:stretch}
+    .hero-cta .btn{text-align:center}
+    .final h2{font-size:1.9rem}
+    .final p{font-size:1.06rem}
+    .price .amt{font-size:2.1rem}
+    .vs th,.vs td{padding:12px 12px;font-size:.92rem}
+    .ecard{flex-direction:column;align-items:flex-start;text-align:right}
+    .wa{width:54px;height:54px;bottom:18px;left:18px}
+    .wa svg{width:28px;height:28px}
+  }
+  .cta-wa{display:inline-flex;align-items:center;gap:10px}
+  .photo svg{width:92px;height:92px}
+  /* lighter muted text for contrast on dark bg */
+  .sec-sub{color:#AEC0D6}
+  .card p,.price .who,.metric p,.about p,.step p,.pain-card p,.faq-a{color:#B6C6DA}
+  .card .feat{color:#A2B3C8}
+  .trust{color:#B6C6DA}
+  footer{color:#9FB3CA}
+  .final .alt{color:#B6C6DA}
 </style>
 </head>
 <body>
@@ -305,13 +389,14 @@
 <nav>
   <div class="wrap">
     <div class="logo"><svg class="mark" viewBox="0 0 64 64" width="30" height="30"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B2540"/><stop offset="1" stop-color="#1B4E86"/></linearGradient><linearGradient id="fl" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#6FB4F0"/><stop offset=".55" stop-color="#42E8E0"/><stop offset="1" stop-color="#0EA47E"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#bg)"/><path d="M14 42 C 23 42, 23 22, 32 22 S 41 42, 50 42" fill="none" stroke="url(#fl)" stroke-width="5" stroke-linecap="round"/><circle cx="14" cy="42" r="5" fill="#6FB4F0"/><circle cx="32" cy="22" r="6.5" fill="#42E8E0"/><circle cx="32" cy="22" r="2.5" fill="#0B2540"/><circle cx="50" cy="42" r="5" fill="#0EA47E"/></svg><span class="wm">Flow<em>Ops</em><b class="ai">AI</b></span></div>
-    <div class="navlinks">
+    <div class="navlinks" id="navlinks">
       <a href="#services">שירותים</a>
       <a href="#why">למה אנחנו</a>
       <a href="#pricing">מחירים</a>
       <a href="#about">עלינו</a>
       <a href="#contact" class="btn">שיחת ייעוץ חינם</a>
     </div>
+    <button class="navtoggle" id="navtoggle" aria-label="תפריט" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -381,10 +466,10 @@
     <h2 class="sec-title reveal">למה אנחנו — ולא מישהו אחר</h2>
     <p class="sec-sub reveal">רוב מי שבונה אוטומציות הוא טכנולוג שלא מבין עסק, או יועץ שלא יודע לבנות. אנחנו שילוב של שניהם.</p>
     <div class="diff-grid">
-      <div class="diff-card reveal"><div class="di">🧠</div><div><h4>מבין עסק, לא רק קוד</h4><p>10 שנות ניהול תפעול, מוקדים ושירות. מתכנת רגיל בונה מה שביקשתם — אנחנו בונים מה שהעסק שלכם באמת צריך.</p></div></div>
-      <div class="diff-card reveal"><div class="di">🎯</div><div><h4>פתרון מקצה לקצה</h4><p>לא צריך לתאם בין מתכנת, מעצב ואיש שיווק. הכל ממקור אחד — אפיון, בנייה, הרצה והדרכה.</p></div></div>
-      <div class="diff-card reveal"><div class="di">🔑</div><div><h4>הכל שלכם</h4><p>הקוד, החשבונות והנתונים נשארים בבעלותכם. בלי כבילה לספק ובלי תלות בי לנצח.</p></div></div>
-      <div class="diff-card reveal"><div class="di">🛡️</div><div><h4>אפס סיכון</h4><p>מתחילים בפיילוט קטן שמוכיח ערך. רואים תוצאה — ממשיכים. לא — לא הפסדתם פרויקט ענק.</p></div></div>
+      <div class="diff-card reveal"><div class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg></div><div><h4>מבין עסק, לא רק קוד</h4><p>10 שנות ניהול תפעול, מוקדים ושירות. מתכנת רגיל בונה מה שביקשתם — אנחנו בונים מה שהעסק שלכם באמת צריך.</p></div></div>
+      <div class="diff-card reveal"><div class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><div><h4>פתרון מקצה לקצה</h4><p>לא צריך לתאם בין מתכנת, מעצב ואיש שיווק. הכל ממקור אחד — אפיון, בנייה, הרצה והדרכה.</p></div></div>
+      <div class="diff-card reveal"><div class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/></svg></div><div><h4>הכל שלכם</h4><p>הקוד, החשבונות והנתונים נשארים בבעלותכם. בלי כבילה לספק ובלי תלות בנו לנצח.</p></div></div>
+      <div class="diff-card reveal"><div class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div><div><h4>אפס סיכון</h4><p>מתחילים בפיילוט קטן שמוכיח ערך. רואים תוצאה — ממשיכים. לא — לא הפסדתם פרויקט ענק.</p></div></div>
     </div>
     <div class="vs reveal">
       <table>
@@ -430,7 +515,7 @@
 <section class="about" id="about">
   <div class="wrap">
     <div class="about-grid">
-      <div class="photo reveal">👨‍💻<small>הוסיפו כאן תמונה שלכם</small></div>
+      <div class="photo reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
       <div class="reveal">
         <span class="eyebrow">נעים להכיר</span>
         <h2>מי אנחנו</h2>
@@ -455,8 +540,9 @@
       <div class="price reveal">
         <h3>בסיס</h3>
         <div class="who">פותרים בעיה אחת ספציפית — מהר</div>
-        <div class="amt">2,900 ₪</div>
-        <div class="deliv">⏱ אספקה: 3-5 ימי עבודה</div>
+        <div class="amt">3,900 ₪</div>
+        <div class="roi">מחליף שעות עבודה ידנית כל חודש</div>
+        <div class="deliv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> אספקה: 3-5 ימי עבודה</div>
         <ul>
           <li><b>אוטומציה אחת</b> לבחירתכם — לדוגמה: מענה אוטומטי בוואטסאפ ללקוחות</li>
           <li>חיבור למערכת אחת שלכם (וואטסאפ / טופס / גיליון)</li>
@@ -466,11 +552,12 @@
         <a href="#contact" class="btn" style="background:var(--navy)">דברו איתנו</a>
       </div>
       <div class="price feat reveal">
-        <div class="tag">⭐ הכי משתלם</div>
+        <div class="tag"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="m12 2 2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01z"/></svg> הכי משתלם</div>
         <h3>מומלץ</h3>
         <div class="who">עוצרים אובדן לידים וחוסכים שעות</div>
         <div class="amt">6,900 ₪</div>
-        <div class="deliv">⏱ אספקה: 1-2 שבועות</div>
+        <div class="roi">ליד אחד שנשמר מחזיר חלק נכבד מההשקעה</div>
+        <div class="deliv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> אספקה: 1-2 שבועות</div>
         <ul>
           <li><b>סוכן WhatsApp מלא</b> — עונה ללקוחות, מסנן לידים ומעביר לצוות</li>
           <li><b>חיבור ל-CRM</b> — כל ליד נשמר אוטומטית, בלי הקלדה</li>
@@ -483,7 +570,8 @@
         <h3>פרימיום</h3>
         <div class="who">הכל רץ אוטומטית, מקצה לקצה</div>
         <div class="amt">14,900 ₪</div>
-        <div class="deliv">⏱ אספקה: 2-3 שבועות</div>
+        <div class="roi">מערכת תפעול שלמה במקום כמה משרות</div>
+        <div class="deliv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> אספקה: 2-3 שבועות</div>
         <ul>
           <li><b>כמה אוטומציות שעובדות יחד</b> — וואטסאפ + CRM + מיילים + דוחות</li>
           <li>כל החיבורים בין המערכות שלכם</li>
@@ -497,8 +585,8 @@
       ✓ כל חבילה כוללת: <b>אפיון · בנייה · חיבור למערכות שלכם · הדרכה</b> — ואתם הבעלים של הכל.
     </p>
     <div class="extra">
-      <div class="ecard reveal"><div><h4>🔧 ריטיינר חודשי</h4><p>תחזוקה ושיפורים שוטפים אחרי שהמערכת עובדת</p></div><div class="pr">מ-1,900 ₪/חודש</div></div>
-      <div class="ecard reveal"><div><h4>🏢 לא בטוחים מה מתאים?</h4><p>נדבר 20 דקות ואבנה לכם הצעה מדויקת — בחינם</p></div><a href="#contact" class="pr" style="color:var(--blue)">בואו נדבר ←</a></div>
+      <div class="ecard reveal"><div><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> ריטיינר חודשי</h4><p>תחזוקה ושיפורים שוטפים אחרי שהמערכת עובדת</p></div><div class="pr">מ-1,900 ₪/חודש</div></div>
+      <div class="ecard reveal"><div><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg> לא בטוחים מה מתאים?</h4><p>נדבר 20 דקות ונבנה לכם הצעה מדויקת — בחינם</p></div><a href="#contact" class="pr" style="color:var(--blue)">בואו נדבר ←</a></div>
     </div>
   </div>
 </section>
@@ -535,7 +623,7 @@
   <div class="wrap">
     <h2 class="reveal">מוכנים לחסוך שעות עבודה?</h2>
     <p class="reveal">שיחת ייעוץ ראשונה חינם — נראה יחד איפה AI יכול לעזור לעסק שלכם. בלי התחייבות.</p>
-    <a href="https://wa.me/972548080657?text=היי,%20אשמח%20לשמוע%20איך%20אוטומציה%20יכולה%20לעזור%20לעסק%20שלי" class="btn reveal">📱 שלחו לנו וואטסאפ</a>
+    <a href="https://wa.me/972548080657?text=היי,%20אשמח%20לשמוע%20איך%20אוטומציה%20יכולה%20לעזור%20לעסק%20שלי" class="btn reveal cta-wa"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg> שלחו לנו וואטסאפ</a>
     <div class="alt reveal">או: 054-8080657 · bke1302@gmail.com</div>
   </div>
 </section>
@@ -550,81 +638,48 @@
 <script>
   const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.setAttribute('role','button'); q.setAttribute('tabindex','0'); q.setAttribute('aria-expanded','false');
+    const toggle=()=>{const open=q.parentElement.classList.toggle('open'); q.setAttribute('aria-expanded', open?'true':'false');};
+    q.addEventListener('click',toggle);
+    q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+  });
 
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // ===== 3D Galaxy starfield =====
+  // ===== Mobile nav toggle =====
   (function(){
-    const cv = document.getElementById('space'); if(!cv) return;
-    const ctx = cv.getContext('2d');
-    let W,H,cxp,cyp,DPR=Math.min(devicePixelRatio||1,2);
-    const COLORS=['#ffffff','#9FD0FF','#6FB4F0','#42E8E0','#Bda8ff'];
-    let stars=[], N=0, mx=0,my=0, tmx=0,tmy=0;
-    function resize(){
-      W=cv.clientWidth; H=cv.clientHeight;
-      cv.width=W*DPR; cv.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0);
-      cxp=W/2; cyp=H/2;
-      N = Math.min(460, Math.round(W*H/3200));
-      stars = Array.from({length:N},()=>newStar(Math.random()*W*1.2));
-    }
-    function newStar(z){
-      return {x:(Math.random()*2-1)*W, y:(Math.random()*2-1)*H, z:z||W*1.2,
-              c:COLORS[(Math.random()*COLORS.length)|0], tw:Math.random()*Math.PI*2};
-    }
-    const hero=document.getElementById('hero');
-    if(hero){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();
-      tmx=((e.clientX-r.left)/r.width-.5); tmy=((e.clientY-r.top)/r.height-.5);});
-      hero.addEventListener('pointerleave',()=>{tmx=0;tmy=0;});}
-    function frame(){
-      mx+=(tmx-mx)*0.04; my+=(tmy-my)*0.04;
-      ctx.clearRect(0,0,W,H);
-      for(const s of stars){
-        s.z-=1.1;                       // warp toward viewer
-        if(s.z<1){ Object.assign(s,newStar(W*1.2)); }
-        const k=180/s.z;
-        const sx=cxp + s.x*k + mx*60*(1-k*0.4);
-        const sy=cyp + s.y*k + my*60*(1-k*0.4);
-        if(sx<0||sx>W||sy<0||sy>H) continue;
-        const r=Math.max(0.3,(1-s.z/(W*1.2))*2.2);
-        const a=Math.min(1,(1-s.z/(W*1.2))*1.2)*(0.6+0.4*Math.sin(s.tw+=0.05));
-        ctx.globalAlpha=a; ctx.fillStyle=s.c;
-        ctx.beginPath(); ctx.arc(sx,sy,r,0,6.283); ctx.fill();
-      }
-      ctx.globalAlpha=1;
-      requestAnimationFrame(frame);
-    }
-    addEventListener('resize',resize); resize();
-    if(!reduce) frame(); else { // static field for reduced motion
-      for(const s of stars){const k=180/s.z;const sx=cxp+s.x*k,sy=cyp+s.y*k;
-        ctx.globalAlpha=.7;ctx.fillStyle=s.c;ctx.beginPath();ctx.arc(sx,sy,1,0,6.283);ctx.fill();}
-    }
+    const t=document.getElementById('navtoggle'), l=document.getElementById('navlinks');
+    if(!t||!l) return;
+    function close(){t.classList.remove('open');l.classList.remove('open');t.setAttribute('aria-expanded','false');}
+    t.addEventListener('click',()=>{
+      const open=l.classList.toggle('open'); t.classList.toggle('open',open);
+      t.setAttribute('aria-expanded',open?'true':'false');
+    });
+    l.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
   })();
 
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = window.matchMedia('(pointer: fine)').matches;
+
   if(!reduce){
-    // Hero 3D tilt — the whole space scene rotates like a window into space.
-    // Layers sit at different translateZ, so they parallax within the tilt = real depth.
     const hero = document.getElementById('hero');
-    const stage = document.getElementById('stage');
-    let tx=0,ty=0,cx=0,cy=0;
     const spot = document.getElementById('spot');
     let sx=0,sy=0,esx=0,esy=0,spotInit=false;
-    hero.addEventListener('pointermove', e=>{
-      const r = hero.getBoundingClientRect();
-      tx = ((e.clientX - r.left)/r.width - .5);
-      ty = ((e.clientY - r.top)/r.height - .5);
-      sx = e.clientX - r.left; sy = e.clientY - r.top;
-      if(!spotInit){esx=sx;esy=sy;spotInit=true;}
-    });
-    hero.addEventListener('pointerleave', ()=>{tx=0;ty=0;});
-    (function loop(){
-      cx += (tx-cx)*0.06; cy += (ty-cy)*0.06;           // smooth easing
-      esx += (sx-esx)*0.14; esy += (sy-esy)*0.14;        // light-point follow
-      if(spot) spot.style.transform = `translate(${esx}px, ${esy}px) translate(-50%,-50%)`;
-      if(stage) stage.style.transform = `rotateY(${cx*13}deg) rotateX(${-cy*13}deg)`;
-      requestAnimationFrame(loop);
-    })();
-    // 3D tilt on cards
+    if(fine && hero){
+      hero.addEventListener('pointermove', e=>{
+        const r = hero.getBoundingClientRect();
+        sx = e.clientX - r.left; sy = e.clientY - r.top;
+        if(!spotInit){esx=sx;esy=sy;spotInit=true;}
+      });
+      (function loop(){
+        esx += (sx-esx)*0.14; esy += (sy-esy)*0.14;        // light-point follow
+        if(spot) spot.style.transform = `translate(${esx}px, ${esy}px) translate(-50%,-50%)`;
+        requestAnimationFrame(loop);
+      })();
+    }
+  }
+
+  if(!reduce && fine){
+    // 3D tilt on cards (desktop pointer only)
     document.querySelectorAll('.card, .price, .diff-card').forEach(c=>{
       c.style.transformStyle='preserve-3d';
       c.addEventListener('pointermove', e=>{
