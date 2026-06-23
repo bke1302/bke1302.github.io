@@ -937,7 +937,9 @@
   const reduceM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (canvas && !reduceM) {
     try {
-      const THREE = await import('https://unpkg.com/three@0.160.0/build/three.module.js');
+      let THREE;
+      try { THREE = await import('https://unpkg.com/three@0.160.0/build/three.module.js'); }
+      catch(e){ THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js'); }
       const hero = document.getElementById('hero');
       let w = hero.clientWidth, h = hero.clientHeight;
       const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
