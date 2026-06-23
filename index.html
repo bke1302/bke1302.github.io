@@ -402,6 +402,14 @@
   .acc-statement-box p{margin-bottom:12px;font-size:.98rem}
   .acc-statement-box a{color:#5FC9F0;text-decoration:underline}
   .acc-statement-box .acc-date{color:#8DA0B8;font-size:.85rem}
+  .totop{position:fixed;bottom:92px;left:24px;z-index:61;width:46px;height:46px;border-radius:50%;
+    background:rgba(20,40,68,.9);border:1px solid rgba(111,180,240,.4);color:#9FD0FF;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.4);
+    opacity:0;visibility:hidden;transform:translateY(10px);transition:.25s}
+  .totop.show{opacity:1;visibility:visible;transform:none}
+  .totop:hover{background:#1E6FB8;color:#fff}
+  .totop svg{width:22px;height:22px}
+  @media(max-width:600px){.totop{bottom:78px;left:18px;width:42px;height:42px}}
   /* ===== Mobile polish ===== */
   .vs{overflow-x:auto;-webkit-overflow-scrolling:touch}
   @media(max-width:600px){
@@ -688,7 +696,11 @@
 <footer>
   <div class="wrap">
     <div><b>FlowOps AI</b> · אוטומציות AI לעסקים · נתניה והשרון · 054-8080657 · bke1302@gmail.com</div>
-    <div style="margin-top:10px"><a href="#" id="accStatementLink" style="color:#5FC9F0;text-decoration:underline">הצהרת נגישות</a></div>
+    <div style="margin-top:10px">
+      <a href="#" id="accStatementLink" style="color:#5FC9F0;text-decoration:underline">הצהרת נגישות</a>
+      <span style="opacity:.5;margin:0 8px">·</span>
+      <a href="#" id="privacyLink" style="color:#5FC9F0;text-decoration:underline">מדיניות פרטיות</a>
+    </div>
   </div>
 </footer>
 
@@ -702,6 +714,23 @@
     <p class="acc-date">הצהרה זו עודכנה ביוני 2026.</p>
   </div>
 </div>
+
+<div class="acc-statement" id="privacy" role="dialog" aria-modal="true" aria-label="מדיניות פרטיות">
+  <div class="acc-statement-box">
+    <button class="acc-close" id="privacyClose" aria-label="סגירה" style="position:static;float:left;color:#9DB0C6">×</button>
+    <h2>מדיניות פרטיות</h2>
+    <p>FlowOps AI מכבדת את פרטיותכם. מסמך זה מסביר איזה מידע נאסף באתר וכיצד נעשה בו שימוש.</p>
+    <p><b>איזה מידע נאסף:</b> האתר אינו כולל טופס הרשמה ואינו אוסף מידע אישי באופן אוטומטי. מידע אישי (שם, טלפון, פרטי העסק) נמסר רק כאשר אתם יוצרים קשר יזום דרך וואטסאפ, טלפון או דוא"ל.</p>
+    <p><b>שימוש במידע:</b> הפרטים שתמסרו ישמשו אך ורק למענה לפנייתכם ולמתן השירות. איננו מעבירים מידע לצדדים שלישיים ואיננו עושים בו שימוש שיווקי ללא הסכמתכם.</p>
+    <p><b>אחסון מקומי (Cookies):</b> האתר אינו משתמש בעוגיות מעקב. העדפות הנגישות שתבחרו נשמרות מקומית בדפדפן שלכם בלבד (localStorage) ואינן נשלחות לשום שרת.</p>
+    <p><b>זכויותיכם:</b> תוכלו לפנות אלינו בכל עת בבקשה לעיין במידע שמסרתם, לתקנו או למחקו: טלפון <a href="tel:0548080657">054-8080657</a> · דוא"ל <a href="mailto:bke1302@gmail.com">bke1302@gmail.com</a>.</p>
+    <p class="acc-date">מדיניות זו עודכנה ביוני 2026.</p>
+  </div>
+</div>
+
+<button class="totop" id="toTop" aria-label="חזרה לראש העמוד">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
 <div class="grain"></div>
 
@@ -770,14 +799,23 @@
     try{const s=JSON.parse(localStorage.getItem(KEY));if(s){fs=s.fs||0;applyFs();FLAGS.forEach(f=>root.classList.toggle(f,!!s[f]));sync();}}catch(e){}
   })();
 
-  // ===== Accessibility statement modal =====
-  (function(){
-    const m=document.getElementById('accStatement'), open=document.getElementById('accStatementLink'), close=document.getElementById('accStatementClose');
+  // ===== Modals (accessibility statement + privacy) =====
+  function bindModal(modalId, linkId, closeId){
+    const m=document.getElementById(modalId), open=document.getElementById(linkId), close=document.getElementById(closeId);
     if(!m||!open) return;
     open.addEventListener('click',e=>{e.preventDefault();m.classList.add('open');});
     if(close) close.addEventListener('click',()=>m.classList.remove('open'));
     m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');});
     document.addEventListener('keydown',e=>{if(e.key==='Escape')m.classList.remove('open');});
+  }
+  bindModal('accStatement','accStatementLink','accStatementClose');
+  bindModal('privacy','privacyLink','privacyClose');
+
+  // ===== Back to top =====
+  (function(){
+    const b=document.getElementById('toTop'); if(!b) return;
+    addEventListener('scroll',()=>b.classList.toggle('show',scrollY>600),{passive:true});
+    b.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
   })();
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
