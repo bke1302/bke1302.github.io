@@ -410,6 +410,28 @@
   .totop:hover{background:#1E6FB8;color:#fff}
   .totop svg{width:22px;height:22px}
   @media(max-width:600px){.totop{bottom:78px;left:18px;width:42px;height:42px}}
+  /* ===== Example scenarios ===== */
+  .scen{background:#0C1E38;padding:90px 0}
+  .scen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .scard{background:#101F36;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:26px 24px;position:relative;display:flex;flex-direction:column}
+  .scard .ex{position:absolute;top:16px;left:16px;background:rgba(95,201,240,.14);border:1px solid rgba(95,201,240,.4);
+    color:#9FD0FF;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:20px}
+  .scard-h{display:flex;align-items:center;gap:11px;color:#EAF2FB;font-weight:800;font-size:1.18rem;margin:14px 0 18px}
+  .scard-h .si{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,#13243E,#1A3252);
+    display:flex;align-items:center;justify-content:center;color:#6FB4F0;flex-shrink:0}
+  .scard-h .si svg{width:23px;height:23px}
+  .ba{display:flex;flex-direction:column;gap:10px}
+  .ba .row{border-radius:12px;padding:13px 15px;font-size:.95rem}
+  .ba .before{background:rgba(226,85,85,.08);border:1px solid rgba(226,85,85,.25)}
+  .ba .after{background:rgba(14,164,126,.1);border:1px solid rgba(47,199,154,.3)}
+  .ba .lbl{display:block;font-weight:800;font-size:.78rem;letter-spacing:.5px;margin-bottom:3px}
+  .ba .before .lbl{color:#E89B9B}.ba .after .lbl{color:#2FC79A}
+  .ba .row p{color:#C2D0E2;margin:0}
+  .ba .ar{display:flex;justify-content:center;color:#6FB4F0;margin:-2px 0}
+  .ba .ar svg{width:22px;height:22px}
+  .built{margin-top:16px;padding-top:14px;border-top:1px dashed rgba(255,255,255,.12);font-size:.92rem;color:#A9B9CC}
+  .built b{color:#9FD0FF}
+  @media(max-width:880px){.scen-grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
   /* ===== Mobile polish ===== */
   .vs{overflow-x:auto;-webkit-overflow-scrolling:touch}
   @media(max-width:600px){
@@ -569,6 +591,50 @@
       <div class="metric reveal"><div class="big">+15</div><p>שעות עבודה שנחסכות בכל שבוע</p></div>
       <div class="metric reveal"><div class="big">24/7</div><p>מענה אוטומטי לכל פנייה, גם בלילה ובסופ"ש</p></div>
       <div class="metric reveal"><div class="big">0</div><p>לידים שנופלים, מענה מיידי לכל לקוח</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="scen" id="scenarios">
+  <div class="wrap">
+    <div style="text-align:center"><span class="eyebrow reveal">תרחישים</span></div>
+    <h2 class="sec-title reveal">איך זה נראה בפועל</h2>
+    <p class="sec-sub reveal">שלוש דוגמאות נפוצות שממחישות מה אוטומציה עושה לעסק. אלו תרחישים להמחשה, לא לקוחות אמיתיים.</p>
+    <div class="scen-grid">
+
+      <div class="scard reveal">
+        <span class="ex">דוגמה להמחשה</span>
+        <div class="scard-h"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>קליניקה פרטית</div>
+        <div class="ba">
+          <div class="row before"><span class="lbl">לפני</span><p>פניות מטופלים מגיעות בערב ובסופ"ש כשהמזכירה לא זמינה, ומטופלים פונים למרפאה אחרת.</p></div>
+          <div class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+          <div class="row after"><span class="lbl">אחרי</span><p>סוכן WhatsApp עונה תוך שניות בכל שעה, משיב על שאלות נפוצות ומתאם תורים ישירות ליומן.</p></div>
+        </div>
+        <div class="built">מה בנינו: <b>סוכן WhatsApp + חיבור ליומן התורים</b></div>
+      </div>
+
+      <div class="scard reveal">
+        <span class="ex">דוגמה להמחשה</span>
+        <div class="scard-h"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg></span>משרד תיווך</div>
+        <div class="ba">
+          <div class="row before"><span class="lbl">לפני</span><p>לידים מגיעים מכמה מקורות (פייסבוק, יד2, אתר) ומתפזרים. עד שחוזרים אליהם, הם כבר דיברו עם מתווך אחר.</p></div>
+          <div class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+          <div class="row after"><span class="lbl">אחרי</span><p>כל ליד נכנס אוטומטית ל-CRM עם מענה מיידי, מסונן לפי רלוונטיות ומועבר למתווך הנכון.</p></div>
+        </div>
+        <div class="built">מה בנינו: <b>אוטומציית לידים + חיבור CRM</b></div>
+      </div>
+
+      <div class="scard reveal">
+        <span class="ex">דוגמה להמחשה</span>
+        <div class="scard-h"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span>חנות אונליין</div>
+        <div class="ba">
+          <div class="row before"><span class="lbl">לפני</span><p>אותן שאלות חוזרות על משלוח, החזרות וסטטוס הזמנה גוזלות מהצוות שעות בכל יום.</p></div>
+          <div class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+          <div class="row after"><span class="lbl">אחרי</span><p>בוט שירות עונה 24/7 על השאלות הנפוצות ומאפשר ללקוח לבדוק סטטוס הזמנה לבד, מתי שנוח לו.</p></div>
+        </div>
+        <div class="built">מה בנינו: <b>בוט שירות + חיבור למערכת ההזמנות</b></div>
+      </div>
+
     </div>
   </div>
 </section>
