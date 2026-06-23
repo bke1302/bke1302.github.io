@@ -1008,7 +1008,13 @@
       hero.addEventListener('pointerleave', ()=>{tmx=0; tmy=0;});
       addEventListener('resize', ()=>{ w=hero.clientWidth; h=hero.clientHeight; camera.aspect=w/h; camera.updateProjectionMatrix(); renderer.setSize(w,h,false); });
       const clock = new THREE.Clock();
-      (function animate(){
+      // Pause rendering when the hero is off-screen or the tab is hidden (saves CPU/GPU)
+      let visible = true, raf = 0;
+      const io = new IntersectionObserver(es=>{ visible = es[0].isIntersecting; if(visible && !raf) animate(); }, {threshold:0.01});
+      io.observe(hero);
+      document.addEventListener('visibilitychange', ()=>{ if(!document.hidden && visible && !raf) animate(); });
+      function animate(){
+        if(!visible || document.hidden){ raf = 0; return; }
         const t = clock.getElapsedTime();
         mx += (tmx-mx)*0.05; my += (tmy-my)*0.05;
         group.rotation.y = t*0.07 + mx*0.9;
@@ -1017,8 +1023,9 @@
         camera.position.y = -my*1.0;
         camera.lookAt(group.position.x, 0, 0);
         renderer.render(scene, camera);
-        requestAnimationFrame(animate);
-      })();
+        raf = requestAnimationFrame(animate);
+      }
+      animate();
     } catch(err){ /* WebGL unavailable, galaxy.jpg fallback remains */ }
   }
 </script>
