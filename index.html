@@ -957,7 +957,7 @@
     const FLAGS=['acc-contrast','acc-gray','acc-links','acc-readable','acc-nomotion'];
     const applyFs=()=>{document.body.style.zoom = fs? String(1+fs*0.12):'';};
     const sync=()=>panel.querySelectorAll('[data-cls]').forEach(b=>b.classList.toggle('active',root.classList.contains(b.dataset.cls)));
-    const save=()=>{const s={fs}; FLAGS.forEach(f=>s[f]=root.classList.contains(f)); localStorage.setItem(KEY,JSON.stringify(s));};
+    const save=()=>{try{const s={fs}; FLAGS.forEach(f=>s[f]=root.classList.contains(f)); localStorage.setItem(KEY,JSON.stringify(s));}catch(e){}};
     const openP=o=>{panel.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false');};
     btn.addEventListener('click',()=>openP(!panel.classList.contains('open')));
     if(x) x.addEventListener('click',()=>{openP(false);btn.focus();});
@@ -1126,7 +1126,7 @@
         raf = requestAnimationFrame(animate);
       }
       animate();
-    } catch(err){ /* WebGL unavailable, galaxy.jpg fallback remains */ }
+    } catch(err){ /* WebGL unavailable, galaxy.webp background remains as fallback */ }
   }
 </script>
 </body>

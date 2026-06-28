@@ -7,7 +7,12 @@
 <meta property="og:title" content="דמו חי — אוטומציה ו-CRM בפעולה | FlowOps">
 <meta property="og:description" content="ראו מערכת שמטפלת בלידים אוטומטית בזמן אמת, חוסכת שעות ולא מפספסת אף פנייה.">
 <meta property="og:image" content="https://flowopsai.co.il/og-image-v2.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://flowopsai.co.il/demo-crm.html">
+<meta property="og:site_name" content="FlowOps AI">
+<meta property="og:locale" content="he_IL">
 <meta name="theme-color" content="#0A1424">
+<link rel="canonical" href="https://flowopsai.co.il/demo-crm.html">
 <link rel="icon" href="flowops-mark.png">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -195,8 +200,9 @@
 
 <div class="cta">
   <div class="txt"><b>רוצים מערכת כזו לעסק שלכם?</b><span>אוטומציה שעובדת 24/7 ולא מפספסת אף ליד</span></div>
-  <a class="wa" href="https://wa.me/972548080657?text=ראיתי%20את%20דמו%20מוקד%20הבקרה%20ואשמח%20לשמוע%20עוד" target="_blank"><svg class="ic" viewBox="0 0 24 24"><use href="#i-msg"/></svg> דברו איתנו</a>
+  <a class="wa" href="https://wa.me/972548080657?text=ראיתי%20את%20דמו%20מוקד%20הבקרה%20ואשמח%20לשמוע%20עוד" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24"><use href="#i-msg"/></svg> דברו איתנו</a>
   <a class="gh" href="demo.html"><svg class="ic" viewBox="0 0 24 24"><use href="#i-msg"/></svg> דמו צ'אט</a>
+  <a class="gh" href="/">לאתר</a>
 </div>
 
 <script>
@@ -212,6 +218,7 @@ function pick(a){return a[Math.floor(Math.random()*a.length)]}
 function icon(id,cls){return `<svg class="ic ${cls||''}" viewBox="0 0 24 24"><use href="#${id}"/></svg>`}
 
 function addLead(){
+  if(document.hidden)return;
   const nm=pick(names),[scls,sname,scol,sic]=pick(srcs),rs=pick(reasons),ac=pick(avColors);
   const init=nm.split(' ').map(w=>w[0]).slice(0,2).join('');
   const el=document.createElement('div');el.className='lead fresh';
@@ -230,7 +237,7 @@ function addLead(){
     badge.className='badge b-auto';badge.innerHTML=icon('i-check2')+' טופל אוטומטית';},1500+Math.random()*1200);
   setTimeout(()=>pushEv('e-crm','i-db',`<b>${nm}</b> נוסף ל-CRM עם כל פרטי הפנייה`),2700+Math.random()*900);
   if(Math.random()<0.34){
-    setTimeout(()=>{pushEv('e-score','i-star',`<b>${nm}</b> קיבל ניקוד גבוה — ליד חם! הועבר לנציג`);
+    setTimeout(()=>{pushEv('e-score','i-star',`<b>${nm}</b> קיבל ניקוד גבוה, ליד חם! הועבר לנציג`);
       badge.className='badge b-hot';badge.innerHTML=icon('i-flame')+' חם';
       hot++;$('k4').textContent=hot;},3900+Math.random()*1100);
   }else if(Math.random()<0.4){
@@ -242,7 +249,7 @@ function pushEv(ecls,iid,text){
   e.innerHTML=`<div class="et ${ecls}">${icon(iid)}</div><div><div class="tx">${text}</div><div class="tm">${nowt()}</div></div>`;
   feed.prepend(e);while(feed.children.length>7)feed.lastChild.remove();
 }
-function tickKpi(){const auto=Math.min(95,80+Math.floor(Math.sin(Date.now()/9000)*6+6));
+function tickKpi(){if(document.hidden)return;const auto=Math.min(95,80+Math.floor(Math.sin(Date.now()/9000)*6+6));
   $('k2').textContent=auto+'%';$('k3').textContent=Math.round((leadsTotal*0.35+2)*10)/10}
 // chart
 const bars=$('bars'),labs=['09','11','13','15','17','19'];
@@ -252,7 +259,7 @@ function renderBars(){bars.innerHTML='';const max=Math.max(8,...chartData.map(d=
     c.innerHTML=`<div class="bar au" style="height:${d.au/max*100}%"></div>
       <div class="bar in" style="height:${(d.in-d.au)/max*100}%"></div><div class="blab">${labs[i]}</div>`;
     bars.appendChild(c)})}
-function bumpChart(){const i=Math.floor(Math.random()*chartData.length);chartData[i].in++;
+function bumpChart(){if(document.hidden)return;const i=Math.floor(Math.random()*chartData.length);chartData[i].in++;
   if(Math.random()<0.84)chartData[i].au++;renderBars()}
 for(let i=0;i<4;i++)chartData[i]={in:3+Math.floor(Math.random()*7),au:0};
 chartData.forEach(d=>d.au=Math.floor(d.in*0.84));renderBars();
