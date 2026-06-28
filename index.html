@@ -413,7 +413,9 @@
   .acc-close{position:absolute;top:12px;left:14px;background:none;border:none;color:#9DB0C6;font-size:1.5rem;cursor:pointer;line-height:1;padding:0 4px}
   /* applied accessibility states */
   /* high-contrast = revert to the built-in LIGHT theme; hero stays dark so the 3D animation survives */
-  html.acc-contrast body{background:#F6F9FC!important;color:#16202E!important}
+  html.acc-contrast{--muted:#33424F;--txt:#0E1825}
+  html.acc-contrast body{background:#F6F9FC!important;color:#0E1825!important}
+  html.acc-contrast .sec-sub,html.acc-contrast .card p,html.acc-contrast .pain-card p,html.acc-contrast .step p,html.acc-contrast .about p,html.acc-contrast .metric p,html.acc-contrast .ecard p,html.acc-contrast .price .who,html.acc-contrast .card .feat,html.acc-contrast .faq-a{color:#33424F!important}
   html.acc-contrast nav{background:rgba(11,37,64,.95)!important}
   html.acc-contrast .tools{background:#fff!important;border-bottom-color:#E6ECF3!important}
   html.acc-contrast .tools span{color:#5A6B7B!important}
