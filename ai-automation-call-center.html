@@ -36,6 +36,7 @@
 <link rel="stylesheet" href="pages.css">
 </head>
 <body>
+<a class="skip" href="#main">דלג לתוכן</a>
 
 <nav aria-label="ניווט ראשי">
   <div class="wrap">
@@ -61,6 +62,7 @@
   </div>
 </header>
 
+<main id="main">
 <section class="content">
   <div class="wrap">
     <p>מוקד שירות טוב לא נמדד רק בכמה שיחות הוא סוגר, אלא בכמה זמן הצוות מבזבז על פעולות שאפשר לאוטמט. מתוך עשור של ניהול תפעול ושירות, ראינו שאותם תהליכים חוזרים על עצמם בכל ארגון: מיון פניות ידני, חיפוש מידע בין מערכות, עדכוני סטטוס ללקוח, וסיכום שיחות בסוף היום. כל אלה גוזלים שעות, ובדיוק שם AI עושה את ההבדל הגדול ביותר.</p>
@@ -117,13 +119,75 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="wrap">
     <div><b>FlowOps AI</b> · אוטומציות AI לעסקים · נתניה והשרון · 054-8080657 · barak@flowopsai.co.il</div>
+    <div style="margin-top:14px;font-size:.92rem">
+      <a href="/demo.html" style="color:#9FB6CC">דמו חי</a>
+      <span style="opacity:.5;margin:0 8px">·</span>
+      <a href="/#services" style="color:#9FB6CC">שירותים</a>
+      <span style="opacity:.5;margin:0 8px">·</span>
+      <a href="/#pricing" style="color:#9FB6CC">מחירים</a>
+    </div>
+    <div style="margin-top:10px">
+      <a href="#" id="accStatementLink" style="color:#5FC9F0;text-decoration:underline">הצהרת נגישות</a>
+      <span style="opacity:.5;margin:0 8px">·</span>
+      <a href="#" id="privacyLink" style="color:#5FC9F0;text-decoration:underline">מדיניות פרטיות</a>
+    </div>
   </div>
 </footer>
 
 <a class="wa" href="https://wa.me/972548080657" aria-label="וואטסאפ"><svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.35c0-4.54 3.7-8.23 8.24-8.23 4.54 0 8.23 3.69 8.23 8.23 0 4.54-3.69 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg></a>
+
+<button class="totop" id="toTop" aria-label="חזרה לראש העמוד">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<button class="acc-btn" id="accBtn" aria-label="פתיחת כלי נגישות" aria-haspopup="dialog" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4" r="2.2"/><path d="M21 9c0 .5-.34.92-.8 1.02L15 11.1v2.5l1.92 6.06a1.1 1.1 0 0 1-2.1.66L13 15h-2l-1.82 5.32a1.1 1.1 0 0 1-2.1-.66L9 13.6v-2.5L3.8 10.02A1.04 1.04 0 0 1 4.2 8l5.4 1.18c1 .22 1.8.22 2.8 0L17.8 8c.62-.14 1.2.3 1.2.94z"/></svg>
+</button>
+
+<div class="acc-panel" id="accPanel" role="dialog" aria-label="כלי נגישות">
+  <button class="acc-close" id="accClose" aria-label="סגירה">×</button>
+  <h3>נגישות</h3>
+  <div class="sub">התאמת התצוגה לנוחות הגלישה שלכם</div>
+  <div class="acc-grid">
+    <button class="acc-opt" data-act="fsplus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19 9 5l5 14M6 13h6"/><path d="M18 8v8M14 12h8"/></svg>הגדל טקסט</button>
+    <button class="acc-opt" data-act="fsminus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19 9 5l5 14M6 13h6"/><path d="M14 12h8"/></svg>הקטן טקסט</button>
+    <button class="acc-opt" data-cls="acc-contrast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" fill="currentColor"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>ניגודיות גבוהה</button>
+    <button class="acc-opt" data-cls="acc-gray"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/></svg>גווני אפור</button>
+    <button class="acc-opt" data-cls="acc-links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>הדגשת קישורים</button>
+    <button class="acc-opt" data-cls="acc-readable"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7V5h16v2M9 19h6M12 5v14"/></svg>פונט קריא</button>
+    <button class="acc-opt" data-cls="acc-nomotion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9h6v6H9z" fill="currentColor"/></svg>עצירת אנימציות</button>
+    <button class="acc-opt" data-act="reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>איפוס</button>
+  </div>
+  <div class="acc-note">נתקלתם בבעיית נגישות? <a href="tel:0548080657">054-8080657</a></div>
+</div>
+
+<div class="acc-statement" id="accStatement" role="dialog" aria-modal="true" aria-label="הצהרת נגישות">
+  <div class="acc-statement-box">
+    <button class="acc-close" id="accStatementClose" aria-label="סגירה" style="position:static;float:left;color:#9DB0C6">×</button>
+    <h2>הצהרת נגישות</h2>
+    <p>אנו ב-FlowOps AI רואים חשיבות רבה בהנגשת האתר לכלל המשתמשים, לרבות אנשים עם מוגבלות, ופועלים בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות) ולתקן הישראלי 5568 המבוסס על הנחיות WCAG 2.0 ברמה AA.</p>
+    <p><b>מה הונגש באתר:</b> מבנה סמנטי תקין, ניווט מלא באמצעות מקלדת, תאימות לקוראי מסך, ניגודיות צבעים נאותה, טקסט חלופי לתמונות, סימון מצב מיקוד (focus) ברור, וקישור "דלג לתוכן". בנוסף קיים תפריט נגישות להתאמת גודל טקסט, ניגודיות ועצירת אנימציות.</p>
+    <p><b>נתקלתם בבעיה?</b> אם מצאתם רכיב שאינו נגיש, נשמח שתעדכנו אותנו ונפעל לתקן: טלפון <a href="tel:0548080657">054-8080657</a> · דוא"ל <a href="mailto:barak@flowopsai.co.il">barak@flowopsai.co.il</a>.</p>
+    <p class="acc-date">הצהרה זו עודכנה ביוני 2026.</p>
+  </div>
+</div>
+
+<div class="acc-statement" id="privacy" role="dialog" aria-modal="true" aria-label="מדיניות פרטיות">
+  <div class="acc-statement-box">
+    <button class="acc-close" id="privacyClose" aria-label="סגירה" style="position:static;float:left;color:#9DB0C6">×</button>
+    <h2>מדיניות פרטיות</h2>
+    <p>FlowOps AI מכבדת את פרטיותכם. מסמך זה מסביר איזה מידע נאסף באתר וכיצד נעשה בו שימוש.</p>
+    <p><b>איזה מידע נאסף:</b> מידע אישי (שם, טלפון, פרטי העסק) נמסר רק כאשר אתם יוצרים קשר יזום דרך וואטסאפ, טלפון או דוא"ל.</p>
+    <p><b>שימוש במידע:</b> הפרטים שתמסרו ישמשו אך ורק למענה לפנייתכם ולמתן השירות. איננו מעבירים מידע לצדדים שלישיים ללא הסכמתכם.</p>
+    <p><b>אחסון מקומי:</b> האתר אינו משתמש בעוגיות מעקב. העדפות הנגישות נשמרות מקומית בדפדפן שלכם בלבד (localStorage).</p>
+    <p class="acc-date">מדיניות זו עודכנה ביוני 2026.</p>
+  </div>
+</div>
 
 <script src="pages.js"></script>
 </body>

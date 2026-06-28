@@ -106,3 +106,43 @@ footer a{color:#5FC9F0}
 
 a:focus-visible,button:focus-visible{outline:2px solid #5FC9F0;outline-offset:3px;border-radius:6px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===== Accessibility (parity with home page) ===== */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;right:-9999px;top:8px;z-index:200;background:#1E6FB8;color:#fff;padding:12px 22px;border-radius:10px;font-weight:700;transition:.15s}
+.skip:focus{right:12px;outline:2px solid #fff;outline-offset:2px}
+.acc-btn{position:fixed;bottom:24px;right:24px;z-index:62;width:56px;height:56px;border-radius:50%;background:#1E6FB8;border:2px solid rgba(255,255,255,.3);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.45);transition:.2s}
+.acc-btn:hover{transform:scale(1.07);background:#2680cf}
+.acc-btn svg{width:30px;height:30px;color:#fff}
+.acc-panel{position:fixed;bottom:90px;right:24px;z-index:63;width:300px;max-width:calc(100vw - 32px);background:#0E2036;border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:18px 18px 16px;box-shadow:0 24px 60px rgba(0,0,0,.55);display:none;color:#E8EFF8}
+.acc-panel.open{display:block}
+.acc-panel h3{font-size:1.06rem;margin-bottom:2px;color:#fff}
+.acc-panel .sub{font-size:.78rem;color:#9DB0C6;margin-bottom:14px}
+.acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.acc-opt{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:11px 6px;color:#D7E3F0;font:inherit;font-size:.84rem;font-weight:600;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;transition:.15s;text-align:center}
+.acc-opt:hover{background:rgba(255,255,255,.1)}
+.acc-opt.active{background:#1E6FB8;border-color:#5FC9F0;color:#fff}
+.acc-opt svg{width:22px;height:22px}
+.acc-note{font-size:.74rem;color:#8DA0B8;margin-top:11px;text-align:center}
+.acc-note a{color:#5FC9F0}
+.acc-close{position:absolute;top:12px;left:14px;background:none;border:none;color:#9DB0C6;font-size:1.5rem;cursor:pointer;line-height:1;padding:0 4px}
+html.acc-gray body{filter:grayscale(1)}
+html.acc-links a{text-decoration:underline!important;text-underline-offset:3px}
+html.acc-readable body,html.acc-readable body *{font-family:Arial,Helvetica,sans-serif!important;letter-spacing:.4px!important;line-height:1.9!important}
+html.acc-nomotion *,html.acc-nomotion *::before,html.acc-nomotion *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+/* high contrast: these pages are already light, so just deepen text + borders */
+html.acc-contrast body{color:#0E1825}
+html.acc-contrast .content p,html.acc-contrast .content ul li,html.acc-contrast .ucase .uc p,html.acc-contrast .faq-a,html.acc-contrast .lead-card p,html.acc-contrast .related-grid a span,html.acc-contrast .faq-q{color:#243140!important}
+html.acc-contrast .uc,html.acc-contrast .faq-item,html.acc-contrast .lead-card,html.acc-contrast .related-grid a{border-color:#8FA2B6!important}
+.acc-statement{position:fixed;inset:0;z-index:100;background:rgba(4,10,20,.72);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:24px}
+.acc-statement.open{display:flex}
+.acc-statement-box{background:#0E2036;border:1px solid rgba(255,255,255,.12);border-radius:18px;max-width:620px;width:100%;max-height:86vh;overflow:auto;padding:28px 30px;color:#D7E3F0;line-height:1.8}
+.acc-statement-box h2{color:#fff;font-size:1.5rem;margin-bottom:14px}
+.acc-statement-box p{margin-bottom:12px;font-size:.98rem}
+.acc-statement-box a{color:#5FC9F0;text-decoration:underline}
+.acc-statement-box .acc-date{color:#8DA0B8;font-size:.85rem}
+.totop{position:fixed;bottom:92px;left:24px;z-index:61;width:46px;height:46px;border-radius:50%;background:rgba(20,40,68,.9);border:1px solid rgba(111,180,240,.4);color:#9FD0FF;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.4);opacity:0;visibility:hidden;transform:translateY(10px);transition:.25s}
+.totop.show{opacity:1;visibility:visible;transform:none}
+.totop:hover{background:#1E6FB8;color:#fff}
+.totop svg{width:22px;height:22px}
+@media(max-width:600px){.acc-btn{bottom:18px;right:18px;width:50px;height:50px}.acc-btn svg{width:26px;height:26px}.acc-panel{bottom:78px;right:14px}.totop{bottom:78px;left:18px;width:42px;height:42px}}
