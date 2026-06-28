@@ -41,6 +41,7 @@
   }
   bindModal('accStatement','accStatementLink','accStatementClose');
   bindModal('privacy','privacyLink','privacyClose');
+  bindModal('terms','termsLink','termsClose');
 
   // ===== Back to top =====
   (function(){
