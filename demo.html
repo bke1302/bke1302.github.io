@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>דמו חי | FlowOps AI — עוזר וואטסאפ חכם לעסק</title>
+<meta name="description" content="דמו חי של עוזר AI לעסק בוואטסאפ: עונה ללקוחות 24/7, קובע תורים, עונה על מחירים ולוכד לידים. מבית FlowOps AI.">
+<meta property="og:title" content="דמו חי — עוזר AI לעסק | FlowOps">
+<meta property="og:description" content="שלחו הודעה ותראו איך בוט חכם עונה ללקוחות 24/7, קובע תורים ולוכד לידים.">
+<meta property="og:image" content="https://flowopsai.co.il/og-image-v2.jpg">
+<meta name="theme-color" content="#075E54">
+<link rel="icon" href="flowops-mark.png">
+<style>
+  :root{--wa-green:#075E54;--wa-teal:#128C7E;--wa-light:#25D366;--bubble-in:#fff;--bubble-out:#DCF8C6}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',-apple-system,Arial,sans-serif;background:#0b141a;display:flex;
+    align-items:center;justify-content:center;min-height:100vh;padding:16px;color:#111}
+  .phone{width:100%;max-width:420px;height:min(86vh,760px);background:#E5DDD5;border-radius:26px;
+    overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.55);position:relative}
+  /* header */
+  .top{background:var(--wa-green);color:#fff;padding:13px 14px;display:flex;align-items:center;gap:11px;flex-shrink:0}
+  .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#1E6FB8,#0EA47E);
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;flex-shrink:0}
+  .who b{font-size:16px;display:block;line-height:1.2}
+  .who span{font-size:12px;color:#cfe9e2}
+  .who span.on::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;
+    background:#7CFC9A;margin-left:5px;vertical-align:middle}
+  .top .sp{margin-right:auto;display:flex;gap:18px;opacity:.9}
+  .top svg{width:21px;height:21px;fill:#fff}
+  /* chat area */
+  .chat{flex:1;overflow-y:auto;padding:14px 12px 6px;
+    background-image:linear-gradient(rgba(229,221,213,.92),rgba(229,221,213,.92)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='%23d9cfc4' fill-opacity='.5'%3E%3Ccircle cx='10' cy='10' r='1.4'/%3E%3Ccircle cx='40' cy='30' r='1.4'/%3E%3Ccircle cx='65' cy='55' r='1.4'/%3E%3Ccircle cx='20' cy='65' r='1.4'/%3E%3C/g%3E%3C/svg%3E");
+    display:flex;flex-direction:column;gap:7px}
+  .sysline{align-self:center;background:#FCF4CB;color:#5a5536;font-size:11.5px;padding:5px 12px;
+    border-radius:8px;margin:6px 0;box-shadow:0 1px 1px rgba(0,0,0,.07);text-align:center;max-width:88%}
+  .msg{max-width:82%;padding:7px 10px 5px;border-radius:9px;font-size:14.5px;line-height:1.5;
+    position:relative;box-shadow:0 1px 1px rgba(0,0,0,.13);white-space:pre-wrap;word-wrap:break-word;animation:pop .18s ease}
+  @keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .in{align-self:flex-start;background:var(--bubble-in);border-top-right-radius:2px}
+  .out{align-self:flex-end;background:var(--bubble-out);border-top-left-radius:2px}
+  .msg .t{font-size:10px;color:#8a9aa0;float:left;margin:4px 0 -2px 0;padding-right:8px}
+  .out .t .ck{color:#4FC3F7;font-weight:700}
+  .in .t{color:#9aa}
+  /* typing */
+  .typing{align-self:flex-start;background:#fff;border-radius:9px;border-top-right-radius:2px;
+    padding:11px 13px;display:none;box-shadow:0 1px 1px rgba(0,0,0,.13)}
+  .typing.show{display:flex;gap:4px}
+  .typing i{width:7px;height:7px;border-radius:50%;background:#b6c2c6;animation:bl 1.2s infinite}
+  .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+  @keyframes bl{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+  /* quick replies */
+  .quick{display:flex;flex-wrap:wrap;gap:7px;padding:8px 12px;background:transparent;justify-content:flex-end}
+  .qbtn{background:#fff;color:var(--wa-teal);border:1px solid #c9e0d9;border-radius:18px;
+    padding:8px 14px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s}
+  .qbtn:hover{background:var(--wa-teal);color:#fff;border-color:var(--wa-teal)}
+  /* input */
+  .bar{background:#F0F0F0;padding:8px 10px;display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .bar input{flex:1;border:none;border-radius:22px;padding:11px 16px;font-size:15px;font-family:inherit;
+    outline:none;background:#fff}
+  .bar .send{width:46px;height:46px;border-radius:50%;background:var(--wa-light);border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.15s}
+  .bar .send:hover{background:#1eb858}
+  .bar .send svg{width:22px;height:22px;fill:#fff;margin-right:-2px}
+  /* CTA ribbon */
+  .cta{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(135deg,#0B2540,#1E6FB8);
+    color:#fff;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;
+    transform:translateY(100%);transition:transform .5s cubic-bezier(.2,.8,.2,1);z-index:5}
+  .cta.show{transform:none}
+  .cta b{font-size:13.5px;display:block}.cta span{font-size:11.5px;color:#bfe0ff}
+  .cta a{background:#25D366;color:#fff;text-decoration:none;font-weight:800;font-size:13px;
+    padding:9px 15px;border-radius:20px;white-space:nowrap}
+  .cta .x{background:none;border:none;color:#bfe0ff;font-size:18px;cursor:pointer;padding:0 2px}
+</style></head>
+<body>
+<div class="phone">
+  <div class="top">
+    <div class="av">F</div>
+    <div class="who"><b>העסק שלך · עוזר חכם</b><span class="on">מקוון · עונה תוך שניות</span></div>
+    <div class="sp">
+      <svg viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M20 15.5c-1.2 0-2.5-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2a15 15 0 0 1-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1C8.7 6.5 8.5 5.2 8.5 4c0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/></svg>
+    </div>
+  </div>
+
+  <div class="chat" id="chat">
+    <div class="sysline">🔒 ההודעות מוצפנות. זהו דמו חי של עוזר AI לעסק מבית FlowOps.</div>
+    <div class="typing" id="typing"><i></i><i></i><i></i></div>
+  </div>
+
+  <div class="quick" id="quick"></div>
+
+  <div class="bar">
+    <input id="inp" placeholder="כתבו הודעה..." autocomplete="off">
+    <button class="send" id="send" aria-label="שלח">
+      <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+    </button>
+  </div>
+
+  <div class="cta" id="cta">
+    <div><b>אהבתם? 🤖 זה יכול להיות העסק שלכם</b><span>בוט חכם כזה, מותאם אישית</span></div>
+    <a href="https://wa.me/972548080657?text=ראיתי%20את%20הדמו%20ואשמח%20לשמוע%20עוד" target="_blank">דברו איתנו</a>
+    <button class="x" onclick="document.getElementById('cta').classList.remove('show')">✕</button>
+  </div>
+</div>
+
+<script>
+const chat=document.getElementById('chat'),typing=document.getElementById('typing'),
+  quick=document.getElementById('quick'),inp=document.getElementById('inp'),send=document.getElementById('send');
+let ctaShown=false, msgCount=0, state=null, lead={};
+
+function now(){const d=new Date();return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0')}
+function add(text,who){
+  const m=document.createElement('div');m.className='msg '+who;
+  const ck=who==='out'?' <span class="ck">✓✓</span>':'';
+  m.innerHTML=text.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'<span class="t">'+now()+ck+'</span>';
+  chat.insertBefore(m,typing);chat.scrollTop=chat.scrollHeight;
+  msgCount++; if(who==='in'&&msgCount>=4&&!ctaShown){ctaShown=true;setTimeout(()=>document.getElementById('cta').classList.add('show'),1200)}
+}
+function showTyping(on){typing.classList.toggle('show',on);if(on)chat.scrollTop=chat.scrollHeight}
+function botSay(lines,delay){ // lines: array of strings
+  let i=0; const run=()=>{
+    showTyping(true);
+    setTimeout(()=>{showTyping(false);add(lines[i],'in');i++; if(i<lines.length)setTimeout(run,500);},650+Math.random()*500);
+  }; setTimeout(run,delay||250);
+}
+function setQuick(arr){
+  quick.innerHTML='';
+  arr.forEach(q=>{const b=document.createElement('button');b.className='qbtn';b.textContent=q;
+    b.onclick=()=>handle(q);quick.appendChild(b)});
+}
+
+const DEFAULT_Q=['🕒 שעות פתיחה','📅 לקבוע תור','💰 כמה זה עולה?','🙋 לדבר עם נציג'];
+
+function reply(text){
+  const t=text.toLowerCase();
+  // active flows
+  if(state==='book_name'){lead.name=text;state='book_phone';
+    botSay(['מעולה '+text+'! 📱 ומה הטלפון שאליו נחזור לאישור?']);setQuick([]);return}
+  if(state==='book_phone'){lead.phone=text;state=null;
+    botSay(['קיבלתי ✅','קבעתי לך בקשת תור על שם '+(lead.name||'')+'.','נציג יאשר אותך בוואטסאפ ממש בקרוב. ככה זה עובד אצל לקוחות אמיתיים, אוטומטית וגם מחוץ לשעות העבודה 🙌'],300);
+    setTimeout(()=>setQuick(DEFAULT_Q),2600);return}
+  if(state==='lead_name'){lead.name=text;state='lead_phone';
+    botSay(['נעים מאוד '+text+' 🙂 לאיזה מספר שהנציג יחזור אליך?']);return}
+  if(state==='lead_phone'){lead.phone=text;state=null;
+    botSay(['מצוין, רשמתי 📝','נציג אנושי יחזור אליך תוך זמן קצר.','שים לב: עד שהוא פנוי, אני כבר אספתי את כל הפרטים, אז אף ליד לא הולך לאיבוד.'],300);
+    setTimeout(()=>setQuick(DEFAULT_Q),2600);return}
+
+  // intents
+  if(/שלום|היי|הי\b|אהלן|בוקר|ערב|מה נשמע|הולו/.test(t)){
+    botSay(['היי! 👋 אני העוזר החכם של העסק, זמין 24/7.','איך אפשר לעזור לך היום?']);setQuick(DEFAULT_Q);return}
+  if(/שעות|פתוח|פתיחה|מתי.*פתוח|סגור|שעה/.test(t)){
+    botSay(['אנחנו פתוחים: 🕒','ראשון–חמישי 09:00–18:00','שישי 09:00–13:00','גם כשסגור, אני כאן ואענה לך על הכל 😊']);
+    setQuick(['📅 לקבוע תור','💰 כמה זה עולה?','📍 איפה אתם']);return}
+  if(/תור|לקבוע|פגישה|להזמין|מקום|לתאם|זמן פנוי/.test(t)){
+    state='book_name';botSay(['בשמחה אקבע לך תור 📅','איך קוראים לך?']);setQuick([]);return}
+  if(/מחיר|עולה|כמה|מחירון|תשלום|עלות|כסף/.test(t)){
+    botSay(['שאלה מצוינת 💰','המחיר נקבע לפי הצורך המדויק, אז כדאי שניתן לך הצעה אישית.','אשמח לחבר אותך לנציג שייתן מחיר מדויק, או שנקבע שיחה קצרה?']);
+    setQuick(['🙋 לדבר עם נציג','📅 לקבוע שיחה']);return}
+  if(/איפה|כתובת|מיקום|להגיע|ניווט|אתם נמצאים/.test(t)){
+    botSay(['אנחנו נמצאים במרכז העיר 📍','אפשר לשלוח לך מיקום מדויק לוואטסאפ, או לתאם הגעה.','רוצה שאחבר אותך לנציג?']);
+    setQuick(['🙋 לדבר עם נציג','🕒 שעות פתיחה']);return}
+  if(/נציג|אנושי|בנאדם|בן אדם|לדבר עם|אדם|טלפון|תחזרו|שיחה/.test(t)){
+    state='lead_name';botSay(['בטח! אעביר אותך לנציג אנושי 🙋','רק שאדע למי, איך קוראים לך?']);setQuick([]);return}
+  if(/תודה|מעולה|סבבה|אחלה|יופי|מגניב|תותח/.test(t)){
+    botSay(['תמיד לשירותך! 🙏','אם יעלה עוד משהו, אני כאן 24/7.']);setQuick(DEFAULT_Q);return}
+  if(/בוט|רובוט|אתה אמיתי|אתה אדם|ai|בינה/.test(t)){
+    botSay(['אני עוזר חכם מבוסס AI 🤖','אני עונה מיד בכל שעה, ומעביר לנציג אנושי כשצריך, ככה אף לקוח לא מחכה ואף פנייה לא נופלת.']);
+    setQuick(DEFAULT_Q);return}
+  // fallback
+  botSay(['הבנתי 🙂 אני יכול לעזור עם המון דברים, הנה הנפוצים:']);
+  setQuick(DEFAULT_Q);
+}
+
+function handle(text){
+  if(!text||!text.trim())return;
+  add(text,'out');inp.value='';
+  setTimeout(()=>reply(text.trim()),200);
+}
+send.onclick=()=>handle(inp.value);
+inp.addEventListener('keydown',e=>{if(e.key==='Enter')handle(inp.value)});
+
+// opening
+window.addEventListener('load',()=>{
+  botSay(['היי 👋 הגעת לעוזר החכם של העסק.','אני זמין 24/7 ועונה תוך שניות, גם כשכולם בבית 🌙','נסה לכתוב לי, או בחר אחת מהאפשרויות 👇'],500);
+  setTimeout(()=>setQuick(DEFAULT_Q),2800);
+});
+</script>
+</body></html>
