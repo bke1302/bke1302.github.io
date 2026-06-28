@@ -413,18 +413,26 @@
   .acc-close{position:absolute;top:12px;left:14px;background:none;border:none;color:#9DB0C6;font-size:1.5rem;cursor:pointer;line-height:1;padding:0 4px}
   /* applied accessibility states */
   /* high-contrast = revert to the built-in LIGHT theme; hero stays dark so the 3D animation survives */
-  html.acc-contrast{--muted:#33424F;--txt:#0E1825}
   html.acc-contrast body{background:#F6F9FC!important;color:#0E1825!important}
-  html.acc-contrast .sec-sub,html.acc-contrast .card p,html.acc-contrast .pain-card p,html.acc-contrast .step p,html.acc-contrast .about p,html.acc-contrast .metric p,html.acc-contrast .ecard p,html.acc-contrast .price .who,html.acc-contrast .card .feat,html.acc-contrast .faq-a{color:#33424F!important}
   html.acc-contrast nav{background:rgba(11,37,64,.95)!important}
+  /* section backgrounds back to light */
   html.acc-contrast .tools{background:#fff!important;border-bottom-color:#E6ECF3!important}
-  html.acc-contrast .tools span{color:#5A6B7B!important}
-  html.acc-contrast .tchip{color:#0B2540!important;opacity:.75!important}
-  html.acc-contrast .pain,html.acc-contrast .faq,html.acc-contrast #pricing{background:#F6F9FC!important}
-  html.acc-contrast #services{background:#F6F9FC!important}
+  html.acc-contrast .pain,html.acc-contrast .faq,html.acc-contrast #pricing,html.acc-contrast #services{background:#F6F9FC!important}
   html.acc-contrast .proc,html.acc-contrast .about{background:#fff!important}
   html.acc-contrast .proof{background:#EEF4FA!important}
   html.acc-contrast section{border-top-color:#E6ECF3!important}
+  /* cards back to white */
+  html.acc-contrast .card,html.acc-contrast .price,html.acc-contrast .metric,html.acc-contrast .faq-item,html.acc-contrast .pain-card,html.acc-contrast .ecard{background:#fff!important;border-color:#E6ECF3!important}
+  html.acc-contrast .pain-card{border-right-color:#E25555!important}
+  html.acc-contrast .ecard{border-color:#1E6FB8!important}
+  html.acc-contrast .chip{background:#EAF2FA!important;color:#0B2540!important}
+  /* titles dark navy */
+  html.acc-contrast .sec-title,html.acc-contrast .card h3,html.acc-contrast .price h3,html.acc-contrast .step h4,html.acc-contrast .about h2,html.acc-contrast .faq-q,html.acc-contrast .pain-card h4,html.acc-contrast .ecard h4{color:#0B2540!important}
+  html.acc-contrast .tchip{color:#0B2540!important;opacity:.75!important}
+  html.acc-contrast .eyebrow{color:#1E6FB8!important}
+  html.acc-contrast .about .role,html.acc-contrast .price .amt{color:#0C7A5E!important}
+  /* muted body text dark enough to read on white */
+  html.acc-contrast .tools span,html.acc-contrast .sec-sub,html.acc-contrast .card p,html.acc-contrast .pain-card p,html.acc-contrast .step p,html.acc-contrast .about p,html.acc-contrast .metric p,html.acc-contrast .ecard p,html.acc-contrast .price .who,html.acc-contrast .price ul,html.acc-contrast .card .feat,html.acc-contrast .faq-a{color:#33424F!important}
   html.acc-gray body{filter:grayscale(1)}
   html.acc-links a{text-decoration:underline!important;text-underline-offset:3px}
   html.acc-readable body,html.acc-readable body *{font-family:Arial,Helvetica,sans-serif!important;letter-spacing:.4px!important;line-height:1.9!important}
