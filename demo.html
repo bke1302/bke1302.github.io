@@ -12,6 +12,7 @@
 <style>
   :root{--wa-green:#075E54;--wa-teal:#128C7E;--wa-light:#25D366;--bubble-in:#fff;--bubble-out:#DCF8C6}
   *{margin:0;padding:0;box-sizing:border-box}
+  button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--wa-light);outline-offset:2px}
   body{font-family:'Segoe UI',-apple-system,Arial,sans-serif;background:#0b141a;display:flex;
     align-items:center;justify-content:center;min-height:100vh;padding:16px;color:#111}
   .phone{width:100%;max-width:420px;height:min(86vh,760px);background:#E5DDD5;border-radius:26px;
@@ -60,7 +61,7 @@
   .bar .send{width:46px;height:46px;border-radius:50%;background:var(--wa-light);border:none;cursor:pointer;
     display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.15s}
   .bar .send:hover{background:#1eb858}
-  .bar .send svg{width:22px;height:22px;fill:#fff;margin-right:-2px}
+  .bar .send svg{width:22px;height:22px;fill:#fff;transform:scaleX(-1);margin-left:-2px}
   /* CTA ribbon */
   .cta{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(135deg,#0B2540,#1E6FB8);
     color:#fff;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;

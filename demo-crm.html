@@ -20,7 +20,8 @@
     --gold:#E6B24D;--violet:#8C77FF;--red:#E36A6A;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Heebo',sans-serif;color:var(--txt);min-height:100vh;padding:20px 16px 96px;line-height:1.5;
+  a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+  body{font-family:'Heebo',sans-serif;color:var(--txt);min-height:100vh;padding:20px 16px 150px;line-height:1.5;
     background:
       radial-gradient(900px 500px at 85% -10%,rgba(30,111,184,.28),transparent 60%),
       radial-gradient(700px 500px at 5% 0%,rgba(14,164,126,.15),transparent 55%),
@@ -76,15 +77,16 @@
   .lead{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:14px;background:var(--card2);
     margin-bottom:9px;border:1px solid transparent;animation:slide .5s cubic-bezier(.2,.8,.2,1);transition:.3s}
   @keyframes slide{from{opacity:0;transform:translateY(-12px) scale(.98)}to{opacity:1;transform:none}}
+  .lead:hover{border-color:var(--line2);background:var(--card)}
   .lead.fresh{border-color:rgba(66,232,224,.45);box-shadow:0 0 0 1px rgba(66,232,224,.18),0 8px 22px rgba(66,232,224,.08)}
   .av{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
     font-weight:800;font-size:15px;color:#fff;position:relative}
-  .av .sb{position:absolute;bottom:-2px;left:-2px;width:16px;height:16px;border-radius:50%;border:2px solid var(--bg2);
+  .av .sb{position:absolute;bottom:-2px;right:-2px;width:16px;height:16px;border-radius:50%;border:2px solid var(--bg2);
     display:flex;align-items:center;justify-content:center}
   .av .sb .ic{width:9px;height:9px;stroke-width:2.6}
   .lead .info{flex:1;min-width:0}
   .lead .nm{font-weight:700;font-size:14.5px}
-  .lead .meta{font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:5px;margin-top:1px;
+  .lead .meta{font-size:11.5px;color:var(--muted);margin-top:1px;
     white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .badge{font-size:11px;font-weight:700;padding:5px 11px;border-radius:30px;white-space:nowrap;
     flex-shrink:0;display:flex;align-items:center;gap:5px;transition:.3s}
@@ -106,13 +108,13 @@
   .ev .tx{font-size:13px;line-height:1.45}.ev .tx b{color:#fff;font-weight:700}
   .ev .tm{font-size:10.5px;color:var(--dim);margin-top:2px}
   /* chart */
-  .bars{display:flex;align-items:flex-end;gap:9px;height:96px;margin-top:4px;padding:0 2px}
-  .bcol{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;position:relative;gap:2px}
-  .bar{border-radius:5px 5px 0 0;min-height:5px;transition:height .9s cubic-bezier(.2,.8,.2,1)}
-  .bar.in{background:linear-gradient(180deg,var(--blue-l),rgba(30,111,184,.55))}
-  .bar.au{background:linear-gradient(180deg,#7BE7C3,var(--teal))}
+  .bars{display:flex;align-items:flex-end;gap:9px;height:96px;margin-top:4px;margin-bottom:24px;padding:0 2px}
+  .bcol{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;position:relative}
+  .bar{min-height:4px;transition:height .9s cubic-bezier(.2,.8,.2,1)}
+  .bar.in{background:linear-gradient(180deg,var(--blue-l),rgba(30,111,184,.55));border-radius:0 0 5px 5px}
+  .bar.au{background:linear-gradient(180deg,#7BE7C3,var(--teal));border-radius:5px 5px 0 0}
   .blab{position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-size:10px;color:var(--dim)}
-  .legend{display:flex;gap:18px;margin-top:28px;font-size:11.5px;color:var(--muted)}
+  .legend{display:flex;gap:18px;margin-top:8px;font-size:11.5px;color:var(--muted)}
   .legend span{display:flex;align-items:center;gap:7px}
   .legend i{width:11px;height:11px;border-radius:4px}
   /* CTA */
@@ -155,29 +157,32 @@
   <div class="sub">ככה נראית מערכת אוטומציה ו-CRM של FlowOps עובדת מאחורי הקלעים: לידים נכנסים מכל ערוץ, מסתדרים אוטומטית, ולא מפספסים אף אחד.</div>
 
   <div class="kpis">
-    <div class="kpi blue"><div class="top"><div class="tile t-blue"><svg class="ic"><use href="#i-inbox"/></svg></div>
+    <div class="kpi blue"><div class="top"><div class="tile t-blue"><svg class="ic" viewBox="0 0 24 24"><use href="#i-inbox"/></svg></div>
       <svg width="46" height="20" class="spark" viewBox="0 0 46 20"><polyline points="0,15 9,11 18,13 27,6 36,8 46,2" fill="none" stroke="#6FB4F0" stroke-width="2"/></svg></div>
       <div class="num" id="k1">0</div><div class="lbl">לידים היום</div><div class="delta" id="d1">&nbsp;</div></div>
-    <div class="kpi teal"><div class="top"><div class="tile t-teal"><svg class="ic"><use href="#i-cpu"/></svg></div></div>
+    <div class="kpi teal"><div class="top"><div class="tile t-teal"><svg class="ic" viewBox="0 0 24 24"><use href="#i-cpu"/></svg></div>
+      <svg width="46" height="20" class="spark" viewBox="0 0 46 20"><polyline points="0,14 9,12 18,9 27,10 36,5 46,4" fill="none" stroke="#2FC79A" stroke-width="2"/></svg></div>
       <div class="num" id="k2">0%</div><div class="lbl">טופלו אוטומטית</div><div class="delta">ללא מגע יד אדם</div></div>
-    <div class="kpi teal"><div class="top"><div class="tile t-gold"><svg class="ic"><use href="#i-clock"/></svg></div></div>
-      <div class="num" id="k3">0</div><div class="lbl">שעות שנחסכו היום</div><div class="delta"><svg class="ic"><use href="#i-up"/></svg> חיסכון מצטבר</div></div>
-    <div class="kpi"><div class="top"><div class="tile t-violet"><svg class="ic"><use href="#i-flame"/></svg></div></div>
+    <div class="kpi teal"><div class="top"><div class="tile t-gold"><svg class="ic" viewBox="0 0 24 24"><use href="#i-clock"/></svg></div>
+      <svg width="46" height="20" class="spark" viewBox="0 0 46 20"><polyline points="0,16 9,13 18,11 27,8 36,7 46,3" fill="none" stroke="#E6B24D" stroke-width="2"/></svg></div>
+      <div class="num" id="k3">0</div><div class="lbl">שעות שנחסכו היום</div><div class="delta"><svg class="ic" viewBox="0 0 24 24"><use href="#i-up"/></svg> חיסכון מצטבר</div></div>
+    <div class="kpi"><div class="top"><div class="tile t-violet"><svg class="ic" viewBox="0 0 24 24"><use href="#i-flame"/></svg></div>
+      <svg width="46" height="20" class="spark" viewBox="0 0 46 20"><polyline points="0,12 9,14 18,8 27,11 36,6 46,9" fill="none" stroke="#8C77FF" stroke-width="2"/></svg></div>
       <div class="num" id="k4" style="color:#F2CE83">0</div><div class="lbl">לידים חמים</div><div class="delta" style="color:#F0CC82">מחכים לנציג</div></div>
   </div>
 
   <div class="cols">
     <div class="panel">
-      <h2><span class="hi"><svg class="ic"><use href="#i-inbox"/></svg></span> לידים נכנסים <span class="cnt" id="leadcnt">בזמן אמת</span></h2>
+      <h2><span class="hi"><svg class="ic" viewBox="0 0 24 24"><use href="#i-inbox"/></svg></span> לידים נכנסים <span class="cnt" id="leadcnt">בזמן אמת</span></h2>
       <div id="leads"></div>
     </div>
     <div>
       <div class="panel" style="margin-bottom:15px">
-        <h2><span class="hi" style="background:rgba(47,199,154,.13);color:#6FE3BD"><svg class="ic"><use href="#i-cpu"/></svg></span> פעילות אוטומציה</h2>
+        <h2><span class="hi" style="background:rgba(47,199,154,.13);color:#6FE3BD"><svg class="ic" viewBox="0 0 24 24"><use href="#i-cpu"/></svg></span> פעילות אוטומציה</h2>
         <div class="feed" id="feed"></div>
       </div>
       <div class="panel">
-        <h2><span class="hi" style="background:rgba(66,232,224,.13);color:#74EDE6"><svg class="ic"><use href="#i-up"/></svg></span> לידים לפי שעה</h2>
+        <h2><span class="hi" style="background:rgba(66,232,224,.13);color:#74EDE6"><svg class="ic" viewBox="0 0 24 24"><use href="#i-up"/></svg></span> לידים לפי שעה</h2>
         <div class="bars" id="bars"></div>
         <div class="legend">
           <span><i style="background:var(--blue-l)"></i> נכנסו</span>
@@ -190,8 +195,8 @@
 
 <div class="cta">
   <div class="txt"><b>רוצים מערכת כזו לעסק שלכם?</b><span>אוטומציה שעובדת 24/7 ולא מפספסת אף ליד</span></div>
-  <a class="wa" href="https://wa.me/972548080657?text=ראיתי%20את%20דמו%20מוקד%20הבקרה%20ואשמח%20לשמוע%20עוד" target="_blank"><svg class="ic"><use href="#i-msg"/></svg> דברו איתנו</a>
-  <a class="gh" href="demo.html"><svg class="ic"><use href="#i-msg"/></svg> דמו צ'אט</a>
+  <a class="wa" href="https://wa.me/972548080657?text=ראיתי%20את%20דמו%20מוקד%20הבקרה%20ואשמח%20לשמוע%20עוד" target="_blank"><svg class="ic" viewBox="0 0 24 24"><use href="#i-msg"/></svg> דברו איתנו</a>
+  <a class="gh" href="demo.html"><svg class="ic" viewBox="0 0 24 24"><use href="#i-msg"/></svg> דמו צ'אט</a>
 </div>
 
 <script>
@@ -204,7 +209,7 @@ let leadsTotal=0,hot=0;
 const leadsBox=$('leads'),feed=$('feed');
 function nowt(){const d=new Date();return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0')}
 function pick(a){return a[Math.floor(Math.random()*a.length)]}
-function icon(id,cls){return `<svg class="ic ${cls||''}"><use href="#${id}"/></svg>`}
+function icon(id,cls){return `<svg class="ic ${cls||''}" viewBox="0 0 24 24"><use href="#${id}"/></svg>`}
 
 function addLead(){
   const nm=pick(names),[scls,sname,scol,sic]=pick(srcs),rs=pick(reasons),ac=pick(avColors);
