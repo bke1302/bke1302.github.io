@@ -51,6 +51,9 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="preload" as="image" href="galaxy.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -120,11 +123,19 @@
   .trust .ck{color:var(--green)}
   @media(max-width:780px){header h1{font-size:2.35rem}header p.lead{font-size:1.12rem}}
 
-  /* TOOLS STRIP */
-  .tools{background:#fff;border-bottom:1px solid var(--line);padding:26px 0}
-  .tools .wrap{display:flex;align-items:center;justify-content:center;gap:14px 30px;flex-wrap:wrap}
-  .tools span{color:var(--muted);font-weight:500;font-size:.9rem}
-  .tchip{color:var(--navy);font-weight:800;font-size:1.05rem;opacity:.75}
+  /* TOOLS STRIP (ticker) */
+  .tools{background:#fff;border-bottom:1px solid var(--line);padding:20px 0;overflow:hidden}
+  .tools .wrap{display:flex;align-items:center;gap:22px}
+  .tools-lbl{color:var(--muted);font-weight:600;font-size:.92rem;white-space:nowrap;flex-shrink:0}
+  .ticker{position:relative;overflow:hidden;flex:1;display:flex;direction:ltr;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)}
+  .ticker-track{display:flex;align-items:center;flex-shrink:0;min-width:100%;justify-content:space-around;animation:ticker 50s linear infinite}
+  .ticker:hover .ticker-track{animation-play-state:paused}
+  .ticker .tchip{color:#C7D6E8;font-weight:700;font-size:1.22rem;opacity:.9;white-space:nowrap;padding:0 26px;position:relative}
+  .ticker .tchip::before{content:"";position:absolute;right:0;top:50%;width:5px;height:5px;border-radius:50%;background:rgba(30,111,184,.45);transform:translateY(-50%)}
+  @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+  @media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
 
   /* REVEAL */
   .reveal{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.2,.7,.2,1)}
@@ -339,6 +350,44 @@
   @media(max-width:880px){.core,.glass,.spot{display:none}header{min-height:auto;padding:90px 0}}
   @media(prefers-reduced-motion:reduce){.bk,.hero-content h1 span{animation:none!important}.spot{display:none}}
 
+  /* ===== hero chat mockup + CRM card ===== */
+  #hero .wrap{max-width:1120px;width:100%;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+  .hero-visual{position:relative;z-index:5;justify-self:center;width:100%;max-width:412px}
+  .chat-mock{background:rgba(13,26,46,.74);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:15px;box-shadow:0 30px 70px rgba(0,0,0,.5);
+    animation:cmFloat 6.5s ease-in-out infinite}
+  .cm-head{display:flex;align-items:center;gap:11px;padding:2px 4px 12px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:12px}
+  .cm-ava{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0EA47E,#0C7A5E);
+    display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;box-shadow:0 6px 16px rgba(14,164,126,.4)}
+  .cm-id{display:flex;flex-direction:column;line-height:1.35}
+  .cm-id b{color:#EAF3FF;font-size:.98rem}
+  .cm-id .cm-st{color:#8DA6C2;font-size:.78rem;display:flex;align-items:center;gap:6px}
+  .cm-on{width:7px;height:7px;border-radius:50%;background:#2ee6a5;box-shadow:0 0 0 3px rgba(46,230,165,.25)}
+  .cm-body{display:flex;flex-direction:column;gap:9px}
+  .cm-msg{max-width:85%;padding:9px 13px;font-size:.88rem;line-height:1.5;border-radius:15px}
+  .cm-msg.in{align-self:flex-start;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.09);color:#DCE7F3;border-top-right-radius:5px}
+  .cm-msg.bot{align-self:flex-end;background:linear-gradient(135deg,#0EA47E,#0C7A5E);color:#fff;border-top-left-radius:5px;box-shadow:0 8px 20px rgba(14,164,126,.28)}
+  .cm-time{display:block;font-size:.66rem;opacity:.75;margin-top:3px;text-align:left}
+  .crm-card{position:absolute;left:-16px;bottom:-40px;width:78%;background:rgba(13,26,46,.93);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.13);
+    border-radius:16px;padding:13px 15px;box-shadow:0 24px 54px rgba(0,0,0,.55);animation:cmFloat 7.5s ease-in-out infinite reverse}
+  .crm-top{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+  .crm-hot{display:inline-flex;align-items:center;gap:5px;background:rgba(212,165,58,.16);color:#F0C97A;
+    font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:20px}
+  .crm-hot i{width:6px;height:6px;border-radius:50%;background:#F0C97A}
+  .crm-lbl{color:#8DA6C2;font-size:.72rem;font-weight:600}
+  .crm-name{color:#EAF3FF;font-weight:800;font-size:1rem}
+  .crm-sub{color:#8DA6C2;font-size:.76rem;margin-top:2px}
+  .crm-tags{display:flex;gap:6px;margin-top:10px}
+  .crm-tags span{background:rgba(111,180,240,.13);color:#9FC6EE;font-size:.66rem;font-weight:600;padding:4px 9px;border-radius:8px}
+  @keyframes cmFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @media(max-width:900px){
+    #hero .wrap{grid-template-columns:1fr;gap:30px}
+    .hero-visual{max-width:360px;margin-bottom:30px}
+    .crm-card{position:static;width:100%;left:0;bottom:0;margin-top:16px}
+  }
+  @media(prefers-reduced-motion:reduce){.chat-mock,.crm-card{animation:none!important}}
+
   /* ===== Dark space theme, matches the galaxy ===== */
   body{background:#0A1424;color:#E8EFF8}
   nav{background:rgba(8,18,34,.5)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:none}
@@ -551,14 +600,43 @@
         <span><span class="ck">✓</span> <b>סיכון נמוך</b>, מתחילים בפיילוט</span>
       </div>
     </div>
+    <div class="hero-visual" data-depth="0.09" aria-hidden="true">
+      <div class="chat-mock">
+        <div class="cm-head">
+          <div class="cm-ava">🤖</div>
+          <div class="cm-id">
+            <b>סוכן FlowOps</b>
+            <span class="cm-st"><i class="cm-on"></i> מחובר · עונה תוך שניות</span>
+          </div>
+        </div>
+        <div class="cm-body">
+          <div class="cm-msg in">היי, אפשר לקבוע תור לשבוע הבא?</div>
+          <div class="cm-msg bot">בשמחה! יש לי פנוי ביום שלישי ב-10:00 או רביעי ב-16:30. מה מתאים לך?</div>
+          <div class="cm-msg in">שלישי ב-10 מעולה</div>
+          <div class="cm-msg bot">נקבע ✓ שלחתי לך אישור. נתראה!<span class="cm-time">03:12</span></div>
+        </div>
+      </div>
+      <div class="crm-card">
+        <div class="crm-top"><span class="crm-hot"><i></i> חם</span><span class="crm-lbl">ליד חדש נשמר ב-CRM</span></div>
+        <div class="crm-name">מיכל לוי</div>
+        <div class="crm-sub">מעוניינת בטיפול · הגיעה מגוגל</div>
+        <div class="crm-tags"><span>אפס הקלדה</span><span>תיעוד אוטומטי</span></div>
+      </div>
+    </div>
   </div>
 </header>
 
 <div class="tools">
   <div class="wrap">
-    <span>עובד עם הכלים שלכם:</span>
-    <span class="tchip">WhatsApp</span><span class="tchip">Google</span><span class="tchip">Salesforce</span>
-    <span class="tchip">HubSpot</span><span class="tchip">Make</span><span class="tchip">n8n</span><span class="tchip">Claude</span>
+    <span class="tools-lbl">עובד עם הכלים שלכם</span>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="tchip">WhatsApp</span><span class="tchip">Telegram</span><span class="tchip">Gmail</span><span class="tchip">Google Sheets</span><span class="tchip">Salesforce</span><span class="tchip">HubSpot</span><span class="tchip">monday.com</span><span class="tchip">Make</span><span class="tchip">n8n</span><span class="tchip">Zapier</span><span class="tchip">Slack</span><span class="tchip">Claude</span><span class="tchip">ChatGPT</span><span class="tchip">Notion</span><span class="tchip">Airtable</span><span class="tchip">Calendly</span><span class="tchip">Twilio</span><span class="tchip">Priority</span><span class="tchip">WordPress</span><span class="tchip">Stripe</span>
+      </div>
+      <div class="ticker-track">
+        <span class="tchip">WhatsApp</span><span class="tchip">Telegram</span><span class="tchip">Gmail</span><span class="tchip">Google Sheets</span><span class="tchip">Salesforce</span><span class="tchip">HubSpot</span><span class="tchip">monday.com</span><span class="tchip">Make</span><span class="tchip">n8n</span><span class="tchip">Zapier</span><span class="tchip">Slack</span><span class="tchip">Claude</span><span class="tchip">ChatGPT</span><span class="tchip">Notion</span><span class="tchip">Airtable</span><span class="tchip">Calendly</span><span class="tchip">Twilio</span><span class="tchip">Priority</span><span class="tchip">WordPress</span><span class="tchip">Stripe</span>
+      </div>
+    </div>
   </div>
 </div>
 
