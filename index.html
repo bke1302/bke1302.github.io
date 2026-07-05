@@ -22,7 +22,24 @@
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#0A1424">
 <link rel="canonical" href="https://flowopsai.co.il/">
-<link rel="icon" href="flowops-mark.png">
+<link rel="icon" href="flowops-mark.svg">
+<!-- Meta Pixel: החלף את YOUR_PIXEL_ID במזהה מ-Meta Business Suite > Events Manager -->
+<script>
+if('YOUR_PIXEL_ID'.indexOf('YOUR_PIXEL')===-1){ !function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+}
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -43,7 +60,7 @@
   "@type":"FAQPage",
   "mainEntity":[
     {"@type":"Question","name":"כמה זמן לוקח להקים אוטומציה?","acceptedAnswer":{"@type":"Answer","text":"רוב הפרויקטים מוכנים תוך 1-3 שבועות, תלוי בהיקף. אוטומציה בודדת אפשר לפעמים להעמיד תוך ימים."}},
-    {"@type":"Question","name":"אני לא טכני, אצטרך לתחזק את זה לבד?","acceptedAnswer":{"@type":"Answer","text":"לא. אנחנו בונים, מפעילים ומדריכים אתכם לתפעול היומיומי. לכל השאר יש ריטיינר תמיכה חודשי אופציונלי."}},
+    {"@type":"Question","name":"אני לא טכני, אצטרך לתחזק את זה לבד?","acceptedAnswer":{"@type":"Answer","text":"לא. אנחנו בונים, מפעילים ומדריכים אתכם לתפעול היומיומי. החודש הראשון כלול בחבילות הבוט, וממשיך בריטיינר חודשי מ-1,900 ₪, אפשר לבטל בכל רגע."}},
     {"@type":"Question","name":"זה בטוח? מה עם המידע של הלקוחות שלי?","acceptedAnswer":{"@type":"Answer","text":"העבודה נעשית מול הכלים והחשבונות שלכם עם הרשאות מינימליות. המידע נשאר אצלכם, אנחנו לא שומרים נתוני לקוחות."}},
     {"@type":"Question","name":"באילו עסקים זה עובד הכי טוב?","acceptedAnswer":{"@type":"Answer","text":"כל עסק שמקבל פניות מלקוחות ומבצע תהליכים חוזרים: קליניקות, נדל\"ן, חנויות אונליין, משרדי שירות, סוכנויות ועוד."}}
   ]
@@ -67,9 +84,9 @@
   .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
   a{text-decoration:none;color:inherit}
   section{padding:90px 0}
-  .btn{display:inline-block;background:var(--green);color:#fff;padding:15px 32px;border-radius:14px;
-       font-weight:700;font-size:1.05rem;transition:.25s;border:none;cursor:pointer;box-shadow:0 8px 20px rgba(14,164,126,.25)}
-  .btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(14,164,126,.4)}
+  .btn{display:inline-block;background:var(--green-d);color:#fff;padding:15px 32px;border-radius:14px;
+       font-weight:700;font-size:1.05rem;transition:.25s;border:none;cursor:pointer;box-shadow:0 8px 20px rgba(12,122,94,.3)}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(12,122,94,.45)}
   .btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.5);color:#fff;box-shadow:none}
   .btn-ghost:hover{background:#fff;color:var(--navy);border-color:#fff}
   .eyebrow{display:inline-block;color:var(--blue);font-weight:800;letter-spacing:1px;font-size:.92rem;margin-bottom:12px;text-transform:uppercase}
@@ -228,7 +245,16 @@
   .ecard h4 svg{width:20px;height:20px;color:var(--blue);flex-shrink:0}
   .ecard p{color:var(--muted);font-size:.93rem}
   .ecard .pr{color:var(--green-d);font-weight:900;font-size:1.3rem;white-space:nowrap}
-  @media(max-width:780px){.extra{grid-template-columns:1fr}}
+  .pilot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+    background:linear-gradient(135deg,rgba(30,111,184,.14),rgba(14,164,126,.14));
+    border:1px solid rgba(95,201,240,.35);border-radius:18px;padding:22px 28px;margin-bottom:26px}
+  .pilot-txt h3{display:flex;align-items:center;gap:9px;font-size:1.3rem;font-weight:800;margin-bottom:4px}
+  .pilot-txt h3 svg{width:22px;height:22px;color:#5FC9F0;flex-shrink:0}
+  .pilot-txt p{font-size:.98rem;max-width:560px}
+  .pilot-cta{display:flex;align-items:center;gap:18px;flex-shrink:0}
+  .pilot-amt{font-size:1.9rem;font-weight:900;color:#2FC79A;white-space:nowrap}
+  .pilot .btn{white-space:nowrap}
+  @media(max-width:780px){.extra{grid-template-columns:1fr}.pilot{flex-direction:column;align-items:flex-start}.pilot-cta{width:100%;justify-content:space-between}}
 
   /* GUARANTEE */
   .guar{background:linear-gradient(135deg,#0C7A5E,#0EA47E);color:#fff}
@@ -247,6 +273,21 @@
   .faq-a{max-height:0;overflow:hidden;transition:.3s ease;color:var(--muted);padding:0 24px}
   .faq-item.open .faq-a{max-height:260px;padding:0 24px 22px}
 
+  /* LEAD MAGNET */
+  .magnet{background:#0A1626}
+  .magnet-box{max-width:960px;margin:0 auto;background:linear-gradient(135deg,rgba(30,111,184,.15),rgba(14,164,126,.15));
+    border:1px solid rgba(95,201,240,.3);border-radius:22px;padding:38px 40px;
+    display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:center}
+  .magnet-txt .eyebrow{margin-bottom:10px}
+  .magnet-txt h2{font-size:1.6rem;font-weight:900;color:#EAF2FB;line-height:1.3;margin-bottom:10px;letter-spacing:-.3px}
+  .magnet-txt p{color:#AEC0D6;font-size:1rem}
+  .magnet-form{display:flex;flex-direction:column;gap:12px}
+  .magnet-form input[type=email]{width:100%;background:rgba(255,255,255,.95);border:1px solid rgba(255,255,255,.2);
+    border-radius:11px;padding:13px 15px;font-family:inherit;font-size:1rem;color:#16202E}
+  .magnet-form input[type=email]:focus{outline:2px solid #5FC9F0;outline-offset:1px}
+  .magnet-form .btn{width:100%;text-align:center}
+  @media(max-width:780px){.magnet-box{grid-template-columns:1fr;gap:22px;padding:30px 24px}.magnet-txt h2{font-size:1.35rem}}
+
   /* FINAL */
   .final{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;text-align:center}
   .final h2{font-size:2.5rem;font-weight:900;margin-bottom:14px}
@@ -263,6 +304,16 @@
   .lead-form input:focus,.lead-form textarea:focus{outline:2px solid #5FC9F0;outline-offset:1px}
   .lead-form textarea{min-height:88px;resize:vertical}
   .lead-form button{margin-top:4px}
+  .form-thanks{text-align:center;padding:8px 0}
+  .form-thanks .ft-ic{width:64px;height:64px;border-radius:50%;margin:0 auto 16px;
+    background:linear-gradient(135deg,#0EA47E,#0C7A5E);color:#fff;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 26px rgba(14,164,126,.4)}
+  .form-thanks .ft-ic svg{width:32px;height:32px}
+  .form-thanks h3{font-size:1.4rem;color:#fff;margin-bottom:8px}
+  .form-thanks p{color:#C2D3E6;font-size:1.02rem;margin-bottom:6px}
+  .form-thanks .ft-urgent{color:#EAF2FB;font-weight:700;margin-top:14px;margin-bottom:12px}
+  .form-thanks .btn{background:#25D366;box-shadow:0 8px 20px rgba(37,211,102,.3)}
+  .form-thanks .btn:hover{box-shadow:0 14px 30px rgba(37,211,102,.45)}
   .contact-or{display:flex;flex-direction:column;gap:14px}
   .contact-link{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:16px 18px;transition:.2s}
   .contact-link:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
@@ -566,7 +617,7 @@
 
 <nav aria-label="ניווט ראשי">
   <div class="wrap">
-    <div class="logo"><img class="mark" src="flowops-mark.png" alt="FlowOps AI" width="40" height="40"><span class="wm">Flow<em>Ops</em><b class="ai">AI</b></span></div>
+    <div class="logo"><img class="mark" src="flowops-mark.svg" alt="FlowOps AI" width="40" height="40"><span class="wm">Flow<em>Ops</em><b class="ai">AI</b></span></div>
     <div class="navlinks" id="navlinks">
       <a href="#services">שירותים</a>
       <a href="#why">למה אנחנו</a>
@@ -592,7 +643,7 @@
       <p class="lead">FlowOps AI מפתחת לעסקים סוכני AI ואוטומציות שפועלים עבורכם מסביב לשעון, משיבים ללקוחות, מסננים לידים ומעדכנים מערכות. עשור ניסיון בניהול תפעול ושירות מאחורינו: קודם מבינים את העסק, ורק אז בונים את הטכנולוגיה.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn">קבעו שיחת ייעוץ חינם</a>
-        <a href="#services" class="btn btn-ghost">כאן בונים עתיד</a>
+        <a href="demo.html" class="btn btn-ghost">נסו את הבוט בעצמכם — בלי הרשמה</a>
       </div>
       <div class="trust">
         <span><span class="ck">✓</span> <b>10 שנות</b> ניהול תפעול ושירות</span>
@@ -659,8 +710,8 @@
     <h2 class="sec-title reveal">מה אנחנו בונים לכם</h2>
     <p class="sec-sub reveal">פתרונות מוכנים שמתחילים לעבוד תוך שבועות, לא חודשים</p>
     <div class="grid">
-      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M7 9h10"/><path d="M7 13h6"/></svg></div><h3>סוכן WhatsApp ללידים</h3><p>מקבל כל פנייה, עונה תוך שניות, מסנן לידים חמים ומעביר לצוות.</p><ul class="feat"><li>מענה מיידי 24/7</li><li>סינון לידים אוטומטי</li><li>עדכון צוות המכירות</li></ul></div>
-      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div><h3>בוט שירות לקוחות</h3><p>מענה אוטומטי לשאלות נפוצות, תיאום תורים ומעקב הזמנות.</p><ul class="feat"><li>תשובות חכמות 24/7</li><li>תיאום פגישות אוטומטי</li><li>חוסך נציג שירות</li></ul></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M7 9h10"/><path d="M7 13h6"/></svg></div><h3>סוכן FlowOps ללידים</h3><p>מקבל כל פנייה, עונה תוך שניות, מסנן לידים חמים ומעביר לצוות.</p><ul class="feat"><li>מענה מיידי 24/7</li><li>סינון לידים אוטומטי</li><li>עדכון צוות המכירות</li></ul></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div><h3>סוכן FlowOps לשירות לקוחות</h3><p>מענה אוטומטי לשאלות נפוצות, תיאום תורים ומעקב הזמנות.</p><ul class="feat"><li>תשובות חכמות 24/7</li><li>תיאום פגישות אוטומטי</li><li>חוסך נציג שירות</li></ul></div>
       <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" x2="16" y1="12" y2="12"/></svg></div><h3>אוטומציית CRM</h3><p>חיבור אוטומטי בין טפסים, וואטסאפ ואתר ל-CRM.</p><ul class="feat"><li>אפס הקלדה ידנית</li><li>אפס טעויות אנוש</li><li>כל ליד מתועד</li></ul></div>
       <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div><h3>דשבורד ניהולי</h3><p>נתונים חיים, חישוב KPIs והתראות על חריגות בזמן אמת.</p><ul class="feat"><li>תמונת מצב מיידית</li><li>התראות חכמות</li><li>החלטות מבוססות נתונים</li></ul></div>
       <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></div><h3>אוטומציית תהליכים</h3><p>מזהים תהליך ידני שגוזל זמן ובונים אוטומציה שמחליפה אותו.</p><ul class="feat"><li>מיפוי התהליך</li><li>בנייה ב-n8n / Make</li><li>חיסכון של שעות</li></ul></div>
@@ -677,7 +728,7 @@
     <div class="grid" style="grid-template-columns:repeat(2,1fr);max-width:840px;margin:0 auto">
       <a class="card reveal" href="demo.html" style="display:flex;flex-direction:column;text-decoration:none">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
-        <h3>עוזר וואטסאפ חכם</h3>
+        <h3>סוכן FlowOps — בוט וואטסאפ חכם</h3>
         <p>שלחו הודעה ותראו איך הוא עונה ללקוחות, קובע תורים ולוכד לידים, מסביב לשעון.</p>
         <span class="btn" style="margin-top:auto;align-self:flex-start">פתח דמו צ'אט ←</span>
       </a>
@@ -704,13 +755,13 @@
     </div>
     <div class="vs reveal">
       <table>
-        <tr><th></th><th>פרילנסר / מתכנת רגיל</th><th class="me">FlowOps AI</th></tr>
-        <tr><td>הבנת העסק</td><td class="bad">בונה מה שאמרת</td><td class="good">מבין מה צריך (10 שנות ניהול)</td></tr>
-        <tr><td>היקף הפתרון</td><td class="bad">חלק מהפתרון</td><td class="good">מקצה לקצה</td></tr>
-        <tr><td>בעלות על המערכת</td><td class="bad">תלוי בו</td><td class="good">הכל שלכם</td></tr>
-        <tr><td>שפה</td><td class="bad">טכנית ומסובכת</td><td class="good">עסקית ופשוטה</td></tr>
-        <tr><td>איך מתחילים</td><td class="bad">פרויקט גדול ויקר</td><td class="good">פיילוט קטן, סיכון נמוך</td></tr>
-        <tr><td>זמינות</td><td class="bad">מול תמיכה</td><td class="good">מולנו, אישית</td></tr>
+        <tr><th></th><th>פרילנסר / מתכנת רגיל</th><th>סוכנות אוטומציה גדולה</th><th class="me">FlowOps AI</th></tr>
+        <tr><td>הבנת העסק</td><td class="bad">בונה מה שאמרת</td><td class="bad">בונה מה שמוכר לה</td><td class="good">מבין מה צריך (10 שנות ניהול)</td></tr>
+        <tr><td>היקף הפתרון</td><td class="bad">חלק מהפתרון</td><td class="bad">ריטיינר ופרויקט ארוך</td><td class="good">מקצה לקצה</td></tr>
+        <tr><td>בעלות על המערכת</td><td class="bad">תלוי בו</td><td class="bad">כבילה לספק</td><td class="good">הכל שלכם, גם הקוד</td></tr>
+        <tr><td>שפה</td><td class="bad">טכנית ומסובכת</td><td class="bad">מול מנהל לקוח</td><td class="good">עסקית ופשוטה</td></tr>
+        <tr><td>איך מתחילים</td><td class="bad">פרויקט גדול ויקר</td><td class="bad">התחייבות מראש</td><td class="good">דמו חי, ואז פיילוט קטן</td></tr>
+        <tr><td>זמינות</td><td class="bad">מול תמיכה</td><td class="bad">מול מוקד</td><td class="good">ישירות מול המייסד</td></tr>
       </table>
     </div>
   </div>
@@ -751,33 +802,36 @@
     <div class="scen-grid">
 
       <div class="scard reveal">
+        <span class="ex">תרחיש לדוגמה</span>
         <div class="scard-h"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>קליניקה פרטית</div>
         <div class="ba">
           <div class="row before"><span class="lbl">לפני</span><p>פניות מטופלים מגיעות בערב ובסופ"ש כשהמזכירה לא זמינה, ומטופלים פונים למרפאה אחרת.</p></div>
           <div class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
-          <div class="row after"><span class="lbl">אחרי</span><p>סוכן WhatsApp עונה תוך שניות בכל שעה, משיב על שאלות נפוצות ומתאם תורים ישירות ליומן.</p></div>
+          <div class="row after"><span class="lbl">אחרי</span><p>סוכן FlowOps עונה תוך שניות בכל שעה, משיב על שאלות נפוצות ומתאם תורים ישירות ליומן.</p></div>
         </div>
-        <div class="built">מה בנינו: <b>סוכן WhatsApp + חיבור ליומן התורים</b></div>
+        <div class="built">מה בונים במקרה כזה: <b>סוכן FlowOps + חיבור ליומן התורים</b></div>
       </div>
 
       <div class="scard reveal">
+        <span class="ex">תרחיש לדוגמה</span>
         <div class="scard-h"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg></span>משרד תיווך</div>
         <div class="ba">
           <div class="row before"><span class="lbl">לפני</span><p>לידים מגיעים מכמה מקורות (פייסבוק, יד2, אתר) ומתפזרים. עד שחוזרים אליהם, הם כבר דיברו עם מתווך אחר.</p></div>
           <div class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
           <div class="row after"><span class="lbl">אחרי</span><p>כל ליד נכנס אוטומטית ל-CRM עם מענה מיידי, מסונן לפי רלוונטיות ומועבר למתווך הנכון.</p></div>
         </div>
-        <div class="built">מה בנינו: <b>אוטומציית לידים + חיבור CRM</b></div>
+        <div class="built">מה בונים במקרה כזה: <b>אוטומציית לידים + חיבור CRM</b></div>
       </div>
 
       <div class="scard reveal">
+        <span class="ex">תרחיש לדוגמה</span>
         <div class="scard-h"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span>חנות אונליין</div>
         <div class="ba">
           <div class="row before"><span class="lbl">לפני</span><p>אותן שאלות חוזרות על משלוח, החזרות וסטטוס הזמנה גוזלות מהצוות שעות בכל יום.</p></div>
           <div class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
-          <div class="row after"><span class="lbl">אחרי</span><p>בוט שירות עונה 24/7 על השאלות הנפוצות ומאפשר ללקוח לבדוק סטטוס הזמנה לבד, מתי שנוח לו.</p></div>
+          <div class="row after"><span class="lbl">אחרי</span><p>סוכן FlowOps עונה 24/7 על השאלות הנפוצות ומאפשר ללקוח לבדוק סטטוס הזמנה לבד, מתי שנוח לו.</p></div>
         </div>
-        <div class="built">מה בנינו: <b>בוט שירות + חיבור למערכת ההזמנות</b></div>
+        <div class="built">מה בונים במקרה כזה: <b>סוכן FlowOps + חיבור למערכת ההזמנות</b></div>
       </div>
 
     </div>
@@ -809,6 +863,16 @@
     <div style="text-align:center"><span class="eyebrow reveal">תמחור</span></div>
     <h2 class="sec-title reveal">חבילות ומחירים</h2>
     <p class="sec-sub reveal">בכל חבילה אתם יודעים בדיוק מה תקבלו. בלי הפתעות, בלי מילים גדולות.</p>
+    <div class="pilot reveal">
+      <div class="pilot-txt">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91 0z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> פיילוט היכרות</h3>
+        <p>אוטומציה אחת בהיקף מוגדר, עובדת אצלכם תוך שבוע. מרוצים? הסכום מתקזז במלואו בשדרוג לכל חבילה.</p>
+      </div>
+      <div class="pilot-cta">
+        <div class="pilot-amt">1,490 ₪</div>
+        <a href="#contact" class="btn">מתחילים בפיילוט</a>
+      </div>
+    </div>
     <div class="prices">
       <div class="price reveal">
         <h3>בסיס</h3>
@@ -832,7 +896,7 @@
         <div class="roi">ליד אחד שנשמר מחזיר חלק נכבד מההשקעה</div>
         <div class="deliv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> אספקה: 1-2 שבועות</div>
         <ul>
-          <li><b>סוכן WhatsApp מלא</b>, עונה ללקוחות, מסנן לידים ומעביר לצוות</li>
+          <li><b>סוכן FlowOps מלא</b>, עונה ללקוחות, מסנן לידים ומעביר לצוות</li>
           <li><b>חיבור ל-CRM</b>, כל ליד נשמר אוטומטית, בלי הקלדה</li>
           <li><b>דשבורד</b> לראות כמה פניות, מאיפה ומה הסטטוס</li>
           <li>הדרכת צוות + חודש תמיכה מלא</li>
@@ -858,10 +922,10 @@
       ✓ כל חבילה כוללת: <b>אפיון · בנייה · חיבור למערכות שלכם · הדרכה</b>, ואתם הבעלים של הכל.
     </p>
     <p style="text-align:center;margin-top:10px;font-size:.98rem;color:#5FC9F0;font-weight:600">
-      מחירי השקה ללקוחות הראשונים, בתמורה להמלצה בסיום הפרויקט.
+      מחירי השקה ל-5 הלקוחות הבאים בלבד, בתמורה להמלצה בסיום הפרויקט. לאחר מכן המחירון מתעדכן.
     </p>
     <div class="extra">
-      <div class="ecard reveal"><div><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> ריטיינר חודשי</h4><p>תחזוקה ושיפורים שוטפים אחרי שהמערכת עובדת</p></div><div class="pr">מ-1,900 ₪/חודש</div></div>
+      <div class="ecard reveal"><div><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> ריטיינר חודשי</h4><p>ניטור הבוט 24/7 עם התראה מיידית על תקלה, טיפול בתוך יום עסקים, עד 3 שעות שינויים בחודש, ודוח חודשי, כמה פניות נענו, כמה לידים נשמרו וכמה שעות נחסכו לכם. בחבילות בוט: החודש הראשון כלול.</p></div><div class="pr">מ-1,900 ₪/חודש</div></div>
       <div class="ecard reveal"><div><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg> לא בטוחים מה מתאים?</h4><p>נדבר 20 דקות ונבנה לכם הצעה מדויקת, בחינם</p></div><a href="#contact" class="pr" style="color:var(--blue)">בואו נדבר ←</a></div>
     </div>
   </div>
@@ -886,11 +950,33 @@
     <p class="sec-sub reveal">לפני שמתחילים</p>
     <div class="reveal">
       <div class="faq-item"><div class="faq-q">כמה זמן לוקח להקים אוטומציה?</div><div class="faq-a">רוב הפרויקטים מוכנים תוך 1-3 שבועות, תלוי בהיקף. אוטומציה בודדת אפשר לפעמים להעמיד תוך ימים.</div></div>
-      <div class="faq-item"><div class="faq-q">אני לא טכני, אצטרך לתחזק את זה לבד?</div><div class="faq-a">לא. אנחנו בונים, מפעילים ומדריכים אתכם לתפעול היומיומי הפשוט. לכל השאר יש ריטיינר תמיכה חודשי אופציונלי.</div></div>
+      <div class="faq-item"><div class="faq-q">אני לא טכני, אצטרך לתחזק את זה לבד?</div><div class="faq-a">לא. אנחנו בונים, מפעילים ומדריכים אתכם לתפעול היומיומי הפשוט. החודש הראשון כלול בחבילות הבוט, וממשיך בריטיינר חודשי מ-1,900 ₪, אפשר לבטל בכל רגע.</div></div>
       <div class="faq-item"><div class="faq-q">זה בטוח? מה עם המידע של הלקוחות שלי?</div><div class="faq-a">העבודה נעשית מול הכלים והחשבונות שלכם, עם הרשאות מינימליות. המידע נשאר אצלכם, אנחנו לא שומרים נתוני לקוחות.</div></div>
       <div class="faq-item"><div class="faq-q">מה אם זה לא יתאים לעסק שלי?</div><div class="faq-a">בשביל זה יש שיחת אפיון חינם ופיילוט קטן. מתחילים בקטן, מוכיחים ערך, ורק אז מרחיבים, כדי לצמצם את הסיכון למינימום.</div></div>
       <div class="faq-item"><div class="faq-q">למה לא פשוט לשכור מתכנת זול?</div><div class="faq-a">מתכנת בונה מה שאמרתם, בלי להבין אם זה באמת מה שהעסק צריך. אנחנו מגיעים מ-10 שנות ניהול תפעול, אז קודם מבינים את הבעיה ואז בונים. זה ההבדל בין כלי שעובד לכלי שמשנה לכם את העסק.</div></div>
       <div class="faq-item"><div class="faq-q">באילו עסקים זה עובד הכי טוב?</div><div class="faq-a">כל עסק שמקבל פניות מלקוחות ומבצע תהליכים חוזרים: קליניקות, נדל"ן, חנויות אונליין, משרדי שירות, סוכנויות ועוד.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="magnet" id="guide">
+  <div class="wrap">
+    <div class="magnet-box reveal">
+      <div class="magnet-txt">
+        <span class="eyebrow">מדריך חינם</span>
+        <h2>המדריך החינמי: 5 אוטומציות AI שחוסכות לעסק קטן 10 שעות בשבוע</h2>
+        <p>השאירו מייל ואשלח לכם את המדריך. בלי ספאם. רק המדריך ועדכון קצר אחת לחודש.</p>
+      </div>
+      <form class="magnet-form" action="https://formsubmit.co/barak@flowopsai.co.il" method="POST">
+        <input type="hidden" name="_subject" value="הרשמה למדריך החינמי - FlowOps AI">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://flowopsai.co.il/flowops-guide.pdf">
+        <input type="text" name="_honey" style="display:none">
+        <label for="mg-email" class="sr-only">אימייל</label>
+        <input id="mg-email" type="email" name="אימייל" placeholder="האימייל שלכם" required>
+        <button type="submit" class="btn">שלחו לי את המדריך</button>
+      </form>
     </div>
   </div>
 </section>
@@ -901,6 +987,14 @@
     <p class="reveal">שיחת ייעוץ ראשונה חינם, נראה יחד איפה AI יכול לעזור לעסק שלכם. בלי התחייבות.</p>
     <div class="contact-grid reveal">
       <div class="contact-col">
+        <div class="form-thanks" id="formThanks" role="status" hidden>
+          <div class="ft-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>תודה! הפרטים התקבלו ✓</h3>
+          <p>אחזור אליכם אישית תוך יום עסקים.</p>
+          <p class="ft-urgent">דחוף?</p>
+          <a class="btn cta-wa" href="https://wa.me/972548080657?text=היי,%20השארתי%20פרטים%20באתר%20ורציתי%20להתקדם%20בדחיפות"><svg viewBox="0 0 24 24" fill="#fff" width="20" height="20" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg> כתבו לי עכשיו בוואטסאפ</a>
+        </div>
+        <div id="formWrap">
         <h3>השאירו פרטים ואחזור אליכם</h3>
         <p class="sub">מלאו את הפרטים, ואחזור אליכם בהקדם עם תשובה אישית.</p>
         <form class="lead-form" action="https://formsubmit.co/barak@flowopsai.co.il" method="POST">
@@ -919,6 +1013,7 @@
           <textarea id="lf-msg" name="במה אפשר לעזור" placeholder="ספרו בקצרה על העסק ומה תרצו לשפר"></textarea>
           <button type="submit" class="btn">שליחת הפרטים</button>
         </form>
+        </div>
       </div>
       <div class="contact-col">
         <h3>או דברו איתי ישירות</h3>
@@ -973,6 +1068,7 @@
     <p>FlowOps AI ("אנחנו") מכבדת את פרטיותכם ופועלת בהתאם לחוק הגנת הפרטיות, התשמ"א-1981. מסמך זה מסביר איזה מידע נאסף באתר וכיצד נעשה בו שימוש.</p>
     <p><b>איזה מידע נאסף:</b> באתר קיים טופס יצירת קשר שבו אתם בוחרים למסור שם, טלפון, כתובת אימייל ותיאור קצר של הצורך. בנוסף, מידע אישי נמסר כאשר אתם יוצרים קשר יזום בוואטסאפ, בטלפון או בדוא"ל. אינכם חייבים למסור מידע, אך בלעדיו לא נוכל לחזור אליכם.</p>
     <p><b>עיבוד באמצעות ספקים:</b> שליחת טופס יצירת הקשר מתבצעת דרך שירות צד שלישי (FormSubmit), המעביר את הפרטים לתיבת הדוא"ל שלנו ואינו עושה בהם שימוש עצמאי. כמו כן, גופני התצוגה נטענים משירות Google Fonts, שעשוי לקבל את כתובת ה-IP שלכם לצורך הצגת הגופן.</p>
+    <p><b>עוזר דיגיטלי ו-AI:</b> חלק מהתקשורת שלנו בוואטסאפ ובצ'אט הדמו באתר מתבצעת באמצעות עוזר דיגיטלי אוטומטי. תוכן ההתכתבות נשמר במערכותינו לצורך מתן מענה ומעקב עסקי, ומעובד באמצעות ספק בינה מלאכותית (Anthropic) הפועל כספק עיבוד מטעמנו. תוכלו לבקש בכל עת לעיין בהתכתבות, לתקנה או למחקה בפרטי הקשר שלעיל.</p>
     <p><b>שימוש במידע ושמירתו:</b> הפרטים שתמסרו ישמשו אך ורק למענה לפנייתכם ולמתן השירות, יישמרו רק למשך הזמן הדרוש לכך ולניהול הקשר העסקי, ולא יימסרו לצדדים שלישיים ולא ישמשו לדיוור שיווקי ללא הסכמתכם המפורשת.</p>
     <p><b>עוגיות (Cookies):</b> האתר אינו משתמש בעוגיות מעקב או באנליטיקס. העדפות הנגישות שתבחרו נשמרות מקומית בדפדפן שלכם בלבד (localStorage) ואינן נשלחות לשום שרת.</p>
     <p><b>זכויותיכם:</b> תוכלו לפנות אלינו בכל עת לעיין במידע שמסרתם, לתקנו או למחקו: טלפון <a href="tel:0548080657">054-8080657</a> · דוא"ל <a href="mailto:barak@flowopsai.co.il">barak@flowopsai.co.il</a>. גולשים מהאיחוד האירופי זכאים לזכויות נוספות לפי תקנת ה-GDPR; הבסיס החוקי לעיבוד הוא הסכמתכם ומתן מענה לפנייתכם.</p>
@@ -1033,6 +1129,17 @@
     q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
   });
 
+  // ===== Form success message (?sent=1) =====
+  (function(){
+    if(new URLSearchParams(location.search).get('sent')!=='1') return;
+    const thanks=document.getElementById('formThanks'), wrap=document.getElementById('formWrap');
+    if(!thanks) return;
+    thanks.hidden=false;
+    if(wrap) wrap.style.display='none';
+    const c=document.getElementById('contact');
+    if(c) requestAnimationFrame(()=>c.scrollIntoView({behavior:'smooth',block:'center'}));
+  })();
+
   // ===== Mobile nav toggle =====
   (function(){
     const t=document.getElementById('navtoggle'), l=document.getElementById('navlinks');
@@ -1066,14 +1173,37 @@
     try{const s=JSON.parse(localStorage.getItem(KEY));if(s){fs=s.fs||0;applyFs();FLAGS.forEach(f=>root.classList.toggle(f,!!s[f]));sync();}}catch(e){}
   })();
 
-  // ===== Modals (accessibility statement + privacy) =====
+  // ===== Modals (accessibility statement + privacy + terms) =====
   function bindModal(modalId, linkId, closeId){
     const m=document.getElementById(modalId), open=document.getElementById(linkId), close=document.getElementById(closeId);
     if(!m||!open) return;
-    open.addEventListener('click',e=>{e.preventDefault();m.classList.add('open');});
-    if(close) close.addEventListener('click',()=>m.classList.remove('open'));
-    m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');});
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')m.classList.remove('open');});
+    let lastFocus=null;
+    const FOCUSABLE='a[href],button:not([disabled]),input,textarea,select,[tabindex]:not([tabindex="-1"])';
+    const focusables=()=>Array.from(m.querySelectorAll(FOCUSABLE)).filter(el=>el.offsetParent!==null||el===close);
+    function onKey(e){
+      if(e.key==='Escape'){closeModal();return;}
+      if(e.key!=='Tab')return;
+      const f=focusables(); if(!f.length)return;
+      const first=f[0], last=f[f.length-1];
+      if(e.shiftKey){ if(document.activeElement===first||!m.contains(document.activeElement)){e.preventDefault();last.focus();} }
+      else { if(document.activeElement===last||!m.contains(document.activeElement)){e.preventDefault();first.focus();} }
+    }
+    function openModal(e){
+      if(e)e.preventDefault();
+      lastFocus=document.activeElement;
+      m.classList.add('open');
+      document.addEventListener('keydown',onKey);
+      (close||focusables()[0])?.focus();
+    }
+    function closeModal(){
+      if(!m.classList.contains('open'))return;
+      m.classList.remove('open');
+      document.removeEventListener('keydown',onKey);
+      if(lastFocus&&typeof lastFocus.focus==='function')lastFocus.focus();
+    }
+    open.addEventListener('click',openModal);
+    if(close) close.addEventListener('click',closeModal);
+    m.addEventListener('click',e=>{if(e.target===m)closeModal();});
   }
   bindModal('accStatement','accStatementLink','accStatementClose');
   bindModal('privacy','privacyLink','privacyClose');
@@ -1133,7 +1263,7 @@
 <script type="module">
   const canvas = document.getElementById('gl');
   const reduceM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (canvas && !reduceM) {
+  if (canvas && !reduceM && window.matchMedia('(min-width:880px)').matches) {
     try {
       let THREE;
       try { THREE = await import('https://unpkg.com/three@0.160.0/build/three.module.js'); }
