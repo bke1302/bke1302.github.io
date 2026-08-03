@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מגיב הלידים 24/7 | סוכן AI לקליניקות יופי ואסתטיקה | FlowOps AI</title>
+<meta name="description" content="כל ליד שלא ענית לו תוך דקה הלך למתחרה. סוכן AI שמגיב לכל פנייה מפרסום תוך 60 שניות, בעברית, מסנן וקובע תור. חי תוך 7 ימים, בלי שיחת מכירה.">
+<meta property="og:title" content="מגיב הלידים 24/7 | סוכן AI לקליניקות יופי">
+<meta property="og:description" content="עונה לכל ליד תוך 60 שניות, מסנן וקובע תור. הפסיקו לשרוף לידים ממומנים.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta name="theme-color" content="#0A1424">
+<link rel="icon" href="flowops-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2540; --navy2:#143A66; --blue:#1E6FB8; --blue-l:#6FB4F0;
+    --green:#0EA47E; --green-d:#0C7A5E; --gold:#D4A53A; --cyan:#42E8E0;
+    --wa:#25D366; --bg:#0A1424; --card:#101F36; --txt:#E8EFF8; --muted:#9DB0C6;
+    --line:rgba(255,255,255,.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--txt);line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  a{text-decoration:none;color:inherit}
+  section{padding:84px 0;border-top:1px solid rgba(120,170,230,.07)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--green);color:#fff;padding:15px 30px;border-radius:14px;
+       font-weight:700;font-size:1.05rem;transition:.25s;border:none;cursor:pointer;box-shadow:0 8px 20px rgba(14,164,126,.28)}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(14,164,126,.42)}
+  .btn.gold{background:var(--gold);box-shadow:0 8px 20px rgba(212,165,58,.3)}
+  .btn.gold:hover{box-shadow:0 14px 30px rgba(212,165,58,.45)}
+  .btn-ghost{background:transparent;border:1.5px solid rgba(159,208,255,.45);color:#DCEAF8;box-shadow:none}
+  .btn-ghost:hover{background:rgba(159,208,255,.1);border-color:#9FD0FF}
+  .eyebrow{display:inline-block;color:var(--cyan);font-weight:800;letter-spacing:1px;font-size:.9rem;margin-bottom:14px}
+  .sec-title{font-size:2.3rem;font-weight:900;color:#EAF2FB;text-align:center;margin-bottom:12px;letter-spacing:-.5px}
+  .sec-sub{text-align:center;color:var(--muted);margin-bottom:52px;font-size:1.14rem;max-width:640px;margin-inline:auto}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(8,18,34,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{direction:ltr;display:flex;align-items:center;gap:9px;color:#fff;font-weight:900;font-size:1.2rem}
+  .logo img{width:38px;height:38px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.35)}
+  .logo .ai{color:var(--cyan);font-size:.72em;font-weight:800;margin-left:5px;letter-spacing:.5px}
+  nav .btn{padding:9px 20px;font-size:.95rem}
+
+  /* HERO */
+  header{position:relative;overflow:hidden;background:radial-gradient(ellipse 700px 500px at 80% 10%,rgba(30,111,184,.28),transparent 62%),radial-gradient(ellipse 600px 500px at 5% 90%,rgba(14,164,126,.14),transparent 60%),#06182c;padding:76px 0 88px}
+  header::before{content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(94,201,240,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(94,201,240,.045) 1px,transparent 1px);
+    background-size:52px 52px;mask-image:radial-gradient(circle at 72% 20%,#000,transparent 78%)}
+  header .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
+  .badge{display:inline-flex;align-items:center;gap:9px;background:rgba(66,232,224,.1);border:1px solid rgba(66,232,224,.32);color:#BdF3EF;padding:7px 15px;border-radius:30px;font-size:.86rem;font-weight:600;margin-bottom:22px}
+  .badge .dot{width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 0 4px rgba(14,164,126,.25);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(14,164,126,.5)}70%{box-shadow:0 0 0 9px rgba(14,164,126,0)}100%{box-shadow:0 0 0 0 rgba(14,164,126,0)}}
+  header h1{font-size:3.05rem;font-weight:900;line-height:1.16;letter-spacing:-1px;margin-bottom:18px;color:#fff}
+  header h1 span{background:linear-gradient(90deg,#6FB4F0,#42E8E0);-webkit-background-clip:text;background-clip:text;color:transparent}
+  header p.lead{font-size:1.22rem;color:#CFDEEE;margin-bottom:32px;max-width:560px}
+  .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+  .trust{margin-top:30px;display:flex;gap:12px 26px;flex-wrap:wrap;color:#9FB6CC;font-size:.94rem}
+  .trust span{display:flex;align-items:center;gap:7px}
+  .trust svg{width:16px;height:16px;color:var(--green);flex-shrink:0}
+  @media(max-width:900px){header .wrap{grid-template-columns:1fr;gap:34px}header h1{font-size:2.3rem}.hero-visual{max-width:380px;margin:0 auto;order:2}}
+
+  /* chat mockup */
+  .hero-visual{position:relative;justify-self:center;width:100%;max-width:400px}
+  .chat-mock{background:rgba(13,26,46,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:15px;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+  .cm-head{display:flex;align-items:center;gap:11px;padding:2px 4px 12px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:12px}
+  .cm-ava{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#0EA47E,#0C7A5E);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 6px 16px rgba(14,164,126,.4)}
+  .cm-ava svg{width:22px;height:22px;color:#fff}
+  .cm-id b{color:#EAF3FF;font-size:.98rem;display:block}
+  .cm-id .cm-st{color:#8DA6C2;font-size:.78rem;display:flex;align-items:center;gap:6px}
+  .cm-on{width:7px;height:7px;border-radius:50%;background:#2ee6a5;box-shadow:0 0 0 3px rgba(46,230,165,.25)}
+  .cm-body{display:flex;flex-direction:column;gap:9px;min-height:210px}
+  .cm-msg{max-width:86%;padding:9px 13px;font-size:.9rem;line-height:1.55;border-radius:15px;opacity:0;transform:translateY(8px);animation:msgIn .4s forwards}
+  .cm-msg.in{align-self:flex-start;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.09);color:#DCE7F3;border-top-right-radius:5px}
+  .cm-msg.bot{align-self:flex-end;background:linear-gradient(135deg,#0EA47E,#0C7A5E);color:#fff;border-top-left-radius:5px;box-shadow:0 8px 20px rgba(14,164,126,.28)}
+  .cm-msg .t{display:block;font-size:.66rem;opacity:.75;margin-top:3px;text-align:left}
+  @keyframes msgIn{to{opacity:1;transform:none}}
+
+  /* STATS / cost */
+  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 26px;text-align:center}
+  .stat .big{font-size:2.7rem;font-weight:900;background:linear-gradient(90deg,#6FB4F0,#42E8E0);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat p{color:var(--muted);margin-top:6px;font-size:1rem}
+
+  /* DEMO */
+  .demo{background:#0C1E38}
+  .demo-box{max-width:440px;margin:0 auto;background:rgba(13,26,46,.9);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:16px;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+  .demo-head{display:flex;align-items:center;gap:11px;padding:2px 4px 12px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:12px}
+  .demo-body{display:flex;flex-direction:column;gap:9px;height:340px;overflow-y:auto;padding:4px 6px 6px 2px;scroll-behavior:smooth}
+  .demo-body::-webkit-scrollbar{width:5px}.demo-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:3px}
+  .d-msg{max-width:84%;padding:9px 13px;font-size:.92rem;line-height:1.55;border-radius:15px;animation:msgIn .35s}
+  .d-msg.in{align-self:flex-start;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.09);color:#DCE7F3;border-top-right-radius:5px}
+  .d-msg.me{align-self:flex-end;background:linear-gradient(135deg,#1E6FB8,#143A66);color:#fff;border-top-left-radius:5px}
+  .typing{align-self:flex-start;display:flex;gap:4px;padding:12px 15px;background:rgba(255,255,255,.08);border-radius:15px}
+  .typing i{width:7px;height:7px;border-radius:50%;background:#8DA6C2;animation:blink 1.2s infinite}
+  .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,60%,100%{opacity:.3}30%{opacity:1}}
+  .demo-choices{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;justify-content:center}
+  .choice{background:rgba(66,232,224,.1);border:1px solid rgba(66,232,224,.35);color:#BdF3EF;padding:9px 16px;border-radius:22px;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;transition:.18s}
+  .choice:hover{background:rgba(66,232,224,.2);transform:translateY(-2px)}
+  .demo-note{text-align:center;color:var(--muted);font-size:.9rem;margin-top:20px}
+
+  /* HOW */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;text-align:center}
+  .step .n{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.25rem;box-shadow:0 8px 18px rgba(30,111,184,.3)}
+  .step h4{color:#EAF2FB;font-weight:700;margin-bottom:6px;font-size:1.15rem}
+  .step p{color:var(--muted);font-size:.98rem}
+
+  /* OFFER */
+  .offer{background:#0B1A30}
+  .offer-card{max-width:640px;margin:0 auto;background:var(--card);border:2px solid var(--gold);border-radius:24px;padding:40px 36px;box-shadow:0 20px 50px rgba(212,165,58,.14);position:relative}
+  .offer-card .tag{position:absolute;top:-15px;right:50%;transform:translateX(50%);background:linear-gradient(90deg,#D4A53A,#E5BC5B);color:#0B2540;padding:5px 20px;border-radius:20px;font-size:.86rem;font-weight:800;white-space:nowrap}
+  .offer-card h3{font-size:1.7rem;font-weight:900;color:#EAF2FB;text-align:center;margin-bottom:6px}
+  .offer-card .who{text-align:center;color:var(--muted);margin-bottom:22px}
+  .price-row{display:flex;justify-content:center;align-items:baseline;gap:26px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:22px;border-bottom:1px dashed rgba(255,255,255,.14)}
+  .price-blk{text-align:center}
+  .price-blk .amt{font-size:2.5rem;font-weight:900;color:#2FC79A;line-height:1}
+  .price-blk .lbl{color:var(--muted);font-size:.9rem;margin-top:4px}
+  .offer-card ul{list-style:none;margin-bottom:26px}
+  .offer-card li{padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.08);color:#CBD7E6;display:flex;gap:11px;align-items:flex-start}
+  .offer-card li svg{width:20px;height:20px;color:var(--green);flex-shrink:0;margin-top:3px}
+  .offer-card .btn{width:100%;font-size:1.1rem}
+
+  /* AUDIT FORM */
+  .audit{background:#0A1626}
+  .audit-box{max-width:640px;margin:0 auto;background:var(--card);border:1px solid rgba(66,232,224,.25);border-radius:22px;padding:36px 34px}
+  .fld{margin-bottom:20px}
+  .fld label{display:block;color:#DCEAF8;font-weight:700;margin-bottom:9px;font-size:1.02rem}
+  .fld input[type=number],.fld input[type=text],.fld input[type=tel]{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:13px 15px;color:#EAF3FF;font:inherit;font-size:1rem}
+  .fld input:focus{outline:2px solid var(--cyan);outline-offset:1px}
+  .fld .rng-val{color:var(--cyan);font-weight:800;font-size:1.15rem}
+  input[type=range]{width:100%;accent-color:var(--cyan);margin-top:6px}
+  .result{display:none;background:linear-gradient(135deg,rgba(226,85,85,.1),rgba(14,164,126,.08));border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:26px 24px;margin:8px 0 22px;text-align:center}
+  .result.show{display:block;animation:msgIn .4s}
+  .result .rbig{font-size:2.6rem;font-weight:900;color:#FF8A8A;line-height:1.1}
+  .result .rsub{color:#CBD7E6;margin-top:8px;font-size:1.02rem}
+  .result .rgood{color:#2FC79A;font-weight:700;margin-top:14px;font-size:1.05rem}
+  .optin{display:flex;gap:11px;align-items:flex-start;margin:6px 0 18px;color:var(--muted);font-size:.88rem}
+  .optin input{margin-top:5px;width:17px;height:17px;accent-color:var(--green);flex-shrink:0}
+  .audit .btn{width:100%;font-size:1.08rem}
+
+  /* GUARANTEE */
+  .guar{background:linear-gradient(135deg,#0C7A5E,#0EA47E);text-align:center}
+  .guar .sec-title{color:#fff}
+  .guar p{color:#E0F3EC;max-width:600px;margin:0 auto;font-size:1.14rem}
+  .guar .gi{width:60px;height:60px;margin:0 auto 18px;border-radius:16px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center}
+  .guar .gi svg{width:32px;height:32px;color:#fff}
+
+  footer{background:#070F1C;color:#8FA6BC;text-align:center;padding:34px 0;font-size:.94rem}
+  footer b{color:#fff}
+  footer a{color:var(--cyan)}
+
+  .wa-float{position:fixed;bottom:24px;left:24px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.5);transition:.2s;animation:pulse2 2.6s infinite}
+  .wa-float:hover{transform:scale(1.1)}
+  .wa-float svg{width:32px;height:32px;fill:#fff}
+  @keyframes pulse2{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+  @media(max-width:880px){.stats-grid,.steps{grid-template-columns:1fr}.sec-title{font-size:1.8rem}section{padding:60px 0}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo"><img src="flowops-mark.png" alt="FlowOps AI"><span>FlowOps<span class="ai">AI</span></span></div>
+    <a href="#audit" class="btn">קבלו אבחון חינם</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="badge"><span class="dot"></span>מגיב הלידים 24/7 · לקליניקות יופי ואסתטיקה</div>
+      <h1>כל ליד שלא ענית לו תוך דקה <span>הלך למתחרה.</span></h1>
+      <p class="lead">אתם משלמים על כל פנייה שמגיעה מהפרסום בפייסבוק ובאינסטגרם. חלק גדול מהן נכבה כי אף אחד לא ענה מספיק מהר. אני בונה סוכן AI שמגיב לכל פנייה תוך 60 שניות, בעברית, מסנן את הפונה וקובע לו תור ביומן. עובד לבד, מסביב לשעון, גם ב-2 בלילה.</p>
+      <div class="hero-cta">
+        <a href="#demo" class="btn">התנסו בסוכן עכשיו</a>
+        <a href="#audit" class="btn btn-ghost">כמה לידים אתם שורפים?</a>
+      </div>
+      <div class="trust">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>חי תוך 7 ימים</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>בלי שיחת מכירה</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>אחריות החזר מלאה</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="chat-mock">
+        <div class="cm-head">
+          <div class="cm-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></div>
+          <div class="cm-id"><b>קליניקה · מגיב אוטומטי</b><span class="cm-st"><span class="cm-on"></span>מקליד עכשיו</span></div>
+        </div>
+        <div class="cm-body">
+          <div class="cm-msg in" style="animation-delay:.2s">היי, ראיתי מודעה על הסרת שיער בלייזר, כמה זה עולה?<span class="t">23:41</span></div>
+          <div class="cm-msg bot" style="animation-delay:1s">היי, שמחה שפנית. אשמח לעזור. מדובר על אזור מסוים או טיפול גוף מלא?<span class="t">23:41</span></div>
+          <div class="cm-msg in" style="animation-delay:2s">רגליים מלאות<span class="t">23:42</span></div>
+          <div class="cm-msg bot" style="animation-delay:2.9s">מעולה. יש לנו מבצע סדרה החודש. יש לך זמן להתקזז? יש חלון מחר ב-16:00 או ביום חמישי ב-11:00.<span class="t">23:42</span></div>
+          <div class="cm-msg in" style="animation-delay:4s">חמישי ב-11 מעולה<span class="t">23:42</span></div>
+          <div class="cm-msg bot" style="animation-delay:4.9s">קבעתי לך, נשלח תזכורת. נעים להכיר, נתראה בחמישי.<span class="t">23:43</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="cost">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center;display:block">המחיר של תגובה איטית</div>
+    <h2 class="sec-title">הליד לא מחכה לכם</h2>
+    <p class="sec-sub">כשמישהו משאיר פנייה בשעה 22:00, הוא פונה גם לשתי קליניקות נוספות. מי שעונה ראשון לוקח אותו.</p>
+    <div class="stats-grid">
+      <div class="stat"><div class="big">78%</div><p>מהלקוחות בוחרים בעסק שהגיב אליהם ראשון</p></div>
+      <div class="stat"><div class="big">×8</div><p>ירידה בסיכוי לסגור כשעונים אחרי 5 דקות במקום מייד</p></div>
+      <div class="stat"><div class="big">0</div><p>לידים מקבלים מענה בזמן שהקליניקה סגורה, בלילה ובסופ״ש</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="demo" id="demo">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center;display:block">התנסות חיה</div>
+    <h2 class="sec-title">דברו עם הסוכן בעצמכם</h2>
+    <p class="sec-sub">זה בדיוק מה שהלקוח שלכם יחווה. בחרו תשובה וראו איך הסוכן מגיב, מסנן וקובע תור.</p>
+    <div class="demo-box">
+      <div class="demo-head">
+        <div class="cm-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></div>
+        <div class="cm-id"><b>קליניקת יופי · מגיב AI</b><span class="cm-st"><span class="cm-on"></span>מקוון · מגיב בשניות</span></div>
+      </div>
+      <div class="demo-body" id="demoBody"></div>
+    </div>
+    <div class="demo-choices" id="demoChoices"></div>
+    <p class="demo-note">הדמו רץ בדפדפן להמחשה. אצל הלקוח האמיתי זה קורה בוואטסאפ שלו, אוטומטית.</p>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center;display:block">איך זה עובד</div>
+    <h2 class="sec-title">שלושה שלבים, אפס עבודה שלכם</h2>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4>ליד נכנס</h4><p>מישהו משאיר פנייה מהמודעה, מהאתר או בוואטסאפ, בכל שעה.</p></div>
+      <div class="step"><div class="n">2</div><h4>הסוכן עונה ומסנן</h4><p>תוך 60 שניות, בעברית: עונה על שאלות, מבין מה הפונה רוצה, ומסנן רציניים מסקרנים.</p></div>
+      <div class="step"><div class="n">3</div><h4>תור נקבע</h4><p>קובע תור פנוי ביומן שלכם ומעביר לכם ליד חם עם כל הפרטים כבר מוכנים.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="offer" id="offer">
+  <div class="wrap">
+    <div class="offer-card">
+      <div class="tag">ההצעה</div>
+      <h3>מגיב הלידים 24/7</h3>
+      <p class="who">סוכן AI מותקן על הוואטסאפ העסקי שלכם, מוכן לעבודה תוך 7 ימים</p>
+      <div class="price-row">
+        <div class="price-blk"><div class="amt">3,500 ₪</div><div class="lbl">הקמה חד פעמית</div></div>
+        <div class="price-blk"><div class="amt">990 ₪</div><div class="lbl">לחודש · אירוח ותחזוקה</div></div>
+      </div>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>מענה אוטומטי בעברית לכל פנייה, תוך 60 שניות, 24/7</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>סינון הפונה בשלוש שאלות וקביעת תור ליומן שלכם</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>העברת ליד חם אליכם עם כל הפרטים שנאספו</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>מתארח בענן עם התאוששות עצמית, לא נופל</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>מדבר בטון של הקליניקה שלכם, לא רובוטי</li>
+      </ul>
+      <a href="#audit" class="btn gold">רוצה להתחיל, קבלו אבחון חינם</a>
+    </div>
+  </div>
+</section>
+
+<section class="audit" id="audit">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center;display:block">אבחון חינם</div>
+    <h2 class="sec-title">כמה כסף אתם שורפים היום?</h2>
+    <p class="sec-sub">שתי שאלות, ותקבלו הערכה כמה לידים משלמים הולכים לאיבוד אצלכם כל חודש. בלי שיחת מכירה.</p>
+    <div class="audit-box">
+      <div class="fld">
+        <label for="leads">כמה פניות אתם מקבלים מהפרסום בחודש?</label>
+        <input type="number" id="leads" min="0" placeholder="לדוגמה 120" oninput="calc()">
+      </div>
+      <div class="fld">
+        <label for="cpl">כמה אתם משלמים בממוצע על ליד? (₪)</label>
+        <input type="number" id="cpl" min="0" placeholder="לדוגמה 45" oninput="calc()">
+      </div>
+      <div class="fld">
+        <label for="miss">כמה מהפניות לא מקבלות מענה תוך 5 דקות? <span class="rng-val" id="missVal">40%</span></label>
+        <input type="range" id="miss" min="0" max="100" value="40" oninput="calc()">
+      </div>
+
+      <div class="result" id="result">
+        <div class="rbig" id="rLost">—</div>
+        <div class="rsub" id="rMoney"></div>
+        <div class="rgood" id="rRecover"></div>
+      </div>
+
+      <label class="optin"><input type="checkbox" id="consent">אני מאשר/ת ל-FlowOps AI לחזור אליי בוואטסאפ או במייל עם האבחון וההצעה. אפשר להסיר בכל עת.</label>
+
+      <div class="fld">
+        <label for="clinic">שם הקליניקה</label>
+        <input type="text" id="clinic" placeholder="שם העסק">
+      </div>
+      <div class="fld">
+        <label for="phone">טלפון לחזרה</label>
+        <input type="tel" id="phone" placeholder="05X-XXXXXXX">
+      </div>
+
+      <button class="btn gold" onclick="sendAudit()">שלחו לי את המפה המלאה בוואטסאפ</button>
+    </div>
+  </div>
+</section>
+
+<section class="guar">
+  <div class="wrap">
+    <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+    <h2 class="sec-title">אין סיכון מצידכם</h2>
+    <p>לא משלמים על ההקמה עד שהסוכן חי ועונה על המספר האמיתי שלכם. אם תוך 30 יום הוא לא מגיב לכל ליד תוך 60 שניות, כל דמי ההקמה חוזרים. אתם מדברים ישירות עם המפתח שכותב את הקוד, לא עם סוכנות.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>FlowOps AI</b> · מכניסים AI לעסק · <a href="https://flowopsai.co.il">flowopsai.co.il</a><br>
+    בניית סוכני AI ואוטומציות לעסקים בישראל
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="וואטסאפ">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.5-.8-2.5-1.4-3.5-3.1-.3-.5.3-.4.8-1.4.1-.2 0-.4 0-.5s-.6-1.5-.9-2.1c-.2-.5-.4-.4-.6-.5H8c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 5 4.3 1.9.8 2.6.9 3.5.7.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2"/></svg>
+</a>
+
+<script>
+  // ===== WhatsApp number =====
+  var WA = "972548080657";
+  document.getElementById('waFloat').href = "https://wa.me/"+WA+"?text="+encodeURIComponent("היי ברק, ראיתי את הדף של מגיב הלידים 24/7 ואשמח לפרטים");
+
+  // ===== Audit calculator =====
+  function fmt(n){return Math.round(n).toLocaleString('he-IL');}
+  function calc(){
+    var leads = +document.getElementById('leads').value || 0;
+    var cpl = +document.getElementById('cpl').value || 0;
+    var miss = +document.getElementById('miss').value;
+    document.getElementById('missVal').textContent = miss+"%";
+    if(leads<=0){document.getElementById('result').classList.remove('show');return;}
+    var lostLeads = leads * miss/100;
+    var wasted = lostLeads * cpl;
+    // conservative recovered revenue: assume 20% of recovered leads convert, avg deal 600 NIS
+    var recovered = lostLeads * 0.2 * 600;
+    document.getElementById('result').classList.add('show');
+    document.getElementById('rLost').textContent = fmt(lostLeads) + " לידים בחודש";
+    document.getElementById('rMoney').textContent = cpl>0 ? "שילמתם עליהם בערך " + fmt(wasted) + " ₪ ולא ענו להם בזמן" : "פניות שאתם משלמים עליהן ולא עונים בזמן";
+    document.getElementById('rRecover').textContent = "פוטנציאל שחזור: כ-" + fmt(recovered) + " ₪ בחודש אם עונים לכולם מייד";
+  }
+  function sendAudit(){
+    var leads = document.getElementById('leads').value||"?";
+    var cpl = document.getElementById('cpl').value||"?";
+    var miss = document.getElementById('miss').value;
+    var clinic = document.getElementById('clinic').value||"(לא צויין)";
+    var phone = document.getElementById('phone').value||"(לא צויין)";
+    if(!document.getElementById('consent').checked){alert("צריך לאשר חזרה כדי שנוכל לשלוח לכם את האבחון");return;}
+    var msg = "היי ברק, רוצה את מפת האבחון של מגיב הלידים 24/7.\n"+
+      "קליניקה: "+clinic+"\n"+
+      "טלפון: "+phone+"\n"+
+      "פניות בחודש: "+leads+"\n"+
+      "עלות ליד: "+cpl+" ₪\n"+
+      "אחוז שלא נענה תוך 5 דק: "+miss+"%";
+    window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),"_blank");
+  }
+
+  // ===== Interactive demo chat =====
+  var body = document.getElementById('demoBody');
+  var choicesEl = document.getElementById('demoChoices');
+  var flow = [
+    {bot:["היי, הגעת לקליניקה. שמחה שפנית, איך אפשר לעזור?"],
+     choices:[
+       {t:"כמה עולה הסרת שיער בלייזר?",next:1},
+       {t:"יש לכם טיפולי פנים?",next:1}
+     ]},
+    {bot:["בשמחה. כדי לתת לך מחיר מדויק, על איזה אזור מדובר?"],
+     choices:[
+       {t:"רגליים מלאות",next:2},
+       {t:"פנים",next:2}
+     ]},
+    {bot:["מעולה. יש לנו החודש מבצע סדרה משתלם. בא לך שנקבע התייעצות קצרה בלי התחייבות?"],
+     choices:[
+       {t:"כן, מתי יש מקום?",next:3},
+       {t:"רק אם זה מהיר",next:3}
+     ]},
+    {bot:["יש חלון מחר ב-16:00 או ביום חמישי ב-11:00. מה נוח לך?"],
+     choices:[
+       {t:"חמישי ב-11",next:4},
+       {t:"מחר ב-16",next:4}
+     ]},
+    {bot:["קבעתי לך, אשלח תזכורת יום לפני. נעים להכיר, נתראה. תודה שפנית אלינו."],
+     choices:[
+       {t:"התחל מחדש",next:0}
+     ], end:true}
+  ];
+
+  function addMsg(text, cls){
+    var d=document.createElement('div'); d.className='d-msg '+cls; d.textContent=text;
+    body.appendChild(d); body.scrollTop=body.scrollHeight;
+  }
+  function typing(){
+    var t=document.createElement('div'); t.className='typing'; t.id='typing';
+    t.innerHTML='<i></i><i></i><i></i>'; body.appendChild(t); body.scrollTop=body.scrollHeight;
+  }
+  function stopTyping(){var t=document.getElementById('typing'); if(t)t.remove();}
+  function renderChoices(list){
+    choicesEl.innerHTML='';
+    list.forEach(function(c){
+      var b=document.createElement('button'); b.className='choice'; b.textContent=c.t;
+      b.onclick=function(){ pick(c); };
+      choicesEl.appendChild(b);
+    });
+  }
+  function pick(c){
+    if(c.t==="התחל מחדש"){ body.innerHTML=''; goStep(0); return; }
+    addMsg(c.t,'me'); choicesEl.innerHTML='';
+    setTimeout(function(){ goStep(c.next); },500);
+  }
+  function goStep(i){
+    var step=flow[i]; typing();
+    setTimeout(function(){
+      stopTyping();
+      step.bot.forEach(function(m){ addMsg(m,'in'); });
+      renderChoices(step.choices);
+    },1100);
+  }
+  // start demo when scrolled into view
+  var started=false;
+  var demoSec=document.getElementById('demo');
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(e){ if(e.isIntersecting && !started){ started=true; goStep(0); } });
+  },{threshold:.4});
+  io.observe(demoSec);
+</script>
+</body>
+</html>
