@@ -1,32 +1,243 @@
 [
-  {"slug": "whatsapp-lead-response-aesthetic-clinic", "keyword": "מענה אוטומטי ללידים לקליניקה", "angle": "כמה כסף קליניקת אסתטיקה מפסידה על לידים ממטא שלא נענו תוך 5 דקות, ואיך סוכן AI עונה תוך דקה וקובע תור", "niche": "קליניקות אסתטיקה", "cta_page": "/lead-responder.html", "status": "pending"},
-  {"slug": "ai-agent-vs-chatbot", "keyword": "סוכן AI לעסק", "angle": "ההבדל בין צ'אטבוט שעונה לשאלות לבין סוכן AI שמבצע עבודה מהתחלה ועד הסוף, עם דוגמאות מעסקים קטנים", "niche": "כללי", "cta_page": "/demo.html", "status": "pending"},
-  {"slug": "reactivate-dormant-customers-ai", "keyword": "החזרת לקוחות רדומים", "angle": "איך עסק מחזיר לקוחות שלא חזרו חצי שנה בעזרת AI, כולל חישוב כמה כסף שוכב ברשימת הלקוחות", "niche": "עסקי שירות", "cta_page": "", "status": "pending"},
-  {"slug": "fill-cancellations-automatically", "keyword": "מילוי ביטולים ביומן", "angle": "ביטול של רגע אחרון עולה כסף; איך אוטומציה מציעה את התור הפנוי לרשימת המתנה תוך דקות", "niche": "קליניקות ומספרות", "cta_page": "/lead-responder.html", "status": "pending"},
-  {"slug": "google-reviews-automation", "keyword": "איך להשיג ביקורות בגוגל", "angle": "מכונת ביקורות: בקשה אוטומטית ללקוח מרוצה בזמן הנכון, סינון לקוחות לא מרוצים לטיפול פנימי, בלי לעבור על מדיניות גוגל", "niche": "עסקים מקומיים", "cta_page": "", "status": "pending"},
-  {"slug": "quote-follow-up-automation", "keyword": "מעקב אחרי הצעות מחיר", "angle": "רוב הצעות המחיר מתות בגלל שאף אחד לא חזר ללקוח; אוטומציית מעקב בוואטסאפ ובמייל לקבלנים ונותני שירות", "niche": "קבלנים ונותני שירות", "cta_page": "", "status": "pending"},
-  {"slug": "ai-for-real-estate-agents", "keyword": "AI למתווכי נדל\"ן", "angle": "איך מתווך עונה לכל פונה ממודעה, מסנן רציניים וקובע סיורים אוטומטית", "niche": "נדל\"ן", "cta_page": "", "status": "pending"},
-  {"slug": "ai-for-law-firms-israel", "keyword": "AI למשרד עורכי דין", "angle": "קליטת פניות, איסוף מסמכים ותזכורות ללקוחות במשרד עו\"ד קטן, תוך שמירה על סודיות", "niche": "עורכי דין", "cta_page": "", "status": "pending"},
-  {"slug": "ai-for-accountants", "keyword": "אוטומציה למשרד רואה חשבון", "angle": "איסוף מסמכים חודשי מלקוחות, תזכורות אוטומטיות ומיון חשבוניות עם AI", "niche": "רואי חשבון ויועצי מס", "cta_page": "", "status": "pending"},
-  {"slug": "daily-ceo-report-automation", "keyword": "דוח מנהלים אוטומטי", "angle": "דוח יומי שמגיע לוואטסאפ של בעל העסק בבוקר: הכנסות, לידים, תורים, מה דורש טיפול", "niche": "כללי", "cta_page": "", "status": "pending"},
-  {"slug": "how-much-does-ai-automation-cost", "keyword": "כמה עולה אוטומציה לעסק", "angle": "פירוק שקוף של עלויות הקמה, מנוי חודשי ועלויות API, ואיך מחשבים החזר השקעה לפני שמתחילים", "niche": "כללי", "cta_page": "", "status": "pending"},
-  {"slug": "speed-to-lead", "keyword": "זמן תגובה ללידים", "angle": "למה ליד שנענה אחרי שעה שווה פחות מליד שנענה אחרי דקה, ומה עושים כשאין מזכירה", "niche": "כללי", "cta_page": "/lead-responder.html", "status": "pending"},
-  {"slug": "ai-for-dental-clinics", "keyword": "AI למרפאת שיניים", "angle": "תזכורות לבדיקות תקופתיות, החזרת מטופלים שלא הגיעו שנה ומענה לפניות אחרי שעות", "niche": "מרפאות שיניים", "cta_page": "/lead-responder.html", "status": "pending"},
-  {"slug": "ai-for-hair-salons", "keyword": "אוטומציה למספרה", "angle": "קביעת תורים בוואטסאפ, תזכורות, ומילוי חורים ביומן במספרה או סלון יופי", "niche": "מספרות וסלונים", "cta_page": "/lead-responder.html", "status": "pending"},
-  {"slug": "ai-for-gyms-studios", "keyword": "אוטומציה לסטודיו כושר", "angle": "מעקב אחרי מתאמנים שהפסיקו להגיע, מענה לפניות מאינסטגרם ושימור מנויים", "niche": "סטודיו כושר ופילאטיס", "cta_page": "", "status": "pending"},
-  {"slug": "ecommerce-ai-customer-service", "keyword": "שירות לקוחות AI לחנות אונליין", "angle": "מענה על \"איפה ההזמנה שלי\", החזרות ושאלות מוצר אוטומטית, והעברה לנציג רק כשצריך", "niche": "חנויות אונליין", "cta_page": "", "status": "pending"},
-  {"slug": "automate-invoices-israel", "keyword": "הפקת חשבוניות אוטומטית", "angle": "חיבור בין תשלום, הפקת חשבונית בחשבונית ירוקה / iCount / מורנינג ושליחה ללקוח בלי הקלדה", "niche": "עצמאים", "cta_page": "", "status": "pending"},
-  {"slug": "email-management-ai", "keyword": "ניהול מיילים עם AI", "angle": "מיון אוטומטי של תיבת הדואר, טיוטות תשובה ותזכורות למה שלא נענה, לבעל עסק שטובע במיילים", "niche": "כללי", "cta_page": "", "status": "pending"},
-  {"slug": "first-ai-automation-small-business", "keyword": "איך להתחיל עם AI בעסק", "angle": "מדריך צעד אחר צעד לבחירת האוטומציה הראשונה: מיפוי תהליכים, חישוב שעות, ובחירה לפי החזר", "niche": "עסקים קטנים", "cta_page": "", "status": "pending"},
-  {"slug": "chatgpt-for-business-owners", "keyword": "ChatGPT לבעלי עסקים", "angle": "מה אפשר לעשות לבד עם ChatGPT/Claude בעסק כבר היום, ואיפה זה נגמר ונדרשת אוטומציה אמיתית", "niche": "כללי", "cta_page": "", "status": "pending"},
-  {"slug": "missed-calls-whatsapp-followup", "keyword": "שיחות שלא נענו בעסק", "angle": "כל שיחה שלא נענתה היא לקוח שהלך למתחרה; הודעת וואטסאפ אוטומטית אחרי שיחה שלא נענתה", "niche": "בעלי מקצוע", "cta_page": "", "status": "pending"},
-  {"slug": "meta-ads-leads-not-converting", "keyword": "לידים מפייסבוק לא נסגרים", "angle": "למה לידים ממודעות מטא לא הופכים ללקוחות: זמן תגובה, סינון, ומעקב, ומה לתקן לפני שמגדילים תקציב", "niche": "עסקים שמפרסמים", "cta_page": "/lead-responder.html", "status": "pending"},
-  {"slug": "crm-for-small-business-israel", "keyword": "CRM לעסק קטן", "angle": "האם עסק קטן צריך CRM, איך בוחרים, ואיך AI ממלא אותו אוטומטית כדי שלא יישאר ריק", "niche": "עסקים קטנים", "cta_page": "/demo-crm.html", "status": "pending"},
-  {"slug": "ai-appointment-booking", "keyword": "קביעת תורים אוטומטית", "angle": "מערכת תורים עם AI שמבינה הודעות חופשיות בוואטסאפ ומחוברת ליומן, לעומת קישור הזמנה רגיל", "niche": "נותני שירות", "cta_page": "/lead-responder.html", "status": "pending"},
-  {"slug": "ai-for-insurance-agents", "keyword": "AI לסוכן ביטוח", "angle": "תזכורות חידוש פוליסות, איסוף מסמכים ומענה ראשוני ללידים אצל סוכן ביטוח עצמאי", "niche": "סוכני ביטוח", "cta_page": "", "status": "pending"},
-  {"slug": "ai-privacy-israel-business", "keyword": "פרטיות ו-AI בעסק", "angle": "מה מותר ומה אסור כשמכניסים AI לעסק בישראל: חוק הגנת הפרטיות, תיקון 13, חוק הספאם, ואיך בונים נכון", "niche": "כללי", "cta_page": "", "status": "pending"},
-  {"slug": "ai-for-restaurants", "keyword": "AI למסעדה", "angle": "הזמנות שולחנות, מענה על שאלות תפריט ושעות, ובקשת ביקורת אחרי ביקור", "niche": "מסעדות ובתי קפה", "cta_page": "", "status": "pending"},
-  {"slug": "automation-for-contractors", "keyword": "אוטומציה לקבלן שיפוצים", "angle": "קליטת פניות עם תמונות, הצעת מחיר ראשונית, תיאום ביקור ומעקב עד סגירה", "niche": "קבלני שיפוצים", "cta_page": "", "status": "pending"},
-  {"slug": "ai-employee-cost-vs-hire", "keyword": "עובד דיגיטלי מול מזכירה", "angle": "השוואה הוגנת בין גיוס מזכירה/נציג לבין עובד דיגיטלי: עלות, זמינות, מה כל אחד עושה טוב יותר", "niche": "כללי", "cta_page": "", "status": "pending"},
-  {"slug": "make-vs-n8n-vs-custom", "keyword": "Make או n8n", "angle": "מתי מספיק Make/Zapier, מתי n8n, ומתי צריך פיתוח מותאם; מדריך החלטה לבעל עסק", "niche": "כללי", "cta_page": "", "status": "pending"}
+  {
+    "slug": "whatsapp-lead-response-aesthetic-clinic",
+    "keyword": "מענה אוטומטי ללידים לקליניקה",
+    "angle": "כמה כסף קליניקת אסתטיקה מפסידה על לידים ממטא שלא נענו תוך 5 דקות, ואיך סוכן AI עונה תוך דקה וקובע תור",
+    "niche": "קליניקות אסתטיקה",
+    "cta_page": "/lead-responder.html",
+    "status": "published",
+    "published": "2026-11-10"
+  },
+  {
+    "slug": "ai-agent-vs-chatbot",
+    "keyword": "סוכן AI לעסק",
+    "angle": "ההבדל בין צ'אטבוט שעונה לשאלות לבין סוכן AI שמבצע עבודה מהתחלה ועד הסוף, עם דוגמאות מעסקים קטנים",
+    "niche": "כללי",
+    "cta_page": "/demo.html",
+    "status": "pending"
+  },
+  {
+    "slug": "reactivate-dormant-customers-ai",
+    "keyword": "החזרת לקוחות רדומים",
+    "angle": "איך עסק מחזיר לקוחות שלא חזרו חצי שנה בעזרת AI, כולל חישוב כמה כסף שוכב ברשימת הלקוחות",
+    "niche": "עסקי שירות",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "fill-cancellations-automatically",
+    "keyword": "מילוי ביטולים ביומן",
+    "angle": "ביטול של רגע אחרון עולה כסף; איך אוטומציה מציעה את התור הפנוי לרשימת המתנה תוך דקות",
+    "niche": "קליניקות ומספרות",
+    "cta_page": "/lead-responder.html",
+    "status": "pending"
+  },
+  {
+    "slug": "google-reviews-automation",
+    "keyword": "איך להשיג ביקורות בגוגל",
+    "angle": "מכונת ביקורות: בקשה אוטומטית ללקוח מרוצה בזמן הנכון, סינון לקוחות לא מרוצים לטיפול פנימי, בלי לעבור על מדיניות גוגל",
+    "niche": "עסקים מקומיים",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "quote-follow-up-automation",
+    "keyword": "מעקב אחרי הצעות מחיר",
+    "angle": "רוב הצעות המחיר מתות בגלל שאף אחד לא חזר ללקוח; אוטומציית מעקב בוואטסאפ ובמייל לקבלנים ונותני שירות",
+    "niche": "קבלנים ונותני שירות",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "ai-for-real-estate-agents",
+    "keyword": "AI למתווכי נדל\"ן",
+    "angle": "איך מתווך עונה לכל פונה ממודעה, מסנן רציניים וקובע סיורים אוטומטית",
+    "niche": "נדל\"ן",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "ai-for-law-firms-israel",
+    "keyword": "AI למשרד עורכי דין",
+    "angle": "קליטת פניות, איסוף מסמכים ותזכורות ללקוחות במשרד עו\"ד קטן, תוך שמירה על סודיות",
+    "niche": "עורכי דין",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "ai-for-accountants",
+    "keyword": "אוטומציה למשרד רואה חשבון",
+    "angle": "איסוף מסמכים חודשי מלקוחות, תזכורות אוטומטיות ומיון חשבוניות עם AI",
+    "niche": "רואי חשבון ויועצי מס",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "daily-ceo-report-automation",
+    "keyword": "דוח מנהלים אוטומטי",
+    "angle": "דוח יומי שמגיע לוואטסאפ של בעל העסק בבוקר: הכנסות, לידים, תורים, מה דורש טיפול",
+    "niche": "כללי",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "how-much-does-ai-automation-cost",
+    "keyword": "כמה עולה אוטומציה לעסק",
+    "angle": "פירוק שקוף של עלויות הקמה, מנוי חודשי ועלויות API, ואיך מחשבים החזר השקעה לפני שמתחילים",
+    "niche": "כללי",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "speed-to-lead",
+    "keyword": "זמן תגובה ללידים",
+    "angle": "למה ליד שנענה אחרי שעה שווה פחות מליד שנענה אחרי דקה, ומה עושים כשאין מזכירה",
+    "niche": "כללי",
+    "cta_page": "/lead-responder.html",
+    "status": "pending"
+  },
+  {
+    "slug": "ai-for-dental-clinics",
+    "keyword": "AI למרפאת שיניים",
+    "angle": "תזכורות לבדיקות תקופתיות, החזרת מטופלים שלא הגיעו שנה ומענה לפניות אחרי שעות",
+    "niche": "מרפאות שיניים",
+    "cta_page": "/lead-responder.html",
+    "status": "pending"
+  },
+  {
+    "slug": "ai-for-hair-salons",
+    "keyword": "אוטומציה למספרה",
+    "angle": "קביעת תורים בוואטסאפ, תזכורות, ומילוי חורים ביומן במספרה או סלון יופי",
+    "niche": "מספרות וסלונים",
+    "cta_page": "/lead-responder.html",
+    "status": "pending"
+  },
+  {
+    "slug": "ai-for-gyms-studios",
+    "keyword": "אוטומציה לסטודיו כושר",
+    "angle": "מעקב אחרי מתאמנים שהפסיקו להגיע, מענה לפניות מאינסטגרם ושימור מנויים",
+    "niche": "סטודיו כושר ופילאטיס",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "ecommerce-ai-customer-service",
+    "keyword": "שירות לקוחות AI לחנות אונליין",
+    "angle": "מענה על \"איפה ההזמנה שלי\", החזרות ושאלות מוצר אוטומטית, והעברה לנציג רק כשצריך",
+    "niche": "חנויות אונליין",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "automate-invoices-israel",
+    "keyword": "הפקת חשבוניות אוטומטית",
+    "angle": "חיבור בין תשלום, הפקת חשבונית בחשבונית ירוקה / iCount / מורנינג ושליחה ללקוח בלי הקלדה",
+    "niche": "עצמאים",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "email-management-ai",
+    "keyword": "ניהול מיילים עם AI",
+    "angle": "מיון אוטומטי של תיבת הדואר, טיוטות תשובה ותזכורות למה שלא נענה, לבעל עסק שטובע במיילים",
+    "niche": "כללי",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "first-ai-automation-small-business",
+    "keyword": "איך להתחיל עם AI בעסק",
+    "angle": "מדריך צעד אחר צעד לבחירת האוטומציה הראשונה: מיפוי תהליכים, חישוב שעות, ובחירה לפי החזר",
+    "niche": "עסקים קטנים",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "chatgpt-for-business-owners",
+    "keyword": "ChatGPT לבעלי עסקים",
+    "angle": "מה אפשר לעשות לבד עם ChatGPT/Claude בעסק כבר היום, ואיפה זה נגמר ונדרשת אוטומציה אמיתית",
+    "niche": "כללי",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "missed-calls-whatsapp-followup",
+    "keyword": "שיחות שלא נענו בעסק",
+    "angle": "כל שיחה שלא נענתה היא לקוח שהלך למתחרה; הודעת וואטסאפ אוטומטית אחרי שיחה שלא נענתה",
+    "niche": "בעלי מקצוע",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "meta-ads-leads-not-converting",
+    "keyword": "לידים מפייסבוק לא נסגרים",
+    "angle": "למה לידים ממודעות מטא לא הופכים ללקוחות: זמן תגובה, סינון, ומעקב, ומה לתקן לפני שמגדילים תקציב",
+    "niche": "עסקים שמפרסמים",
+    "cta_page": "/lead-responder.html",
+    "status": "pending"
+  },
+  {
+    "slug": "crm-for-small-business-israel",
+    "keyword": "CRM לעסק קטן",
+    "angle": "האם עסק קטן צריך CRM, איך בוחרים, ואיך AI ממלא אותו אוטומטית כדי שלא יישאר ריק",
+    "niche": "עסקים קטנים",
+    "cta_page": "/demo-crm.html",
+    "status": "pending"
+  },
+  {
+    "slug": "ai-appointment-booking",
+    "keyword": "קביעת תורים אוטומטית",
+    "angle": "מערכת תורים עם AI שמבינה הודעות חופשיות בוואטסאפ ומחוברת ליומן, לעומת קישור הזמנה רגיל",
+    "niche": "נותני שירות",
+    "cta_page": "/lead-responder.html",
+    "status": "pending"
+  },
+  {
+    "slug": "ai-for-insurance-agents",
+    "keyword": "AI לסוכן ביטוח",
+    "angle": "תזכורות חידוש פוליסות, איסוף מסמכים ומענה ראשוני ללידים אצל סוכן ביטוח עצמאי",
+    "niche": "סוכני ביטוח",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "ai-privacy-israel-business",
+    "keyword": "פרטיות ו-AI בעסק",
+    "angle": "מה מותר ומה אסור כשמכניסים AI לעסק בישראל: חוק הגנת הפרטיות, תיקון 13, חוק הספאם, ואיך בונים נכון",
+    "niche": "כללי",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "ai-for-restaurants",
+    "keyword": "AI למסעדה",
+    "angle": "הזמנות שולחנות, מענה על שאלות תפריט ושעות, ובקשת ביקורת אחרי ביקור",
+    "niche": "מסעדות ובתי קפה",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "automation-for-contractors",
+    "keyword": "אוטומציה לקבלן שיפוצים",
+    "angle": "קליטת פניות עם תמונות, הצעת מחיר ראשונית, תיאום ביקור ומעקב עד סגירה",
+    "niche": "קבלני שיפוצים",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "ai-employee-cost-vs-hire",
+    "keyword": "עובד דיגיטלי מול מזכירה",
+    "angle": "השוואה הוגנת בין גיוס מזכירה/נציג לבין עובד דיגיטלי: עלות, זמינות, מה כל אחד עושה טוב יותר",
+    "niche": "כללי",
+    "cta_page": "",
+    "status": "pending"
+  },
+  {
+    "slug": "make-vs-n8n-vs-custom",
+    "keyword": "Make או n8n",
+    "angle": "מתי מספיק Make/Zapier, מתי n8n, ומתי צריך פיתוח מותאם; מדריך החלטה לבעל עסק",
+    "niche": "כללי",
+    "cta_page": "",
+    "status": "pending"
+  }
 ]
