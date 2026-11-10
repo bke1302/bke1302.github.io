@@ -1,0 +1,75 @@
+# Publishes blog posts pushed by the cloud writer agent to claude/** branches.
+# Only blog/posts/*.json and blog/topics.json are taken from the branch; everything
+# else (HTML, sitemap) is rebuilt on master, so a branch can never alter the rest of the site.
+name: Blog autopublish
+
+on:
+  push:
+    branches: ['claude/**']
+    paths: ['blog/posts/**', 'blog/topics.json']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: blog-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Take post data from branch
+        if: github.event_name == 'push'
+        run: |
+          git fetch origin "$GITHUB_REF_NAME"
+          git diff --name-only --diff-filter=AM origin/master...FETCH_HEAD \
+            | grep -E '^blog/(posts/[a-z0-9-]+\.json|topics\.json)$' > take.txt || true
+          cat take.txt
+          if [ -s take.txt ]; then xargs git checkout FETCH_HEAD -- < take.txt; fi
+
+      - name: Build
+        run: python3 tools/build_blog.py
+
+      - name: Commit to master
+        run: |
+          git config user.name "FlowOps Blog Bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add blog sitemap.xml
+          if git diff --cached --quiet; then echo "nothing to publish"; exit 0; fi
+          git diff --cached --name-only --diff-filter=A \
+            | grep -E '^blog/[a-z0-9-]+\.html$' | grep -v '^blog/index\.html$' \
+            | sed 's#^#https://flowopsai.co.il/#' > new_urls.txt || true
+          git commit -m "Blog: publish $(wc -l < new_urls.txt) new post(s)"
+          git push origin master
+
+      - name: Trigger Pages build
+        run: gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds" || true
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Notify search engines (IndexNow)
+        run: |
+          [ -s new_urls.txt ] || exit 0
+          sleep 90
+          python3 - <<'EOF'
+          import json, urllib.request
+          urls = [u.strip() for u in open("new_urls.txt") if u.strip()] + ["https://flowopsai.co.il/blog/"]
+          key = open("indexnow-key.txt").read().strip()
+          body = json.dumps({"host": "flowopsai.co.il", "key": key,
+                             "keyLocation": f"https://flowopsai.co.il/{key}.txt", "urlList": urls}).encode()
+          req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,
+                                       headers={"Content-Type": "application/json; charset=utf-8"})
+          print(urllib.request.urlopen(req).status, urls)
+          EOF
+
+      - name: Delete branch
+        if: github.event_name == 'push'
+        run: git push origin --delete "$GITHUB_REF_NAME" || true

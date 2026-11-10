@@ -151,3 +151,13 @@ html.acc-contrast .uc,html.acc-contrast .faq-item,html.acc-contrast .lead-card,h
 .totop:hover{background:#1E6FB8;color:#fff}
 .totop svg{width:22px;height:22px}
 @media(max-width:600px){.acc-btn{bottom:18px;right:18px;width:50px;height:50px}.acc-btn svg{width:26px;height:26px}.acc-panel{bottom:78px;right:14px}.totop{bottom:78px;left:18px;width:42px;height:42px}}
+/* blog */
+.post-meta{color:var(--muted);font-size:.95rem;margin-top:14px}
+.content ol{margin:0 0 18px;padding-right:24px}
+.content ol li{padding:4px 0;color:var(--txt);font-size:1.07rem}
+.content a{color:var(--blue-l);text-decoration:underline}
+.table-wrap{overflow-x:auto;margin:20px 0}
+.content table{width:100%;border-collapse:collapse;font-size:1rem}
+.content th,.content td{border:1px solid var(--line);padding:10px 14px;text-align:right}
+.content th{background:var(--card);color:var(--head);font-weight:800}
+.post-list{grid-template-columns:1fr}
