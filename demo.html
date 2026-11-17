@@ -99,7 +99,7 @@
   </div>
   <div class="quick" id="quick"></div>
   <div class="bar">
-    <input id="inp" placeholder="כתבו הודעה..." aria-label="כתבו הודעה" autocomplete="off" enterkeyhint="send">
+    <input id="inp" placeholder="כתבו למאיה כמו לקוחה..." aria-label="כתבו הודעה" autocomplete="off" enterkeyhint="send">
     <button class="send" id="send" aria-label="שלח"><svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></button>
   </div>
 </div>
@@ -180,7 +180,6 @@ inp.addEventListener('keydown', e => { if (e.key === 'Enter') ask(inp.value); })
 window.addEventListener('load', async () => {
   await wait(400); setTyping(true); await wait(900); setTyping(false);
   bubble(OPEN, 'in');
-  await wait(300); chips(CHIPS);
 });
 </script>
 </body></html>
