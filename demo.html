@@ -50,7 +50,7 @@
   @keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   .in{align-self:flex-start;background:var(--in);border-top-right-radius:3px}
   .out{align-self:flex-end;background:var(--out);border-top-left-radius:3px}
-  .msg .t{font-size:10.5px;color:var(--mute);float:left;margin:5px 0 -2px;padding-right:9px;font-variant-numeric:tabular-nums}
+  .msg .t{font-size:10.5px;color:#5B6B75;float:left;margin:5px 0 -2px;padding-right:9px;font-variant-numeric:tabular-nums}
   .out .t .ck{color:#53BDEB;font-weight:700}
   .typing{align-self:flex-start;background:#fff;border-radius:10px;border-top-right-radius:3px;padding:11px 13px;display:none;gap:4px;box-shadow:0 1px 1px rgba(0,0,0,.12)}
   .typing.show{display:flex}
@@ -76,8 +76,11 @@
   .send{width:46px;height:46px;border-radius:50%;background:#0E8F86;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.15s}
   .send:disabled{opacity:.5;cursor:default}
   .send svg{width:22px;height:22px;fill:#fff;transform:scaleX(-1);margin-left:-2px}
-  .foot{max-width:420px;width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;color:#9FB2C6;font-size:12.5px}
+  .foot{max-width:420px;width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;color:#9FB2C6;font-size:12.5px}
   .foot a{color:#DDE7F2;text-decoration:none;font-weight:700}
+  .foot #waFoot{color:#7FE0C9}
+  .restart{background:none;border:1px solid rgba(221,231,242,.35);color:#DDE7F2;border-radius:16px;padding:5px 12px;font:inherit;font-size:12.5px;cursor:pointer}
+  .restart:focus-visible,.foot a:focus-visible{outline:2px solid #7FE0C9;outline-offset:2px}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style></head>
 <body>
@@ -104,11 +107,11 @@
   </div>
 </div>
 
-<div class="foot"><span>FlowOps AI · מכניסים בינה מלאכותית לעסק</span><a href="/">לאתר ←</a></div>
+<div class="foot"><button type="button" class="restart" id="restart">התחלה מחדש</button><a id="waFoot" href="#" target="_blank" rel="noopener">רוצים מאיה משלכם? כתבו לנו</a><a href="/">לאתר ←</a></div>
 
 <script>
 const API = 'https://82-70-212-53.sslip.io/demo-chat';
-const WA = 'https://wa.me/972548080657?text=' + encodeURIComponent('דמו');
+const WA = 'https://wa.me/972548080657?text=' + encodeURIComponent('ראיתי את מאיה ורוצה כזאת לעסק שלי');
 const chat = document.getElementById('chat'), typing = document.getElementById('typing'), quick = document.getElementById('quick'),
       inp = document.getElementById('inp'), sendBtn = document.getElementById('send'), status = document.getElementById('status');
 const history = [];
@@ -136,7 +139,7 @@ function chips(list) {
 function showCta() {
   if (ctaShown) return; ctaShown = true;
   card('<b>ככה זה נראה מהצד של הלקוחות שלכם</b><span>מאיה משלכם עונה בשם העסק, מכירה את הטיפולים והמחירים שלכם, קובעת ביומן, שולחת תזכורות ומחזירה לקוחות שלא הגיעו מזמן.</span>'
-     + '<a href="' + WA + '" target="_blank" rel="noopener">רוצים אחת כזו? שלחו לנו "דמו"</a>', 'cta');
+     + '<a href="' + WA + '" target="_blank" rel="noopener">רוצים אחת כזו? כתבו לנו בוואטסאפ</a>', 'cta');
 }
 
 async function ask(text) {
@@ -176,6 +179,8 @@ async function ask(text) {
 }
 
 sendBtn.onclick = () => ask(inp.value);
+document.getElementById('waFoot').href = WA;
+document.getElementById('restart').onclick = () => location.reload();
 inp.addEventListener('keydown', e => { if (e.key === 'Enter') ask(inp.value); });
 window.addEventListener('load', async () => {
   await wait(400); setTyping(true); await wait(900); setTyping(false);
