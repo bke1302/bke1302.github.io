@@ -3,10 +3,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>דמו חי | עובדת דיגיטלית של FlowOps בפעולה</title>
-<meta name="description" content="דמו חי של FlowOps AI: מאיה, עובדת דיגיטלית של קליניקה לדוגמה. כתבו לה כמו לקוחה, ובינה מלאכותית אמיתית עונה, קובעת תור ומכניסה אותו ליומן.">
+<meta name="description" content="דמו חי של FlowOps AI: מאיה, עובדת דיגיטלית של קליניקה לדוגמה. כתבו לה כמו לקוח, ובינה מלאכותית אמיתית עונה, קובעת תור ומכניסה אותו ליומן.">
 <meta property="og:title" content="דמו חי: עובדת דיגיטלית של FlowOps בפעולה">
-<meta property="og:description" content="כתבו כמו לקוחה של קליניקה, ותראו איך בינה מלאכותית אמיתית עונה, מבינה וקובעת תור.">
+<meta property="og:description" content="כתבו כמו לקוח של קליניקה, ותראו איך בינה מלאכותית אמיתית עונה, מבינה וקובעת תור.">
 <meta property="og:image" content="https://flowopsai.co.il/og-image-v2.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="מאיה, עובדת דיגיטלית של קליניקה לדוגמה">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://flowopsai.co.il/demo.html">
 <meta property="og:site_name" content="FlowOps AI">
@@ -32,7 +35,7 @@
     border:1px solid rgba(34,211,197,.4);border-radius:20px;padding:3px 11px;margin-bottom:4px}
   .intro .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--turq);box-shadow:0 0 0 0 rgba(34,211,197,.6);animation:pulse 1.8s infinite}
   @keyframes pulse{70%{box-shadow:0 0 0 7px rgba(34,211,197,0)}100%{box-shadow:0 0 0 0 rgba(34,211,197,0)}}
-  .phone{width:100%;max-width:420px;flex:1;min-height:520px;max-height:780px;background:var(--paper);border-radius:24px;overflow:hidden;
+  .phone{width:100%;max-width:420px;flex:1;min-height:min(520px,calc(100dvh - 190px));max-height:780px;background:var(--paper);border-radius:24px;overflow:hidden;
     display:flex;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.55);position:relative}
   .top{background:var(--navy);color:#fff;padding:12px 14px;display:flex;align-items:center;gap:11px;flex-shrink:0}
   .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#F07AA6,var(--rose));display:flex;align-items:center;
@@ -85,9 +88,9 @@
 </style></head>
 <body>
 <div class="intro">
-  <span class="live">דמו חי · בינה מלאכותית אמיתית</span>
-  <b>כתבו למאיה כמו לקוחה של קליניקה</b>
-  <span>היא לא עובדת לפי תסריט. היא מבינה מה כותבים לה, עונה, וקובעת תור ביומן.</span>
+  <span class="live">עונה בזמן אמת · בינה מלאכותית אמיתית</span>
+  <b>זו מאיה. היא עונה ללקוחות של קליניקה, גם בלילה.</b>
+  <span>אין פה תסריט מוכן. כל תשובה נכתבת עכשיו, בזמן אמת, לפי מה שאתם כותבים. נסו לשאול אותה כל דבר.</span>
 </div>
 
 <div class="phone">
@@ -96,13 +99,13 @@
     <div class="who"><b>קליניקת שירן</b><span class="st" id="status">מאיה, העוזרת הדיגיטלית · מקוונת</span></div>
     <span class="tag">עסק לדוגמה</span>
   </div>
-  <div class="chat" id="chat">
+  <div class="chat" id="chat" aria-live="polite">
     <div class="day">כאן מאיה עונה ללקוחות של הקליניקה. בעסק אמיתי היא מחוברת ליומן ולוואטסאפ שלכם.</div>
     <div class="typing" id="typing"><i></i><i></i><i></i></div>
   </div>
   <div class="quick" id="quick"></div>
   <div class="bar">
-    <input id="inp" placeholder="כתבו למאיה כמו לקוחה..." aria-label="כתבו הודעה" autocomplete="off" enterkeyhint="send">
+    <input id="inp" placeholder="כתבו למאיה כאן..." aria-label="כתבו הודעה" autocomplete="off" enterkeyhint="send">
     <button class="send" id="send" aria-label="שלח"><svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></button>
   </div>
 </div>
@@ -117,7 +120,9 @@ const chat = document.getElementById('chat'), typing = document.getElementById('
 const history = [];
 let busy = false, replies = 0, ctaShown = false, booked = false;
 
-const OPEN = 'היי, כאן מאיה מקליניקת שירן 🙂\nאני העוזרת הדיגיטלית של הקליניקה. אפשר לשאול אותי על טיפולים, מחירים או תור פנוי, גם באמצע הלילה.';
+const OPEN = 'היי, כאן מאיה מקליניקת שירן 🙂
+אני העוזרת הדיגיטלית של הקליניקה (בינה מלאכותית).
+במה אפשר לעזור? טיפול, מחיר או תור?';
 const CHIPS = ['יש לכם משהו לפיגמנטציה?', 'אפשר תור לשבוע הבא אחרי חמש?', 'כמה עולה טיפול פנים?', 'אני צריכה להזיז את התור של מחר', 'רגע, את בוט?'];
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
@@ -173,7 +178,7 @@ async function ask(text) {
     await wait(500);
     card('<small>נוסף ליומן של הקליניקה ✓</small><b>' + (when || '') + '</b><span>' + (name || '') + (treat ? ' · ' + treat : '') + '</span><em>תזכורת תישלח אוטומטית יום לפני</em>', 'book');
     await wait(900); showCta();
-  } else if (replies >= 4) { showCta(); }
+  } else if (replies >= 2) { showCta(); }
   busy = false; sendBtn.disabled = false;
   if (!('ontouchstart' in window)) inp.focus();
 }
