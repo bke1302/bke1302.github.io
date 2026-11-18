@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>FlowOps AI | תצוגה מקדימה לעיצוב חדש</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FBF8F4">
+<link rel="icon" href="flowops-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600;700&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* כיוון "קליניקה בהירה": שנהב חם, כחול כהה מהלוגו, כפתור טורקיז-ירוק אחד, ורוד עתיק להדגשה */
+  :root{
+    --bg:#FBF8F4; --surface:#FFFFFF; --ink:#0D2440; --muted:#5A5F6B;
+    --primary:#0F766E; --primary-h:#0B5F59; --accent:#9D3B57; --blush:#F7E6E0;
+    --border:#E9E1D8; --turq:#2DE2D3; --paper:#EFE7DE;
+    --h:'Rubik','Heebo',Arial,sans-serif; --b:'Heebo','Segoe UI',Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--b);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--primary);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:1080px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+  .note{background:var(--ink);color:#fff;text-align:center;font-size:13px;padding:7px 12px}
+  .note b{color:var(--turq)}
+
+  nav{position:sticky;top:0;z-index:20;background:rgba(251,248,244,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  nav img{height:26px;width:auto;display:block}
+  nav a.small{font-size:14.5px;font-weight:500;color:var(--primary);text-decoration:none;border:1.5px solid var(--primary);border-radius:999px;padding:6px 14px}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--primary);color:#fff;text-decoration:none;
+    font-family:var(--h);font-weight:600;font-size:18px;border-radius:14px;padding:15px 26px;transition:background .15s}
+  .btn:hover{background:var(--primary-h)}
+  .tlink{color:var(--ink);font-weight:500;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:5px}
+
+  /* HERO */
+  .hero{padding-block:34px 44px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .tag{display:inline-block;background:var(--blush);color:var(--accent);font-weight:700;font-size:14px;letter-spacing:.3px;border-radius:999px;padding:5px 14px;margin-bottom:16px}
+  h1{font-family:var(--h);font-weight:700;font-size:52px;line-height:1.12;letter-spacing:-.5px;text-wrap:balance}
+  h1 em{font-style:normal;color:var(--accent)}
+  .hero p.sub{font-size:20px;color:var(--muted);margin:16px 0 26px;max-width:30ch}
+  .hero .ctas{display:flex;flex-wrap:wrap;align-items:center;gap:18px 22px}
+  .trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;font-size:15px;color:var(--muted)}
+  .trust span::before{content:"✓";color:var(--primary);font-weight:700;margin-left:6px}
+
+  /* chat peek */
+  .phone{background:var(--paper);border-radius:26px;overflow:hidden;box-shadow:0 18px 50px rgba(13,36,64,.14);border:1px solid var(--border);max-width:400px;justify-self:center;width:100%}
+  .phone .top{background:var(--ink);color:#fff;display:flex;align-items:center;gap:11px;padding:12px 14px}
+  .av{width:38px;height:38px;border-radius:50%;background:#D9467A;color:#fff;font-family:var(--h);font-weight:700;display:flex;align-items:center;justify-content:center}
+  .phone .top b{display:block;font-size:15.5px;line-height:1.2}
+  .phone .top small{font-size:12.5px;color:#B9D3E8}
+  .phone .top .ex{margin-inline-start:auto;font-size:11.5px;color:#FFE6A8;border:1px solid rgba(255,230,168,.45);border-radius:20px;padding:3px 9px}
+  .msgs{padding:16px 12px 18px;display:flex;flex-direction:column;gap:8px}
+  .m{max-width:82%;padding:8px 11px 6px;border-radius:12px;font-size:15px;line-height:1.5;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+  .m small{display:block;text-align:left;font-size:10.5px;color:#5B6B75;margin-top:2px}
+  .m.in{align-self:flex-start;background:#DCF8C6;border-top-right-radius:4px}
+  .m.out{align-self:flex-end;background:#fff;border-top-left-radius:4px}
+
+  section{padding-block:64px}
+  .eyebrow{color:var(--accent);font-weight:700;font-size:14px;letter-spacing:.4px}
+  h2{font-family:var(--h);font-weight:700;font-size:38px;line-height:1.2;margin:6px 0 28px;text-wrap:balance}
+
+  /* pains */
+  .pains{background:var(--surface);border-block:1px solid var(--border)}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .pain{background:var(--blush);border-radius:16px;padding:22px 20px}
+  .pain h3{font-family:var(--h);font-weight:600;font-size:20px;line-height:1.35;margin-bottom:8px}
+  .pain p{color:#4A4F5A;font-size:16px}
+  .pain p b{color:var(--ink)}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+  .step{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px}
+  .step::before{counter-increment:s;content:counter(s);display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--turq);
+    font-family:var(--h);font-weight:700;align-items:center;justify-content:center;margin-bottom:10px}
+  .step h3{font-family:var(--h);font-weight:600;font-size:19px;margin-bottom:4px}
+  .step p{color:var(--muted);font-size:15.5px}
+
+  /* about */
+  .about .wrap{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:center}
+  .about img{width:260px;height:260px;object-fit:cover;object-position:50% 20%;border-radius:20px;border:1px solid var(--border)}
+  .about p{color:#3D4350;max-width:62ch}
+  .about p + p{margin-top:12px}
+
+  /* faq */
+  .faq details{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 20px;max-width:780px}
+  .faq details + details{margin-top:10px}
+  .faq summary{font-family:var(--h);font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+  .faq summary::after{content:"+";color:var(--primary);font-size:22px;line-height:1}
+  .faq details[open] summary::after{content:"–"}
+  .faq details p{color:var(--muted);margin-top:8px}
+
+  .final{background:var(--ink);color:#fff;text-align:center}
+  .final h2{color:#fff;margin-bottom:10px}
+  .final p{color:#C9D6E4;margin-bottom:24px}
+  .final .tlink{color:#fff;text-decoration-color:var(--turq)}
+  .final .ctas{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:16px 24px}
+  footer{padding-block:22px;text-align:center;font-size:14px;color:var(--muted)}
+
+  @media (max-width:820px){
+    body{font-size:16.5px}
+    .hero{padding-block:22px 36px}
+    .hero .wrap{grid-template-columns:1fr;gap:28px}
+    h1{font-size:34px;line-height:1.15}
+    .hero p.sub{font-size:17.5px;margin:12px 0 20px}
+    .hero .ctas{flex-direction:column;align-items:stretch;text-align:center}
+    .btn{width:100%}
+    h2{font-size:26px;margin-bottom:20px}
+    section{padding-block:46px}
+    .grid3,.steps{grid-template-columns:1fr}
+    .about .wrap{grid-template-columns:1fr;gap:22px}
+    .about img{width:200px;height:200px}
+    .phone{max-width:360px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style></head>
+<body>
+<div class="note">תצוגה מקדימה לעיצוב חדש, <b>לבדיקה בלבד</b>. האתר האמיתי לא השתנה.</div>
+
+<nav><div class="wrap">
+  <img src="logo-light.png" alt="FlowOps AI" width="520" height="100">
+  <a class="small" href="index.html#contact">שיחת וידאו חינם</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="tag">לקליניקות וסלונים</span>
+    <h1>מאיה עונה ללקוחות שלכם בוואטסאפ. <em>גם בלילה.</em></h1>
+    <p class="sub">קובעת תור ביומן, ותמיד אומרת שהיא בינה מלאכותית.</p>
+    <div class="ctas">
+      <a class="btn" href="demo.html">דברו עם מאיה עכשיו</a>
+      <a class="tlink" href="index.html#contact">שיחת וידאו של 20 דקות, חינם</a>
+    </div>
+    <div class="trust"><span>עונה תוך שניות</span><span>בעברית</span><span>בלי הרשמה לדמו</span></div>
+  </div>
+  <div class="phone" aria-label="דוגמה לשיחה עם מאיה">
+    <div class="top"><div class="av">מ</div><div><b>מאיה · קליניקה לדוגמה</b><small>עוזרת דיגיטלית · מקוונת</small></div><span class="ex">דוגמה להמחשה</span></div>
+    <div class="msgs">
+      <div class="m out">היי, יש תור לטיפול פנים מחר?<small>23:41</small></div>
+      <div class="m in">היי 🙂 כאן מאיה, העוזרת הדיגיטלית של הקליניקה. יש מחר ב-11:30 או ב-17:00. מה נוח לך?<small>23:41</small></div>
+      <div class="m out">17:00 מעולה<small>23:42</small></div>
+      <div class="m in">קבעתי ✓ תקבלי תזכורת יום לפני.<small>23:42</small></div>
+    </div>
+  </div>
+</div></header>
+
+<section class="pains"><div class="wrap">
+  <span class="eyebrow">מוכר לכם?</span>
+  <h2>שלושה דברים שעולים לכם כסף</h2>
+  <div class="grid3">
+    <div class="pain"><h3>כותבים לכם בלילה, ואין מי שיענה</h3><p>עד הבוקר הם כבר קבעו במקום אחר. <b>מאיה עונה תוך שניות.</b></p></div>
+    <div class="pain"><h3>תור מתבטל ונשאר חור ביומן</h3><p>אין זמן לחפש מי ימלא אותו. <b>מאיה כותבת לרשימת ההמתנה.</b></p></div>
+    <div class="pain"><h3>לקוחות שלא חוזרים</h3><p>לא כי היה רע, פשוט שכחו. <b>מאיה מזכירה בעדינות, רק למי שהסכים.</b></p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">איך זה עובד</span>
+  <h2>ארבעה צעדים, בלי טכנולוגיה מצדכם</h2>
+  <div class="steps">
+    <div class="step"><h3>מנסים את מאיה</h3><p>כותבים לה כמו לקוח ורואים איך היא עונה.</p></div>
+    <div class="step"><h3>שיחת וידאו עם ברק</h3><p>20 דקות, חינם. מבינים מה הכי מציק בעסק.</p></div>
+    <div class="step"><h3>מקבלים הצעה בכתב</h3><p>עם מחיר מדויק, בלי הפתעות.</p></div>
+    <div class="step"><h3>מאיה שלכם עולה</h3><p>עם הטיפולים, המחירים והיומן שלכם.</p></div>
+  </div>
+</div></section>
+
+<section class="about" style="background:var(--surface);border-block:1px solid var(--border)"><div class="wrap">
+  <img src="barak.webp" alt="ברק כרן, מייסד FlowOps AI" width="600" height="600">
+  <div>
+    <span class="eyebrow">מי אני</span>
+    <h2>נעים מאוד, אני ברק</h2>
+    <p>כבר יותר מעשר שנים אני מנהל תפעול ושירות: מוקדים, צוותים ולקוחות שמחכים לתשובה.</p>
+    <p>ראיתי כמה זמן הולך על עבודה ידנית שחוזרת על עצמה. היום אני בונה לעסקים קטנים עובדים דיגיטליים שעושים את העבודה הזו, כדי שלכם יישאר זמן ללקוחות.</p>
+  </div>
+</div></section>
+
+<section class="faq"><div class="wrap">
+  <span class="eyebrow">שאלות נפוצות</span>
+  <h2>מה שכולם שואלים</h2>
+  <details><summary>הלקוחות יודעים שזו בינה מלאכותית?</summary><p>כן. מאיה תמיד מציגה את עצמה כעוזרת דיגיטלית. מה שהלקוחות מרגישים זה תשובה תוך דקה, גם באמצע הלילה.</p></details>
+  <details><summary>למה אין מחירים באתר?</summary><p>כי כל עסק צריך משהו אחר. בשיחת וידאו של 20 דקות, חינם, ברק מבין מה העסק צריך ונותן הצעה כתובה עם מחיר מדויק.</p></details>
+  <details><summary>מה עם המידע של הלקוחות שלי?</summary><p>נשמר רק מה שהמערכת צריכה כדי לעבוד, הוא לא משמש לשום דבר אחר ולא מועבר לאף אחד.</p></details>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2>רוצים מאיה משלכם?</h2>
+  <p>נסו אותה עכשיו, ואם זה מתאים, נדבר 20 דקות בווידאו.</p>
+  <div class="ctas">
+    <a class="btn" href="demo.html">דברו עם מאיה עכשיו</a>
+    <a class="tlink" href="index.html#contact">שיחת וידאו של 20 דקות, חינם</a>
+  </div>
+</div></section>
+
+<footer>FlowOps AI · מכניסים בינה מלאכותית לעסק</footer>
+</body></html>
