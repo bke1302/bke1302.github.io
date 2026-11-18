@@ -180,7 +180,7 @@
   h3{font-family:var(--h);font-weight:600;font-size:20px;line-height:1.35}
   .lead{color:var(--muted);font-size:18.5px;max-width:62ch;margin:-8px 0 28px}
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .grid1{display:grid;grid-template-columns:1fr;max-width:640px}
+  .grid1{display:grid;grid-template-columns:1fr;gap:14px;max-width:640px}
   .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   .pain{background:var(--blush);border-radius:16px;padding:22px 20px}
   .pain h3{margin-bottom:8px}
@@ -190,6 +190,16 @@
   .dcard:hover{border-color:var(--primary);box-shadow:0 10px 30px rgba(13,36,64,.08)}
   .dcard p{color:var(--muted);font-size:16px}
   .dcard .go{margin-top:auto;padding-top:6px;color:var(--primary);font-weight:700}
+  .voice{margin-top:18px;max-width:640px;display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:24px}
+  .voice p{color:var(--muted);font-size:16px}
+  .vchat{display:flex;flex-direction:column;gap:10px;background:#EFE7DD;border-radius:14px;padding:14px}
+  .vb{display:flex;flex-direction:column;gap:4px;max-width:92%;padding:8px 10px;border-radius:12px;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+  .vb.u{align-self:flex-start;background:#fff;border-top-right-radius:3px}
+  .vb.b{align-self:flex-end;background:#DCF3EE;border-top-left-radius:3px}
+  .vb small{font-size:12.5px;font-weight:700;color:#3B4A54}
+  .vb audio{width:260px;max-width:100%;height:40px}
+  .voice details{font-size:14.5px;color:var(--muted)}
+  .voice summary{cursor:pointer;color:var(--ink);font-weight:700}
   .live{align-self:flex-start;font-size:12.5px;font-weight:700;color:var(--primary);background:#E3F3F1;border-radius:999px;padding:3px 11px}
   .services{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   .svc{background:var(--bg);border:1px solid var(--border);border-radius:18px;padding:22px}
@@ -376,6 +386,23 @@
       <p>כתבו לה כמו לקוח: שאלה על טיפול, מחיר או תור. כל תשובה נכתבת עכשיו, בבינה מלאכותית אמיתית.</p>
       <span class="go">דברו עם מאיה ←</span>
     </a>
+    <a class="dcard" href="demo.html?p=trades">
+      <span class="live">עונה בזמן אמת</span>
+      <h3>איתי, נציג דיגיטלי של טכנאי מיזוג ואינסטלציה</h3>
+      <p>לבעלי מקצוע שעובדים בשטח: כתבו לו על תקלה, והוא יברר מה קרה ויקבע ביקור.</p>
+      <span class="go">דברו עם איתי ←</span>
+    </a>
+  </div>
+  <div class="voice" id="voice">
+    <span class="live">חדש: הודעות קוליות</span>
+    <h3>לקוח שולח הקלטה? הוא מקבל תשובה בקול</h3>
+    <p>הרבה לקוחות מעדיפים להקליט מאשר לכתוב. העוזרת הדיגיטלית מבינה הודעות קוליות בעברית ועונה בהקלטה, בקול טבעי. מי שכותב מקבל תשובה בכתב.</p>
+    <div class="vchat">
+      <div class="vb u"><small>לקוח · הודעה קולית</small><audio controls preload="none" src="audio/voice-q.mp3"></audio></div>
+      <div class="vb b"><small>מאיה · תשובה בקול</small><audio controls preload="none" src="audio/voice-a.mp3"></audio></div>
+    </div>
+    <details><summary>מה נאמר בהקלטות</summary><p>לקוח: "היי, רציתי לשאול כמה עולה טיפול פנים, ואם יש משהו פנוי ביום חמישי אחרי הצהריים?"<br>מאיה: "היי! טיפול פנים קלאסי עולה 280 שקל, והחודש הטיפול הראשון ב-220. ביום חמישי יש תור בחמש וחצי. לשמור לך?"</p></details>
+    <p>דוגמה להמחשה, בקולות שהעוזרת משתמשת בהם. רוצים לשמוע בעצמכם? <a href="https://wa.me/972548080657?text=%D7%93%D7%9E%D7%95">שלחו "דמו" בוואטסאפ</a> ואחר כך הקלטה.</p>
   </div>
 </div></section>
 
@@ -383,7 +410,7 @@
   <span class="eyebrow">מה אנחנו עושים</span>
   <h2>חמישה דברים שאנחנו בונים לעסקים</h2>
   <div class="services">
-    <div class="svc"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg></span><h3>עובדים דיגיטליים</h3><p>עוזרים דיגיטליים שעושים עבודה שלמה בשבילכם.</p><ul><li>עונים ללקוחות וקובעים תור</li><li>ממלאים ביטולים ביומן</li><li>מחזירים לקוחות שלא הגיעו מזמן</li><li>מבקשים ביקורת בגוגל מלקוחות מרוצים</li></ul></div>
+    <div class="svc"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg></span><h3>עובדים דיגיטליים</h3><p>עוזרים דיגיטליים שעושים עבודה שלמה בשבילכם.</p><ul><li>עונים ללקוחות וקובעים תור, גם בהודעות קוליות</li><li>ממלאים ביטולים ביומן</li><li>מחזירים לקוחות שלא הגיעו מזמן</li><li>מבקשים ביקורת בגוגל מלקוחות מרוצים</li></ul></div>
     <div class="svc"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 13H8"/><path d="M16 17H8"/></svg></span><h3>עבודת משרד שנעשית לבד</h3><p>בלי העתקות ובלי טעויות.</p><ul><li>הצעות מחיר, חוזים וחשבוניות</li><li>מיון מיילים וטיוטות מוכנות</li><li>חיבור בין יומן, אקסל, וואטסאפ ומייל</li></ul></div>
     <div class="svc"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span><h3>שיווק ונוכחות ברשת</h3><p>שיווק שעובד, בעלות שפויה.</p><ul><li>דפי נחיתה שמביאים פניות</li><li>מודעות לאינסטגרם ולפייסבוק</li><li>תוכן לרשתות</li></ul></div>
     <div class="svc"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span><h3>הדרכה לעבודה עם AI</h3><p>מלמדים אתכם ואת הצוות.</p><ul><li>מה כדאי לעשות קודם</li><li>הדרכה לבעל העסק ולעובדים</li><li>ליווי עד שזה באמת עובד</li></ul></div>
