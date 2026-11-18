@@ -150,7 +150,7 @@ async function ask(text) {
   await wait(350); setTyping(true);
   let reply = '';
   try {
-    const r = await fetch(API, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ messages: (h => { while (h.length && h[0].role !== 'user') h.shift(); return h; })(history.slice(-9)) }) });
+    const r = await fetch(API, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ src: new URLSearchParams(location.search).get('src') || '', messages: (h => { while (h.length && h[0].role !== 'user') h.shift(); return h; })(history.slice(-9)) }) });
     reply = ((await r.json()).reply || '').trim();
   } catch (e) { reply = ''; }
   if (!reply) {
