@@ -55,13 +55,13 @@ def shell_parts():
     src = SHELL_SRC.read_text(encoding="utf-8")
     top = src[src.index("<body>"):src.index('<header class="page-hero">')]
     bottom = src[src.index("<footer>"):]
-    fix = lambda s: (s.replace('src="flowops-mark.png"', 'src="/flowops-mark.png"')
+    fix = lambda s: (s.replace('src="flowops-mark.png"', 'src="/flowops-mark.png"').replace('src="logo-light.png"', 'src="/logo-light.png"')
                       .replace('src="pages.js"', 'src="/pages.js"'))
     bottom = bottom.replace(
         '<a href="/portfolio.html" style="color:#9FB6CC">תיק עבודות</a>',
         '<a href="/portfolio.html" style="color:#9FB6CC">תיק עבודות</a>\n'
         '      <span style="opacity:.5;margin:0 8px">·</span>\n'
-        '      <a href="/blog/" style="color:#9FB6CC">מדריכים</a>', 1)
+        '      <a href="/blog/" style="color:#0D2440">מדריכים</a>', 1)
     return fix(top), fix(bottom)
 
 
@@ -91,7 +91,7 @@ def head(title, desc, keywords, url, ld_blocks, og_type="article"):
 {lds}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600;700&family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/pages.css">
 </head>
 """

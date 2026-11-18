@@ -161,3 +161,85 @@ html.acc-contrast .uc,html.acc-contrast .faq-item,html.acc-contrast .lead-card,h
 .content th,.content td{border:1px solid var(--line);padding:10px 14px;text-align:right}
 .content th{background:var(--card);color:var(--head);font-weight:800}
 .post-list{grid-template-columns:1fr}
+
+
+/* ===== 18/11/26: עיצוב "קליניקה בהירה" לכל דפי התוכן (גובר על הערכה הכהה למעלה) ===== */
+:root{
+  --navy:#0D2440; --navy2:#0D2440; --blue:#0F766E; --blue-l:#0F766E;
+  --green:#0F766E; --green-d:#0F766E; --gold:#9D3B57; --bg:#FBF8F4;
+  --card:#FFFFFF; --txt:#3D4350; --head:#0D2440; --muted:#5A5F6B;
+  --line:#E9E1D8; --soft:#F3EEE8; --ink:#0D2440; --blush:#F7E6E0;
+}
+body{background:var(--bg);color:var(--txt)}
+h1,h2,h3,.content h2,.content h3,.cta-band h2,.related h2{font-family:'Rubik','Heebo',sans-serif;font-weight:700!important;letter-spacing:0!important}
+.btn{background:#0F766E;box-shadow:none}
+.btn:hover{background:#0B5F59;transform:none;box-shadow:none}
+.btn-ghost{background:transparent;border:2px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.eyebrow{color:#9D3B57;text-transform:none;letter-spacing:.4px}
+nav{background:rgba(251,248,244,.94);box-shadow:none;border-bottom:1px solid var(--line)}
+.logo{color:var(--ink)}
+.logo img.lg{height:26px;width:auto;display:block}
+.navlinks a{color:var(--ink)}
+.navlinks a:hover{color:#0F766E}
+.navlinks .btn{color:#fff}
+.navtoggle span{background:var(--ink)}
+@media(max-width:880px){
+  .navlinks{background:#FBF8F4;border-bottom:1px solid var(--line)}
+  .navlinks a{border-bottom:1px solid var(--line)}
+}
+header.page-hero{background:#FFFFFF;color:var(--ink);border-bottom:1px solid var(--line)}
+header.page-hero::before{display:none}
+header.page-hero::after{background:radial-gradient(circle,rgba(247,230,224,.9),transparent 70%)}
+header.page-hero h1{color:var(--ink)}
+header.page-hero h1 span{background:none;-webkit-background-clip:initial;background-clip:initial;color:#9D3B57}
+header.page-hero p.lead{color:var(--muted)}
+.crumbs,.crumbs a{color:var(--muted)}
+.crumbs a:hover{color:var(--ink)}
+.content a{color:#0F766E}
+.lead-card{border-right-color:#0F766E}
+.ucase .uc:hover,.related-grid a:hover{box-shadow:0 10px 26px rgba(13,36,64,.08);border-color:#0F766E}
+.cta-band{background:#0D2440}
+.cta-band p a{color:#7FE0D6}
+footer{background:var(--bg);color:var(--muted);border-top:1px solid var(--line)}
+footer b{color:var(--ink)}
+footer a,footer a[style]{color:var(--ink)!important}
+.wa{width:54px;height:54px;animation:none;box-shadow:0 8px 22px rgba(37,211,102,.35)}
+.wa svg{width:28px;height:28px}
+a:focus-visible,button:focus-visible{outline:3px solid #0F766E}
+.skip{background:var(--ink)}
+.acc-btn{background:var(--ink);border:0;width:44px;height:44px}
+.acc-btn svg{width:24px;height:24px}
+.acc-panel{background:#fff;border:1px solid var(--line);box-shadow:0 20px 50px rgba(13,36,64,.2)}
+.acc-panel h3{color:var(--ink)}
+.acc-panel .sub,.acc-note{color:var(--muted)}
+.acc-note a{color:#0F766E}
+.acc-opt{background:var(--bg);border:1px solid var(--line);color:var(--ink)}
+.acc-opt:hover{background:#F3EEE8}
+.acc-opt.active{background:#E3F3F1;border-color:#0F766E;color:var(--ink)}
+.acc-close{color:var(--muted)}
+.acc-statement{background:rgba(13,36,64,.55)}
+.acc-statement-box{background:#fff;border:1px solid var(--line);color:#3D4350}
+.acc-statement-box h2{color:var(--ink)}
+.acc-statement-box a{color:#0F766E}
+.acc-statement-box .acc-date{color:var(--muted)}
+.totop{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.totop:hover{background:var(--ink);color:#fff}
+html.acc-contrast body{color:#111}
+html.acc-contrast .content p,html.acc-contrast .content ul li,html.acc-contrast .ucase .uc p,html.acc-contrast .faq-a,html.acc-contrast .lead-card p,html.acc-contrast .related-grid a span,html.acc-contrast .faq-q{color:#111!important}
+html.acc-contrast .uc,html.acc-contrast .faq-item,html.acc-contrast .lead-card,html.acc-contrast .related-grid a{border-color:#0D2440!important}
+/* תיק עבודות */
+body .cs:hover,body .how-step:hover{border-color:#0F766E;box-shadow:0 10px 26px rgba(13,36,64,.08)}
+body .cs-num{background:#0D2440;color:#2DE2D3}
+body .cs-tag{background:#F7E6E0;border-color:#F7E6E0;color:#9D3B57}
+body .cs-result{background:#E3F3F1;border-color:#BFE3DE}
+body .cs-result h3{color:#0F766E}
+body .cs-note{background:#F7E6E0;border-color:#EBCFC6}
+body .cs-note h3{color:#9D3B57}
+body .cs-stack .chip{background:#F3EEE8;color:var(--ink)}
+body .how-step .n{background:#0D2440;border-color:#0D2440;color:#2DE2D3}
+body .proof-strip b{color:#0F766E}
+html.acc-contrast .cs-block p,html.acc-contrast .cs-list li,html.acc-contrast .how-step p,html.acc-contrast .cs-client,html.acc-contrast .cs-note p,html.acc-contrast .proof-strip span{color:#111!important}
+html.acc-contrast .cs,html.acc-contrast .how-step,html.acc-contrast .cs-result,html.acc-contrast .cs-note{border-color:#0D2440!important}
+nav.crumbs{position:static;background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;height:auto;z-index:auto}
+@media(max-width:880px){.navlinks:not(.open){visibility:hidden;box-shadow:none;border:0}}
