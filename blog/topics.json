@@ -4,7 +4,7 @@
     "keyword": "מענה אוטומטי ללידים לקליניקה",
     "angle": "כמה כסף קליניקת אסתטיקה מפסידה על לידים ממטא שלא נענו תוך 5 דקות, ואיך סוכן AI עונה תוך דקה וקובע תור",
     "niche": "קליניקות אסתטיקה",
-    "cta_page": "/lead-responder.html",
+    "cta_page": "/demo.html",
     "status": "published",
     "published": "2026-11-10"
   },
@@ -31,7 +31,7 @@
     "keyword": "מילוי ביטולים ביומן",
     "angle": "ביטול של רגע אחרון עולה כסף; איך אוטומציה מציעה את התור הפנוי לרשימת המתנה תוך דקות",
     "niche": "קליניקות ומספרות",
-    "cta_page": "/lead-responder.html",
+    "cta_page": "/demo.html",
     "status": "published",
     "published": "2026-11-17"
   },
@@ -96,7 +96,7 @@
     "keyword": "זמן תגובה ללידים",
     "angle": "למה ליד שנענה אחרי שעה שווה פחות מליד שנענה אחרי דקה, ומה עושים כשאין מזכירה",
     "niche": "כללי",
-    "cta_page": "/lead-responder.html",
+    "cta_page": "/demo.html",
     "status": "pending"
   },
   {
@@ -104,7 +104,7 @@
     "keyword": "AI למרפאת שיניים",
     "angle": "תזכורות לבדיקות תקופתיות, החזרת מטופלים שלא הגיעו שנה ומענה לפניות אחרי שעות",
     "niche": "מרפאות שיניים",
-    "cta_page": "/lead-responder.html",
+    "cta_page": "/demo.html",
     "status": "pending"
   },
   {
@@ -112,7 +112,7 @@
     "keyword": "אוטומציה למספרה",
     "angle": "קביעת תורים בוואטסאפ, תזכורות, ומילוי חורים ביומן במספרה או סלון יופי",
     "niche": "מספרות וסלונים",
-    "cta_page": "/lead-responder.html",
+    "cta_page": "/demo.html",
     "status": "pending"
   },
   {
@@ -176,7 +176,7 @@
     "keyword": "לידים מפייסבוק לא נסגרים",
     "angle": "למה לידים ממודעות מטא לא הופכים ללקוחות: זמן תגובה, סינון, ומעקב, ומה לתקן לפני שמגדילים תקציב",
     "niche": "עסקים שמפרסמים",
-    "cta_page": "/lead-responder.html",
+    "cta_page": "/demo.html",
     "status": "pending"
   },
   {
@@ -192,7 +192,7 @@
     "keyword": "קביעת תורים אוטומטית",
     "angle": "מערכת תורים עם AI שמבינה הודעות חופשיות בוואטסאפ ומחוברת ליומן, לעומת קישור הזמנה רגיל",
     "niche": "נותני שירות",
-    "cta_page": "/lead-responder.html",
+    "cta_page": "/demo.html",
     "status": "pending"
   },
   {

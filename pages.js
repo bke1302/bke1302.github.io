@@ -50,3 +50,6 @@
     b.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'});});
   })();
 })();
+
+// כפתור וואטסאפ צף מופיע רק אחרי ראש הדף
+(function(){var w=document.querySelector('a.wa');if(!w)return;var f=function(){w.classList.toggle('show',scrollY>500);};addEventListener('scroll',f,{passive:true});f();})();

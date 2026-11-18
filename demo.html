@@ -2,8 +2,8 @@
 <html lang="he" dir="rtl"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>דמו חי | עובדת דיגיטלית של FlowOps בפעולה</title>
-<meta name="description" content="דמו חי של FlowOps AI: מאיה, עובדת דיגיטלית של קליניקה לדוגמה. כתבו לה כמו לקוח, ובינה מלאכותית אמיתית עונה, קובעת תור ומכניסה אותו ליומן.">
+<title>דמו חי: בוט וואטסאפ לקליניקה שקובע תורים | FlowOps AI</title>
+<meta name="description" content="כתבו למאיה כמו לקוחה של קליניקה, ותראו איך בינה מלאכותית עונה על מחירים וטיפולים וקובעת תור ביומן. בלי הרשמה.">
 <meta property="og:title" content="דמו חי: עובדת דיגיטלית של FlowOps בפעולה">
 <meta property="og:description" content="כתבו כמו לקוח של קליניקה, ותראו איך בינה מלאכותית אמיתית עונה, מבינה וקובעת תור.">
 <meta property="og:image" content="https://flowopsai.co.il/og-image-v2.jpg">
@@ -17,28 +17,29 @@
 <meta name="theme-color" content="#FBF8F4">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://flowopsai.co.il/demo.html">
-<link rel="icon" href="flowops-mark.png">
+<link rel="icon" href="/flowops-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600;700&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--navy:#0B2540;--turq:#22D3C5;--rose:#D9467A;--paper:#EFE7DE;--in:#fff;--out:#DCF8C6;--ink:#111B21;--mute:#667781}
+  :root{--navy:#0D2440;--turq:#22D3C5;--rose:#D9467A;--paper:#EFE7DE;--in:#fff;--out:#DCF8C6;--ink:#111B21;--mute:#667781}
   *{margin:0;padding:0;box-sizing:border-box}
   button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #0F766E;outline-offset:2px}
   html,body{height:100%}
   body{font-family:'Heebo','Segoe UI',Arial,sans-serif;background:#FBF8F4;color:var(--ink);
     display:flex;flex-direction:column;align-items:center;gap:14px;
     padding:max(14px,env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) max(14px,env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left))}
+  .brand img{height:22px;width:auto;display:block}
   .intro{max-width:420px;width:100%;color:#0D2440;text-align:center;display:flex;flex-direction:column;gap:4px}
-  .intro b{color:#0D2440;font-family:'Rubik','Heebo',sans-serif;font-size:19px;font-weight:700;line-height:1.3}
+  .intro h1,.intro b{margin:0;text-wrap:balance;color:#0D2440;font-family:'Rubik','Heebo',sans-serif;font-size:19px;font-weight:700;line-height:1.3}
   .intro span{font-size:14.5px;line-height:1.5;color:#5A5F6B}
   .intro .live{display:inline-flex;align-items:center;gap:6px;align-self:center;font-size:12.5px;font-weight:700;color:#0F766E;background:#E3F3F1;
     border:1px solid rgba(15,118,110,.25);border-radius:20px;padding:3px 11px;margin-bottom:4px}
   .intro .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#0F766E;box-shadow:0 0 0 0 rgba(34,211,197,.6);animation:pulse 1.8s infinite}
   @keyframes pulse{70%{box-shadow:0 0 0 7px rgba(34,211,197,0)}100%{box-shadow:0 0 0 0 rgba(34,211,197,0)}}
-  .phone{box-shadow:0 18px 50px rgba(13,36,64,.14);border:1px solid #E9E1D8;width:100%;max-width:420px;flex:1;min-height:min(520px,calc(100dvh - 190px));max-height:780px;background:var(--paper);border-radius:24px;overflow:hidden;
-    display:flex;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.55);position:relative}
+  .phone{border:1px solid #E9E1D8;width:100%;max-width:420px;flex:1;min-height:min(520px,calc(100dvh - 190px));max-height:780px;background:var(--paper);border-radius:24px;overflow:hidden;
+    display:flex;flex-direction:column;box-shadow:0 18px 50px rgba(13,36,64,.14);position:relative}
   .top{background:var(--navy);color:#fff;padding:12px 14px;display:flex;align-items:center;gap:11px;flex-shrink:0}
-  .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#F07AA6,var(--rose));display:flex;align-items:center;
+  .av{width:42px;height:42px;border-radius:50%;background:#B83564;display:flex;align-items:center;
     justify-content:center;font-weight:800;font-size:19px;flex-shrink:0}
   .who{min-width:0}
   .who b{font-size:16px;display:block;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -68,6 +69,7 @@
   .book em{font-style:normal;font-size:12px;color:var(--mute)}
   .cta{align-self:stretch;margin:8px 4px 2px;background:linear-gradient(135deg,var(--navy),#16467A);color:#fff;border-radius:14px;padding:13px 14px;
     display:flex;flex-direction:column;gap:9px;animation:pop .3s ease}
+  .cta a.sec{background:none;color:#fff;text-decoration:underline;font-weight:500;padding:4px 0}
   .cta b{font-size:15px;font-weight:800}.cta span{font-size:13px;color:#C6D8EA;line-height:1.45}
   .cta a{align-self:flex-start;background:#0F766E;color:#fff;text-decoration:none;font-weight:800;font-size:14px;padding:9px 18px;border-radius:22px}
   .quick{display:flex;flex-wrap:wrap;gap:7px;padding:4px 12px 8px;justify-content:flex-start}
@@ -80,6 +82,8 @@
   .send:disabled{opacity:.5;cursor:default}
   .send svg{width:22px;height:22px;fill:#fff;transform:scaleX(-1);margin-left:-2px}
   .foot{max-width:420px;width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;color:#5A5F6B;font-size:13px}
+  .note{max-width:420px;width:100%;margin:10px 0 0;font-size:12.5px;line-height:1.5;color:#5A5F6B;text-align:center}
+  .note a{color:#0D2440}
   .foot a{color:#0D2440;text-decoration:none;font-weight:700}
   .foot #waFoot{color:#0F766E}
   .restart{background:#fff;border:1.5px solid #8A8178;color:#0D2440;border-radius:16px;padding:5px 12px;font:inherit;font-size:12.5px;cursor:pointer}
@@ -87,9 +91,10 @@
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style></head>
 <body>
+<a class="brand" href="/" aria-label="FlowOps AI, לדף הבית"><img src="logo-light.png" alt="FlowOps AI" width="520" height="100"></a>
 <div class="intro">
   <span class="live">עונה בזמן אמת · בינה מלאכותית אמיתית</span>
-  <b>זו מאיה. היא עונה ללקוחות של קליניקה, גם בלילה.</b>
+  <h1>זו מאיה. היא עונה ללקוחות של קליניקה, גם בלילה.</h1>
   <span>אין פה תסריט מוכן. כל תשובה נכתבת עכשיו, בזמן אמת, לפי מה שאתם כותבים. נסו לשאול אותה כל דבר.</span>
 </div>
 
@@ -105,11 +110,12 @@
   </div>
   <div class="quick" id="quick"></div>
   <div class="bar">
-    <input id="inp" placeholder="כתבו למאיה כאן..." aria-label="כתבו הודעה" autocomplete="off" enterkeyhint="send">
+    <input id="inp" placeholder="למשל: יש תור מחר אחרי חמש?" aria-label="כתבו הודעה" autocomplete="off" enterkeyhint="send">
     <button class="send" id="send" aria-label="שלח"><svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></button>
   </div>
 </div>
 
+<p class="note">זו הדגמה. אל תכתבו פרטים רפואיים או אישיים. ההודעות מעובדות אצל ספק AI (Anthropic) ולא נשמרות. <a href="/privacy.html">מדיניות פרטיות</a></p>
 <div class="foot"><button type="button" class="restart" id="restart">התחלה מחדש</button><a id="waFoot" href="#" target="_blank" rel="noopener">רוצים מאיה משלכם? כתבו לנו</a><a href="/">לאתר ←</a></div>
 
 <script>
@@ -142,7 +148,8 @@ function chips(list) {
 function showCta() {
   if (ctaShown) return; ctaShown = true;
   card('<b>ככה זה נראה מהצד של הלקוחות שלכם</b><span>מאיה משלכם עונה בשם העסק, מכירה את הטיפולים והמחירים שלכם, קובעת ביומן, שולחת תזכורות ומחזירה לקוחות שלא הגיעו מזמן.</span>'
-     + '<a href="' + WA + '" target="_blank" rel="noopener">רוצים אחת כזו? כתבו לנו בוואטסאפ</a>', 'cta');
+     + '<a href="' + WA + '" target="_blank" rel="noopener">רוצים אחת כזו? כתבו לנו בוואטסאפ</a>'
+     + '<a class="sec" href="/#contact">או שיחת וידאו של 20 דקות עם ברק, חינם</a>', 'cta');
 }
 
 async function ask(text) {

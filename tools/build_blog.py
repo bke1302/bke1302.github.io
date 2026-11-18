@@ -56,7 +56,7 @@ def shell_parts():
     top = src[src.index("<body>"):src.index('<header class="page-hero">')]
     bottom = src[src.index("<footer>"):]
     fix = lambda s: (s.replace('src="flowops-mark.png"', 'src="/flowops-mark.png"').replace('src="logo-light.png"', 'src="/logo-light.png"')
-                      .replace('src="pages.js"', 'src="/pages.js"'))
+                      .replace('src="pages.js"', 'src="/pages.js"').replace('src="pages.js?v=', 'src="/pages.js?v='))
     bottom = bottom.replace(
         '<a href="/portfolio.html" style="color:#9FB6CC">תיק עבודות</a>',
         '<a href="/portfolio.html" style="color:#9FB6CC">תיק עבודות</a>\n'
@@ -79,9 +79,10 @@ def head(title, desc, keywords, url, ld_blocks, og_type="article"):
 <meta name="keywords" content="{e(keywords)}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:type" content="{og_type}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{SITE}/og-image.jpg">
+<meta property="og:image" content="{SITE}/og-image-v2.jpg">
 <meta property="og:locale" content="he_IL">
 <meta property="og:site_name" content="FlowOps AI">
 <meta name="robots" content="index,follow">
@@ -92,7 +93,7 @@ def head(title, desc, keywords, url, ld_blocks, og_type="article"):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600;700&family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/pages.css">
+<link rel="stylesheet" href="/pages.css?v=20261118">
 </head>
 """
 
@@ -137,7 +138,7 @@ def render_post(post, posts_by_slug, top, bottom):
         {"@context": "https://schema.org", "@type": "Article", "headline": post["h1"],
          "description": post["description"], "datePublished": post["date"],
          "dateModified": post.get("updated", post["date"]), "inLanguage": "he-IL",
-         "mainEntityOfPage": url, "image": f"{SITE}/og-image.jpg",
+         "mainEntityOfPage": url, "image": f"{SITE}/og-image-v2.jpg",
          "author": {"@type": "Person", "name": "ברק", "url": f"{SITE}/"},
          "publisher": {"@type": "Organization", "name": "FlowOps AI", "url": f"{SITE}/",
                        "logo": {"@type": "ImageObject", "url": f"{SITE}/flowops-mark.png"}}},
