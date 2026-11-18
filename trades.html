@@ -47,6 +47,8 @@
   .steps li{counter-increment:s;display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
   .steps li::before{content:counter(s);flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#0D2440;color:#2DE2D3;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:'Rubik','Heebo',sans-serif}
   .steps b{color:var(--ink)}
+  .related-grid.four{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:780px){.related-grid.four{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -146,6 +148,18 @@
   </div>
 </section>
 
+<section class="related" aria-labelledby="free-tools">
+  <div class="wrap">
+    <h2 id="free-tools">כלים חינם לבעלי עסקים</h2>
+    <div class="related-grid four">
+      <a href="/audit.html">בדיקת מענה חינם<span>נשלח לעסק שלכם שלוש הודעות כמו לקוח, ונראה כמה זמן לקח לענות</span></a>
+      <a href="/calculator.html">כמה פניות אתם מפספסים?<span>מחשבון קצר בשקלים, עם הנחות זהירות</span></a>
+      <a href="/report-example.html">ככה נראה הדוח השבועי<span>דוגמה לסיכום שבעל העסק מקבל בוואטסאפ</span></a>
+      <a href="/flowops-vs-meta-ai.html">FlowOps מול הסוכן של מטא<span>השוואה הוגנת, כולל מתי החינמי מספיק</span></a>
+    </div>
+  </div>
+</section>
+
 <section class="related">
   <div class="wrap">
     <h2>עוד באתר</h2>
@@ -174,9 +188,11 @@
     <div style="margin-top:10px">
       <a href="#" id="accStatementLink" style="color:#5FC9F0;text-decoration:underline">הצהרת נגישות</a>
       <span style="opacity:.5;margin:0 8px">·</span>
-      <a href="#" id="privacyLink" style="color:#5FC9F0;text-decoration:underline">מדיניות פרטיות</a>
+      <a href="/privacy.html" style="color:#5FC9F0;text-decoration:underline">מדיניות פרטיות</a>
       <span style="opacity:.5;margin:0 8px">·</span>
-      <a href="#" id="termsLink" style="color:#5FC9F0;text-decoration:underline">תנאי שימוש</a>
+      <a href="/terms.html" style="color:#5FC9F0;text-decoration:underline">תנאי שימוש</a>
+      <span style="opacity:.5;margin:0 8px">·</span>
+      <a href="/data-deletion.html" style="color:#5FC9F0;text-decoration:underline">מחיקת מידע</a>
     </div>
   </div>
 </footer>
