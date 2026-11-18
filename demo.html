@@ -36,6 +36,9 @@
     border:1px solid rgba(15,118,110,.25);border-radius:20px;padding:3px 11px;margin-bottom:4px}
   .intro .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#0F766E;box-shadow:0 0 0 0 rgba(34,211,197,.6);animation:pulse 1.8s infinite}
   @keyframes pulse{70%{box-shadow:0 0 0 7px rgba(34,211,197,0)}100%{box-shadow:0 0 0 0 rgba(34,211,197,0)}}
+  .persona{display:flex;gap:4px;background:#fff;border:1px solid #E9E1D8;border-radius:24px;padding:4px;max-width:420px}
+  .persona a{padding:7px 15px;border-radius:20px;font-size:14px;font-weight:700;color:#0D2440;text-decoration:none;white-space:nowrap}
+  .persona a[aria-current="page"]{background:#0D2440;color:#fff}
   .phone{border:1px solid #E9E1D8;width:100%;max-width:420px;flex:1;min-height:min(520px,calc(100dvh - 190px));max-height:780px;background:var(--paper);border-radius:24px;overflow:hidden;
     display:flex;flex-direction:column;box-shadow:0 18px 50px rgba(13,36,64,.14);position:relative}
   .top{background:var(--navy);color:#fff;padding:12px 14px;display:flex;align-items:center;gap:11px;flex-shrink:0}
@@ -94,18 +97,20 @@
 <a class="brand" href="/" aria-label="FlowOps AI, לדף הבית"><img src="logo-light.png" alt="FlowOps AI" width="520" height="100"></a>
 <div class="intro">
   <span class="live">עונה בזמן אמת · בינה מלאכותית אמיתית</span>
-  <h1>זו מאיה. היא עונה ללקוחות של קליניקה, גם בלילה.</h1>
-  <span>אין פה תסריט מוכן. כל תשובה נכתבת עכשיו, בזמן אמת, לפי מה שאתם כותבים. נסו לשאול אותה כל דבר.</span>
+  <h1 id="h1">זו מאיה. היא עונה ללקוחות של קליניקה, גם בלילה.</h1>
+  <span id="introSub">אין פה תסריט מוכן. כל תשובה נכתבת עכשיו, בזמן אמת, לפי מה שאתם כותבים. נסו לשאול אותה כל דבר.</span>
 </div>
+
+<nav class="persona" aria-label="איזה עסק לנסות"><a href="/demo.html" id="pMaya" aria-current="page">קליניקה או סלון</a><a href="/demo.html?p=trades" id="pTrades">בעל מקצוע</a></nav>
 
 <div class="phone">
   <div class="top">
-    <div class="av">ש</div>
-    <div class="who"><b>קליניקת שירן</b><span class="st" id="status">מאיה, העוזרת הדיגיטלית · מקוונת</span></div>
+    <div class="av" id="av">ש</div>
+    <div class="who"><b id="biz">קליניקת שירן</b><span class="st" id="status">מאיה, העוזרת הדיגיטלית · מקוונת</span></div>
     <span class="tag">עסק לדוגמה</span>
   </div>
   <div class="chat" id="chat" aria-live="polite">
-    <div class="day">כאן מאיה עונה ללקוחות של הקליניקה. בעסק אמיתי היא מחוברת ליומן ולוואטסאפ שלכם.</div>
+    <div class="day" id="dayNote">כאן מאיה עונה ללקוחות של הקליניקה. בעסק אמיתי היא מחוברת ליומן ולוואטסאפ שלכם.</div>
     <div class="typing" id="typing"><i></i><i></i><i></i></div>
   </div>
   <div class="quick" id="quick"></div>
@@ -115,18 +120,36 @@
   </div>
 </div>
 
-<p class="note">זו הדגמה. אל תכתבו פרטים רפואיים או אישיים. ההודעות מעובדות אצל ספק AI (Anthropic) ולא נשמרות. <a href="/privacy.html">מדיניות פרטיות</a></p>
+<p class="note">זו הדגמה. אל תכתבו <span id="noteKind">פרטים רפואיים או אישיים</span>. ההודעות מעובדות אצל ספק AI (Anthropic) ולא נשמרות. <a href="/privacy.html">מדיניות פרטיות</a></p>
 <div class="foot"><button type="button" class="restart" id="restart">התחלה מחדש</button><a id="waFoot" href="#" target="_blank" rel="noopener">רוצים מאיה משלכם? כתבו לנו</a><a href="/">לאתר ←</a></div>
 
 <script>
 const API = 'https://82-70-212-53.sslip.io/demo-chat';
-const WA = 'https://wa.me/972548080657?text=' + encodeURIComponent('ראיתי את מאיה ורוצה כזאת לעסק שלי');
+// 18/11: שתי דמויות. מאיה (קליניקה) ואיתי (טכנאי מיזוג ואינסטלציה)
+const QS = new URLSearchParams(location.search);
+const PERSONA = QS.get('p') === 'trades' ? 'trades' : 'maya';
+const P = {
+  maya: { name: 'מאיה', wa: 'ראיתי את מאיה ורוצה כזאת לעסק שלי', status: 'מאיה, העוזרת הדיגיטלית · מקוונת', typing: 'מקלידה...',
+    open: 'היי, כאן מאיה מקליניקת שירן 🙂\nאני העוזרת הדיגיטלית של הקליניקה (בינה מלאכותית).\nבמה אפשר לעזור? טיפול, מחיר או תור?',
+    booked: 'נוסף ליומן של הקליניקה ✓', remind: 'תזכורת תישלח אוטומטית יום לפני',
+    cta: 'מאיה משלכם עונה בשם העסק, מכירה את הטיפולים והמחירים שלכם, קובעת ביומן, שולחת תזכורות ומחזירה לקוחות שלא הגיעו מזמן.',
+    ctaBtn: 'רוצים אחת כזו? כתבו לנו בוואטסאפ', foot: 'רוצים מאיה משלכם? כתבו לנו' },
+  trades: { name: 'איתי', wa: 'ראיתי את איתי ורוצה כזה לעסק שלי', status: 'איתי, הנציג הדיגיטלי · מקוון', typing: 'מקליד...',
+    open: 'היי, כאן איתי מגל מיזוג ואינסטלציה 🙂\nאני הנציג הדיגיטלי של העסק (בינה מלאכותית).\nמה קרה? מזגן, אינסטלציה, או שאתם צריכים הצעת מחיר?',
+    booked: 'נוסף ליומן של הטכנאי ✓', remind: 'הטכנאי ישלח הודעה כשהוא בדרך',
+    cta: 'איתי משלכם עונה בשם העסק, מכיר את השירותים והמחירים שלכם, קובע ביקורים ביומן, שולח תזכורות ומבקש ביקורת בגוגל אחרי העבודה.',
+    ctaBtn: 'רוצים כזה? כתבו לנו בוואטסאפ', foot: 'רוצים איתי משלכם? כתבו לנו',
+    h1: 'זה איתי. הוא עונה ללקוחות של טכנאי, גם כשהטכנאי על הסולם.', title: 'דמו חי: נציג וואטסאפ דיגיטלי לבעלי מקצוע | FlowOps AI',
+    av: 'ג', biz: 'גל מיזוג ואינסטלציה', day: 'כאן איתי עונה ללקוחות של העסק. בעסק אמיתי הוא מחובר ליומן ולוואטסאפ שלכם.',
+    ph: 'למשל: המזגן מטפטף, אפשר טכנאי מחר?', note: 'פרטים אישיים' }
+}[PERSONA];
+const WA = 'https://wa.me/972548080657?text=' + encodeURIComponent(P.wa);
 const chat = document.getElementById('chat'), typing = document.getElementById('typing'), quick = document.getElementById('quick'),
       inp = document.getElementById('inp'), sendBtn = document.getElementById('send'), status = document.getElementById('status');
 const history = [];
 let busy = false, replies = 0, ctaShown = false, booked = false;
 
-const OPEN = 'היי, כאן מאיה מקליניקת שירן 🙂\nאני העוזרת הדיגיטלית של הקליניקה (בינה מלאכותית).\nבמה אפשר לעזור? טיפול, מחיר או תור?';
+const OPEN = P.open;
 const CHIPS = ['יש לכם משהו לפיגמנטציה?', 'אפשר תור לשבוע הבא אחרי חמש?', 'כמה עולה טיפול פנים?', 'אני צריכה להזיז את התור של מחר', 'רגע, את בוט?'];
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
@@ -139,7 +162,7 @@ function bubble(text, who) {
   chat.insertBefore(m, typing); scroll();
 }
 function card(html, cls) { const c = document.createElement('div'); c.className = cls; c.innerHTML = html; chat.insertBefore(c, typing); scroll(); }
-function setTyping(on) { typing.classList.toggle('show', on); status.textContent = on ? 'מקלידה...' : 'מאיה, העוזרת הדיגיטלית · מקוונת'; if (on) scroll(); }
+function setTyping(on) { typing.classList.toggle('show', on); status.textContent = on ? P.typing : P.status; if (on) scroll(); }
 const wait = ms => new Promise(r => setTimeout(r, ms));
 function chips(list) {
   quick.innerHTML = '';
@@ -147,8 +170,8 @@ function chips(list) {
 }
 function showCta() {
   if (ctaShown) return; ctaShown = true;
-  card('<b>ככה זה נראה מהצד של הלקוחות שלכם</b><span>מאיה משלכם עונה בשם העסק, מכירה את הטיפולים והמחירים שלכם, קובעת ביומן, שולחת תזכורות ומחזירה לקוחות שלא הגיעו מזמן.</span>'
-     + '<a href="' + WA + '" target="_blank" rel="noopener">רוצים אחת כזו? כתבו לנו בוואטסאפ</a>'
+  card('<b>ככה זה נראה מהצד של הלקוחות שלכם</b><span>' + P.cta + '</span>'
+     + '<a href="' + WA + '" target="_blank" rel="noopener">' + P.ctaBtn + '</a>'
      + '<a class="sec" href="/#contact">או שיחת וידאו של 20 דקות עם ברק, חינם</a>', 'cta');
 }
 
@@ -160,7 +183,7 @@ async function ask(text) {
   await wait(350); setTyping(true);
   let reply = '';
   try {
-    const r = await fetch(API, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ src: new URLSearchParams(location.search).get('src') || '', messages: (h => { while (h.length && h[0].role !== 'user') h.shift(); return h; })(history.slice(-9)) }) });
+    const r = await fetch(API, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ src: QS.get('src') || '', persona: PERSONA, messages: (h => { while (h.length && h[0].role !== 'user') h.shift(); return h; })(history.slice(-9)) }) });
     reply = ((await r.json()).reply || '').trim();
   } catch (e) { reply = ''; }
   if (!reply) {
@@ -181,7 +204,7 @@ async function ask(text) {
     booked = true;
     const [name, treat, when] = bm[1].split('|').map(s => esc((s || '').trim()));
     await wait(500);
-    card('<small>נוסף ליומן של הקליניקה ✓</small><b>' + (when || '') + '</b><span>' + (name || '') + (treat ? ' · ' + treat : '') + '</span><em>תזכורת תישלח אוטומטית יום לפני</em>', 'book');
+    card('<small>' + P.booked + '</small><b>' + (when || '') + '</b><span>' + (name || '') + (treat ? ' · ' + treat : '') + '</span><em>' + P.remind + '</em>', 'book');
     await wait(900); showCta();
   } else if (replies >= 2) { showCta(); }
   busy = false; sendBtn.disabled = false;
@@ -190,6 +213,24 @@ async function ask(text) {
 
 sendBtn.onclick = () => ask(inp.value);
 document.getElementById('waFoot').href = WA;
+document.getElementById('waFoot').textContent = P.foot;
+(() => {   // הדמות שנבחרה + שמירת מקור הכניסה במעבר בין הדמויות
+  const src = QS.get('src'), q = src ? 'src=' + encodeURIComponent(src) : '';
+  document.getElementById('pMaya').href = '/demo.html' + (q ? '?' + q : '');
+  document.getElementById('pTrades').href = '/demo.html?p=trades' + (q ? '&' + q : '');
+  if (PERSONA !== 'trades') return;
+  document.getElementById('pMaya').removeAttribute('aria-current');
+  document.getElementById('pTrades').setAttribute('aria-current', 'page');
+  document.title = P.title;
+  document.getElementById('h1').textContent = P.h1;
+  document.getElementById('introSub').textContent = 'אין פה תסריט מוכן. כל תשובה נכתבת עכשיו, בזמן אמת, לפי מה שאתם כותבים. נסו לשאול אותו כל דבר.';
+  document.getElementById('av').textContent = P.av;
+  document.getElementById('biz').textContent = P.biz;
+  document.getElementById('dayNote').textContent = P.day;
+  document.getElementById('noteKind').textContent = P.note;
+  inp.placeholder = P.ph;
+  status.textContent = P.status;
+})();
 document.getElementById('restart').onclick = () => location.reload();
 inp.addEventListener('keydown', e => { if (e.key === 'Enter') ask(inp.value); });
 window.addEventListener('load', async () => {
