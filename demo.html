@@ -3,12 +3,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>דמו חי: בוט וואטסאפ לקליניקה שקובע תורים | FlowOps AI</title>
-<meta name="description" content="כתבו למאיה כמו לקוחה של קליניקה, ותראו איך בינה מלאכותית עונה על מחירים וטיפולים וקובעת תור ביומן. בלי הרשמה.">
+<meta name="description" content="כתבו לדנית כמו לקוחה של קליניקה, ותראו איך בינה מלאכותית עונה על מחירים וטיפולים וקובעת תור ביומן. בלי הרשמה.">
 <meta property="og:title" content="דמו חי: עובדת דיגיטלית של FlowOps בפעולה">
 <meta property="og:description" content="כתבו כמו לקוח של קליניקה, ותראו איך בינה מלאכותית אמיתית עונה, מבינה וקובעת תור.">
 <meta property="og:image" content="https://flowopsai.co.il/og-image-v3.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="מאיה, עובדת דיגיטלית של קליניקה לדוגמה">
+<meta property="og:image:alt" content="דנית, עובדת דיגיטלית של קליניקה לדוגמה">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://flowopsai.co.il/demo.html">
@@ -43,7 +43,8 @@
     display:flex;flex-direction:column;box-shadow:0 18px 50px rgba(13,36,64,.14);position:relative}
   .top{background:var(--navy);color:#fff;padding:12px 14px;display:flex;align-items:center;gap:11px;flex-shrink:0}
   .av{width:42px;height:42px;border-radius:50%;background:#B83564;display:flex;align-items:center;
-    justify-content:center;font-weight:800;font-size:19px;flex-shrink:0}
+    justify-content:center;font-weight:800;font-size:19px;flex-shrink:0;overflow:hidden}
+  .av img{width:100%;height:100%;object-fit:cover;display:block}
   .who{min-width:0}
   .who b{font-size:16px;display:block;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .who span{font-size:12.5px;color:#B9D3E8;white-space:nowrap}
@@ -97,7 +98,7 @@
 <a class="brand" href="/" aria-label="FlowOps AI, לדף הבית"><img src="logo-light.png" alt="FlowOps AI" width="520" height="100"></a>
 <div class="intro">
   <span class="live">עונה בזמן אמת · בינה מלאכותית אמיתית</span>
-  <h1 id="h1">זו מאיה. היא עונה ללקוחות של קליניקה, גם בלילה.</h1>
+  <h1 id="h1">זו דנית. היא עונה ללקוחות של קליניקה, גם בלילה.</h1>
   <span id="introSub">אין פה תסריט מוכן. כל תשובה נכתבת עכשיו, בזמן אמת, לפי מה שאתם כותבים. נסו לשאול אותה כל דבר.</span>
 </div>
 
@@ -105,12 +106,12 @@
 
 <div class="phone">
   <div class="top">
-    <div class="av" id="av">ש</div>
-    <div class="who"><b id="biz">קליניקת שירן</b><span class="st" id="status">מאיה, העוזרת הדיגיטלית · מקוונת</span></div>
+    <div class="av" id="av"><img src="/danit-avatar.jpg" alt="דנית" width="42" height="42"></div>
+    <div class="who"><b id="biz">קליניקת שירן</b><span class="st" id="status">דנית, העוזרת הדיגיטלית · מקוונת</span></div>
     <span class="tag">עסק לדוגמה</span>
   </div>
   <div class="chat" id="chat" aria-live="polite">
-    <div class="day" id="dayNote">כאן מאיה עונה ללקוחות של הקליניקה. בעסק אמיתי היא מחוברת ליומן ולוואטסאפ שלכם.</div>
+    <div class="day" id="dayNote">כאן דנית עונה ללקוחות של הקליניקה. בעסק אמיתי היא מחוברת ליומן ולוואטסאפ שלכם.</div>
     <div class="typing" id="typing"><i></i><i></i><i></i></div>
   </div>
   <div class="quick" id="quick"></div>
@@ -121,26 +122,26 @@
 </div>
 
 <p class="note">זו הדגמה. אל תכתבו <span id="noteKind">פרטים רפואיים או אישיים</span>. ההודעות מעובדות אצל ספק AI (Anthropic) ולא נשמרות. <a href="/privacy.html">מדיניות פרטיות</a></p>
-<div class="foot"><button type="button" class="restart" id="restart">התחלה מחדש</button><a id="waFoot" href="#" target="_blank" rel="noopener">רוצים מאיה משלכם? כתבו לנו</a><a href="/">לאתר ←</a></div>
+<div class="foot"><button type="button" class="restart" id="restart">התחלה מחדש</button><a id="waFoot" href="#" target="_blank" rel="noopener">רוצים עובדת דיגיטלית כמו דנית? כתבו לנו</a><a href="/">לאתר ←</a></div>
 
 <script>
 const API = 'https://82-70-212-53.sslip.io/demo-chat';
-// 18/11: שתי דמויות. מאיה (קליניקה) ואיתי (טכנאי מיזוג ואינסטלציה)
+// 19/11: דמות אחת, דנית. מדגימה מענה לקליניקה ולטכנאי מיזוג ואינסטלציה (שמות פנימיים נשמרו)
 const QS = new URLSearchParams(location.search);
 const PERSONA = QS.get('p') === 'trades' ? 'trades' : 'maya';
 const P = {
-  maya: { name: 'מאיה', wa: 'ראיתי את מאיה ורוצה כזאת לעסק שלי', status: 'מאיה, העוזרת הדיגיטלית · מקוונת', typing: 'מקלידה...',
-    open: 'היי, כאן מאיה מקליניקת שירן 🙂\nאני העוזרת הדיגיטלית של הקליניקה (בינה מלאכותית).\nבמה אפשר לעזור? טיפול, מחיר או תור?',
+  maya: { name: 'דנית', wa: 'דמו, ראיתי את דנית ורוצה כזאת לעסק שלי', status: 'דנית, העוזרת הדיגיטלית · מקוונת', typing: 'מקלידה...',
+    open: 'היי, כאן דנית מקליניקת שירן 🙂\nאני העוזרת הדיגיטלית של הקליניקה (בינה מלאכותית).\nבמה אפשר לעזור? טיפול, מחיר או תור?',
     booked: 'נוסף ליומן של הקליניקה ✓', remind: 'תזכורת תישלח אוטומטית יום לפני',
-    cta: 'מאיה משלכם עונה בשם העסק, מכירה את הטיפולים והמחירים שלכם, קובעת ביומן, שולחת תזכורות ומחזירה לקוחות שלא הגיעו מזמן.',
-    ctaBtn: 'רוצים אחת כזו? כתבו לנו בוואטסאפ', foot: 'רוצים מאיה משלכם? כתבו לנו' },
-  trades: { name: 'איתי', wa: 'דמו, ראיתי את איתי ורוצה כזה לעסק שלי', status: 'איתי, הנציג הדיגיטלי · מקוון', typing: 'מקליד...',
-    open: 'היי, כאן איתי מגל מיזוג ואינסטלציה 🙂\nאני הנציג הדיגיטלי של העסק (בינה מלאכותית).\nמה קרה? מזגן, אינסטלציה, או שאתם צריכים הצעת מחיר?',
+    cta: 'עובדת דיגיטלית כמו דנית עונה בשם העסק שלכם, מכירה את הטיפולים והמחירים שלכם, קובעת ביומן, שולחת תזכורות ומחזירה לקוחות שלא הגיעו מזמן.',
+    ctaBtn: 'רוצים אחת כזו? כתבו לנו בוואטסאפ', foot: 'רוצים עובדת דיגיטלית כמו דנית? כתבו לנו' },
+  trades: { name: 'דנית', wa: 'דמו, ראיתי את דנית ורוצה כזאת לעסק שלי', status: 'דנית, הנציגה הדיגיטלית · מקוונת', typing: 'מקלידה...',
+    open: 'היי, כאן דנית מגל מיזוג ואינסטלציה 🙂\nאני הנציגה הדיגיטלית של העסק (בינה מלאכותית).\nמה קרה? מזגן, אינסטלציה, או שאתם צריכים הצעת מחיר?',
     booked: 'נוסף ליומן של הטכנאי ✓', remind: 'הטכנאי ישלח הודעה כשהוא בדרך',
-    cta: 'איתי משלכם עונה בשם העסק, מכיר את השירותים והמחירים שלכם, קובע ביקורים ביומן, שולח תזכורות ומבקש ביקורת בגוגל אחרי העבודה.',
-    ctaBtn: 'רוצים כזה? כתבו לנו בוואטסאפ', foot: 'רוצים איתי משלכם? כתבו לנו',
-    h1: 'זה איתי. הוא עונה ללקוחות של טכנאי, גם כשהטכנאי על הסולם.', title: 'דמו חי: נציג וואטסאפ דיגיטלי לבעלי מקצוע | FlowOps AI',
-    av: 'ג', biz: 'גל מיזוג ואינסטלציה', day: 'כאן איתי עונה ללקוחות של העסק. בעסק אמיתי הוא מחובר ליומן ולוואטסאפ שלכם.',
+    cta: 'עובדת דיגיטלית כמו דנית עונה בשם העסק שלכם, מכירה את השירותים והמחירים שלכם, קובעת ביקורים ביומן, שולחת תזכורות ומבקשת ביקורת בגוגל אחרי העבודה.',
+    ctaBtn: 'רוצים אחת כזו? כתבו לנו בוואטסאפ', foot: 'רוצים עובדת דיגיטלית כמו דנית? כתבו לנו',
+    h1: 'זו דנית. היא עונה ללקוחות של טכנאי, גם כשהטכנאי על הסולם.', title: 'דמו חי: נציג וואטסאפ דיגיטלי לבעלי מקצוע | FlowOps AI',
+    biz: 'גל מיזוג ואינסטלציה', day: 'כאן דנית עונה ללקוחות של העסק. בעסק אמיתי היא מחוברת ליומן ולוואטסאפ שלכם.',
     ph: 'למשל: המזגן מטפטף, אפשר טכנאי מחר?', note: 'פרטים אישיים' }
 }[PERSONA];
 const WA = 'https://wa.me/972548080657?text=' + encodeURIComponent(P.wa);
@@ -223,8 +224,7 @@ document.getElementById('waFoot').textContent = P.foot;
   document.getElementById('pTrades').setAttribute('aria-current', 'page');
   document.title = P.title;
   document.getElementById('h1').textContent = P.h1;
-  document.getElementById('introSub').textContent = 'אין פה תסריט מוכן. כל תשובה נכתבת עכשיו, בזמן אמת, לפי מה שאתם כותבים. נסו לשאול אותו כל דבר.';
-  document.getElementById('av').textContent = P.av;
+  document.getElementById('introSub').textContent = 'אין פה תסריט מוכן. כל תשובה נכתבת עכשיו, בזמן אמת, לפי מה שאתם כותבים. נסו לשאול אותה כל דבר.';
   document.getElementById('biz').textContent = P.biz;
   document.getElementById('dayNote').textContent = P.day;
   document.getElementById('noteKind').textContent = P.note;
