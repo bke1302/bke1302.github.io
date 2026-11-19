@@ -82,7 +82,7 @@ def head(title, desc, keywords, url, ld_blocks, og_type="article"):
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:type" content="{og_type}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{SITE}/og-image-v2.jpg">
+<meta property="og:image" content="{SITE}/og-image-v3.jpg">
 <meta property="og:locale" content="he_IL">
 <meta property="og:site_name" content="FlowOps AI">
 <meta name="robots" content="index,follow">
@@ -138,7 +138,7 @@ def render_post(post, posts_by_slug, top, bottom):
         {"@context": "https://schema.org", "@type": "Article", "headline": post["h1"],
          "description": post["description"], "datePublished": post["date"],
          "dateModified": post.get("updated", post["date"]), "inLanguage": "he-IL",
-         "mainEntityOfPage": url, "image": f"{SITE}/og-image-v2.jpg",
+         "mainEntityOfPage": url, "image": f"{SITE}/og-image-v3.jpg",
          "author": {"@type": "Person", "name": "ברק", "url": f"{SITE}/"},
          "publisher": {"@type": "Organization", "name": "FlowOps AI", "url": f"{SITE}/",
                        "logo": {"@type": "ImageObject", "url": f"{SITE}/flowops-mark.png"}}},
