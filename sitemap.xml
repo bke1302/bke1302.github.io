@@ -43,36 +43,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://flowopsai.co.il/blog/</loc>
-    <lastmod>2026-11-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://flowopsai.co.il/blog/fill-cancellations-automatically.html</loc>
-    <lastmod>2026-11-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flowopsai.co.il/blog/reactivate-dormant-customers-ai.html</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flowopsai.co.il/blog/ai-agent-vs-chatbot.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flowopsai.co.il/blog/whatsapp-lead-response-aesthetic-clinic.html</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://flowopsai.co.il/clinics.html</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -125,5 +95,41 @@
     <lastmod>2026-11-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://flowopsai.co.il/blog/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://flowopsai.co.il/blog/google-reviews-automation.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flowopsai.co.il/blog/fill-cancellations-automatically.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flowopsai.co.il/blog/reactivate-dormant-customers-ai.html</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flowopsai.co.il/blog/ai-agent-vs-chatbot.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flowopsai.co.il/blog/whatsapp-lead-response-aesthetic-clinic.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
