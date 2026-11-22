@@ -198,7 +198,7 @@ async function ask(text) {
   }
   if (isField) {
     field = text;
-    document.getElementById('biz').textContent = 'עסק לדוגמה · ' + text.slice(0, 30);
+    document.getElementById('biz').textContent = text.slice(0, 30);   // התגית "עסק לדוגמה" כבר מופיעה בכותרת
     inp.placeholder = P.ph2;
   }
   history.push({ role: 'assistant', content: reply });
