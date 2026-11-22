@@ -36,9 +36,6 @@
     border:1px solid rgba(15,118,110,.25);border-radius:20px;padding:3px 11px;margin-bottom:4px}
   .intro .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#0F766E;box-shadow:0 0 0 0 rgba(34,211,197,.6);animation:pulse 1.8s infinite}
   @keyframes pulse{70%{box-shadow:0 0 0 7px rgba(34,211,197,0)}100%{box-shadow:0 0 0 0 rgba(34,211,197,0)}}
-  .persona{display:flex;gap:4px;background:#fff;border:1px solid #E9E1D8;border-radius:24px;padding:4px;max-width:420px}
-  .persona a{padding:7px 15px;border-radius:20px;font-size:14px;font-weight:700;color:#0D2440;text-decoration:none;white-space:nowrap}
-  .persona a[aria-current="page"]{background:#0D2440;color:#fff}
   .phone{border:1px solid #E9E1D8;width:100%;max-width:420px;flex:1;min-height:min(520px,calc(100dvh - 190px));max-height:780px;background:var(--paper);border-radius:24px;overflow:hidden;
     display:flex;flex-direction:column;box-shadow:0 18px 50px rgba(13,36,64,.14);position:relative}
   .top{background:var(--navy);color:#fff;padding:12px 14px;display:flex;align-items:center;gap:11px;flex-shrink:0}
@@ -102,8 +99,6 @@
   <span id="introSub">אין פה תסריט מוכן. כל תשובה נכתבת עכשיו, בזמן אמת, לפי מה שאתם כותבים. נסו לשאול אותה כל דבר.</span>
 </div>
 
-<nav class="persona" aria-label="איזה עסק לנסות"><a href="/demo.html" id="pAny" aria-current="page">כל עסק</a><a href="/demo.html?p=clinic" id="pMaya">קליניקה או סלון</a><a href="/demo.html?p=trades" id="pTrades">בעל מקצוע</a></nav>
-
 <div class="phone">
   <div class="top">
     <div class="av" id="av"><img src="/danit-avatar.jpg" alt="דנית" width="42" height="42"></div>
@@ -126,34 +121,16 @@
 
 <script>
 const API = 'https://82-70-212-53.sslip.io/demo-chat';
-// 19/11: דמות אחת, דנית. 22/11: ברירת המחדל 'any', הגולש בוחר תחום והוא נשלח כהודעה הראשונה לשרת.
-// ?p=trades פותח טכנאי, ?p=clinic (או p=maya) פותח קליניקה (שמות פנימיים נשמרו)
+// 22/11: דמו אחד לכל העסקים. דנית שואלת קודם באיזה תחום העסק, והתחום נשלח כהודעה הראשונה לשרת (persona 'any').
+// קישורים ישנים עם ?p=trades או ?p=clinic מגיעים לאותו דמו.
 const QS = new URLSearchParams(location.search);
-const PERSONA = QS.get('p') === 'trades' ? 'trades' : (QS.get('p') === 'clinic' || QS.get('p') === 'maya') ? 'maya' : 'any';
-const P = {
-  any: { name: 'דנית', wa: 'דמו, ראיתי את דנית ורוצה כזאת לעסק שלי', status: 'דנית, הנציגה הדיגיטלית · מקוונת', typing: 'מקלידה...',
-    open: 'היי, כאן דנית 🙂\nאני עובדת דיגיטלית (בינה מלאכותית), ואראה לכם איך אני עונה ללקוחות של עסק כמו שלכם.\nבאיזה תחום העסק שלכם?',
-    booked: 'נוסף ליומן של העסק ✓', remind: 'תזכורת תישלח לפני המועד',
-    cta: 'עובדת דיגיטלית כמו דנית עונה בשם העסק שלכם, מכירה את השירותים והמחירים שלכם, קובעת ביומן, שולחת תזכורות ומעבירה אליכם רק את מה שצריך אתכם.',
-    ctaBtn: 'רוצים אחת כזו? כתבו לנו בוואטסאפ', foot: 'רוצים עובדת דיגיטלית כמו דנית? כתבו לנו',
-    ph2: 'כתבו לדנית כמו לקוח...' },
-  maya: { name: 'דנית', wa: 'דמו, ראיתי את דנית ורוצה כזאת לעסק שלי', status: 'דנית, העוזרת הדיגיטלית · מקוונת', typing: 'מקלידה...',
-    open: 'היי, כאן דנית מקליניקת שירן 🙂\nאני העוזרת הדיגיטלית של הקליניקה (בינה מלאכותית).\nבמה אפשר לעזור? טיפול, מחיר או תור?',
-    booked: 'נוסף ליומן של הקליניקה ✓', remind: 'תזכורת תישלח אוטומטית יום לפני',
-    cta: 'עובדת דיגיטלית כמו דנית עונה בשם העסק שלכם, מכירה את הטיפולים והמחירים שלכם, קובעת ביומן, שולחת תזכורות ומחזירה לקוחות שלא הגיעו מזמן.',
-    ctaBtn: 'רוצים אחת כזו? כתבו לנו בוואטסאפ', foot: 'רוצים עובדת דיגיטלית כמו דנית? כתבו לנו',
-    h1: 'זו דנית. היא עונה ללקוחות של קליניקה, גם בלילה.', title: 'דמו חי: בוט וואטסאפ לקליניקה שקובע תורים | FlowOps AI',
-    biz: 'קליניקת שירן', day: 'כאן דנית עונה ללקוחות של הקליניקה. בעסק אמיתי היא מחוברת ליומן ולוואטסאפ שלכם.',
-    ph: 'למשל: יש תור מחר אחרי חמש?', note: 'פרטים רפואיים או אישיים' },
-  trades: { name: 'דנית', wa: 'דמו, ראיתי את דנית ורוצה כזאת לעסק שלי', status: 'דנית, הנציגה הדיגיטלית · מקוונת', typing: 'מקלידה...',
-    open: 'היי, כאן דנית מגל מיזוג ואינסטלציה 🙂\nאני הנציגה הדיגיטלית של העסק (בינה מלאכותית).\nמה קרה? מזגן, אינסטלציה, או שאתם צריכים הצעת מחיר?',
-    booked: 'נוסף ליומן של הטכנאי ✓', remind: 'הטכנאי ישלח הודעה כשהוא בדרך',
-    cta: 'עובדת דיגיטלית כמו דנית עונה בשם העסק שלכם, מכירה את השירותים והמחירים שלכם, קובעת ביקורים ביומן, שולחת תזכורות ומבקשת ביקורת בגוגל אחרי העבודה.',
-    ctaBtn: 'רוצים אחת כזו? כתבו לנו בוואטסאפ', foot: 'רוצים עובדת דיגיטלית כמו דנית? כתבו לנו',
-    h1: 'זו דנית. היא עונה ללקוחות של טכנאי, גם כשהטכנאי על הסולם.', title: 'דמו חי: נציג וואטסאפ דיגיטלי לבעלי מקצוע | FlowOps AI',
-    biz: 'גל מיזוג ואינסטלציה', day: 'כאן דנית עונה ללקוחות של העסק. בעסק אמיתי היא מחוברת ליומן ולוואטסאפ שלכם.',
-    ph: 'למשל: המזגן מטפטף, אפשר טכנאי מחר?', note: 'פרטים אישיים' }
-}[PERSONA];
+const PERSONA = 'any';
+const P = { wa: 'דמו, ראיתי את דנית ורוצה כזאת לעסק שלי', status: 'דנית, הנציגה הדיגיטלית · מקוונת', typing: 'מקלידה...',
+  open: 'היי, כאן דנית 🙂\nאני עובדת דיגיטלית (בינה מלאכותית), ואראה לכם איך אני עונה ללקוחות של עסק כמו שלכם.\nבאיזה תחום העסק שלכם?',
+  booked: 'נוסף ליומן של העסק ✓', remind: 'תזכורת תישלח לפני המועד',
+  cta: 'עובדת דיגיטלית כמו דנית עונה בשם העסק שלכם, מכירה את השירותים והמחירים שלכם, קובעת ביומן, שולחת תזכורות ומעבירה אליכם רק את מה שצריך אתכם.',
+  ctaBtn: 'רוצים אחת כזו? כתבו לנו בוואטסאפ', foot: 'רוצים עובדת דיגיטלית כמו דנית? כתבו לנו',
+  ph2: 'כתבו לדנית כמו לקוח...' };
 const WA = 'https://wa.me/972548080657?text=' + encodeURIComponent(P.wa);
 const chat = document.getElementById('chat'), typing = document.getElementById('typing'), quick = document.getElementById('quick'),
       inp = document.getElementById('inp'), sendBtn = document.getElementById('send'), status = document.getElementById('status');
@@ -162,8 +139,7 @@ let busy = false, replies = 0, ctaShown = false, booked = false;
 
 const OPEN = P.open;
 const FIELDS = ['מספרה', 'סטודיו', 'אינסטלציה', 'חנות', 'משרד', 'קליניקה'];
-let field = '';   // תחום העסק שהגולש בחר (רק ב-any)
-const CHIPS = ['יש לכם משהו לפיגמנטציה?', 'אפשר תור לשבוע הבא אחרי חמש?', 'כמה עולה טיפול פנים?', 'אני צריכה להזיז את התור של מחר', 'רגע, את בוט?'];
+let field = '';   // תחום העסק שהגולש בחר
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const clock = () => { const d = new Date(); return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); };
@@ -187,11 +163,11 @@ function fieldChips() {
   o.onclick = () => { inp.placeholder = 'כתבו את התחום, למשל: מוסך'; inp.focus(); };
   quick.appendChild(o);
 }
-// ב-any ההודעה הראשונה (התחום) נשארת תמיד בראש השיחה שנשלחת לשרת
+// ההודעה הראשונה (התחום) נשארת תמיד בראש השיחה שנשלחת לשרת
 function payload() {
   const h = history.slice(-9);
   while (h.length && h[0].role !== 'user') h.shift();
-  if (PERSONA === 'any' && history.length > 9) return [history[0], ...history.slice(-8)];
+  if (history.length > 9) return [history[0], ...history.slice(-8)];
   return h;
 }
 function showCta() {
@@ -205,7 +181,7 @@ async function ask(text) {
   text = (text || '').trim();
   if (!text || busy) return;
   busy = true; sendBtn.disabled = true; quick.innerHTML = ''; inp.value = '';
-  const isField = PERSONA === 'any' && !field;
+  const isField = !field;
   bubble(text, 'out'); history.push({ role: 'user', content: text });
   await wait(350); setTyping(true);
   let reply = '';
@@ -240,7 +216,7 @@ async function ask(text) {
     await wait(500);
     card('<small>' + P.booked + '</small><b>' + (when || '') + '</b><span>' + (name || '') + (treat ? ' · ' + treat : '') + '</span><em>' + P.remind + '</em>', 'book');
     await wait(900); showCta();
-  } else if (replies >= (PERSONA === 'any' ? 3 : 2)) { showCta(); }
+  } else if (replies >= 3) { showCta(); }
   busy = false; sendBtn.disabled = false;
   if (!('ontouchstart' in window)) inp.focus();
 }
@@ -248,29 +224,12 @@ async function ask(text) {
 sendBtn.onclick = () => ask(inp.value);
 document.getElementById('waFoot').href = WA;
 document.getElementById('waFoot').textContent = P.foot;
-(() => {   // הדמות שנבחרה + שמירת מקור הכניסה במעבר בין הדמויות
-  const src = QS.get('src'), q = src ? 'src=' + encodeURIComponent(src) : '';
-  document.getElementById('pAny').href = '/demo.html' + (q ? '?' + q : '');
-  document.getElementById('pMaya').href = '/demo.html?p=clinic' + (q ? '&' + q : '');
-  document.getElementById('pTrades').href = '/demo.html?p=trades' + (q ? '&' + q : '');
-  if (PERSONA === 'any') return;
-  document.getElementById('pAny').removeAttribute('aria-current');
-  document.getElementById(PERSONA === 'trades' ? 'pTrades' : 'pMaya').setAttribute('aria-current', 'page');
-  document.title = P.title;
-  document.getElementById('h1').textContent = P.h1;
-  document.getElementById('introSub').textContent = 'אין פה תסריט מוכן. כל תשובה נכתבת עכשיו, בזמן אמת, לפי מה שאתם כותבים. נסו לשאול אותה כל דבר.';
-  document.getElementById('biz').textContent = P.biz;
-  document.getElementById('dayNote').textContent = P.day;
-  document.getElementById('noteKind').textContent = P.note;
-  inp.placeholder = P.ph;
-  status.textContent = P.status;
-})();
 document.getElementById('restart').onclick = () => location.reload();
 inp.addEventListener('keydown', e => { if (e.key === 'Enter') ask(inp.value); });
 window.addEventListener('load', async () => {
   await wait(400); setTyping(true); await wait(900); setTyping(false);
   bubble(OPEN, 'in');
-  if (PERSONA === 'any') fieldChips();
+  fieldChips();
 });
 </script>
 </body></html>
