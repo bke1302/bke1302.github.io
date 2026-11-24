@@ -98,9 +98,15 @@
   </url>
   <url>
     <loc>https://flowopsai.co.il/blog/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://flowopsai.co.il/blog/ai-for-real-estate-agents.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://flowopsai.co.il/blog/quote-follow-up-automation.html</loc>
