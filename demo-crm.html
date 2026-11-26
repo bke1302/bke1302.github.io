@@ -45,10 +45,10 @@
   .kpi.main{background:var(--ink);border-color:var(--ink);color:#fff}
   .kpi.main .l,.kpi.main .n{color:#B9C7D8}
   .kpi.main .v{color:#7FE0D6;font-size:34px}
-  h2{font-family:'Rubik','Heebo',sans-serif;font-size:16px;font-weight:600;margin-bottom:12px;display:flex;align-items:baseline;gap:10px}
+  h2{flex-wrap:wrap;font-family:'Rubik','Heebo',sans-serif;font-size:16px;font-weight:600;margin-bottom:12px;display:flex;align-items:baseline;gap:10px}
   h2 small{font-family:'Heebo',sans-serif;font-size:12.5px;font-weight:400;color:var(--mute)}
 
-  .pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .pipe{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
   .pipe>*{min-width:0}
   .stage{background:#F6F1EA;border-radius:12px;padding:12px}
   .stage .h{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:700;margin-bottom:9px}
@@ -73,11 +73,11 @@
   .s-own{background:#F7E6E0;color:#9D3B57}
   .s-done{background:#F0EAE2;color:#5A5F6B}
   .night{font-size:11.5px;color:var(--mute);display:block}
-  .bars{display:flex;align-items:flex-end;gap:10px;height:130px;margin:6px 0 24px}
+  .bars{display:flex;align-items:flex-end;gap:10px;height:130px;margin:6px 0 44px}
   .bc{flex:1;height:100%;position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:2px}
   .bc .o,.bc .d{border-radius:4px;min-height:3px}
   .bc .o{background:#0F766E}.bc .d{background:#BFE3DE}
-  .bc em{position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-style:normal;font-size:12px;color:var(--mute)}
+  .bc em b{font-weight:700;color:var(--ink)}.bc em{line-height:1.3;white-space:nowrap;position:absolute;top:100%;margin-top:6px;left:0;right:0;text-align:center;font-style:normal;font-size:12px;color:var(--mute)}
   .legend{display:flex;gap:16px;font-size:12.5px;color:var(--mute);flex-wrap:wrap}
   .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline-end:6px;vertical-align:middle}
   .foot-note{font-size:12.5px;color:var(--mute);margin-top:16px;line-height:1.6}
@@ -89,8 +89,9 @@
   .cta span{font-size:12.5px;color:#B9C7D8}
   .cta a{text-decoration:none;font-weight:700;font-size:14px;padding:10px 20px;border-radius:24px;color:#fff;border:1px solid rgba(255,255,255,.4)}
   .cta a.wa{background:#0F766E;border-color:#0F766E}
-  @media(max-width:860px){.hero{grid-template-columns:1fr 1fr}.hero .kpi.main,.hero .kpi:last-child{grid-column:1/-1}.pipe{grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr}.biz{margin-inline-start:0;text-align:right;width:100%}}
+  @media(max-width:860px){.hero{grid-template-columns:1fr 1fr}.hero .kpi.main,.hero .kpi:last-child{grid-column:1/-1}.pipe{grid-template-columns:1fr}.cols{grid-template-columns:1fr}.biz{margin-inline-start:0;text-align:right;width:100%}}
   @media(max-width:600px){
+    body{padding-bottom:calc(150px + env(safe-area-inset-bottom))}
     h1{font-size:19px}.kpi .v{font-size:25px}.kpi.main .v{font-size:30px}
     table,thead,tbody,tr,td{display:block;width:100%}thead{display:none}
     tr{padding:11px 0;border-bottom:1px solid #F0EAE2;display:grid;grid-template-columns:1fr auto;gap:2px 10px}
@@ -114,32 +115,27 @@
   <p class="lead-in">כל הפניות של העסק <b>במקום אחד</b>: מאיפה הגיעו, תוך כמה זמן נענו, ומה מחכה לבעל העסק. בלי לחפש בין שיחות וואטסאפ.</p>
 
   <section class="hero" aria-label="מדדים עיקריים">
-    <div class="card kpi main"><div class="l">הערכת שווי בקשות לתור שהועברו</div><div class="v">כ-3,920 ₪</div>
-      <div class="n">14 בקשות, לפי המחירון. זו הערכה: לא כל בקשה הופכת לתור.</div></div>
+    <div class="card kpi main"><div class="l">שווי משוער של בקשות התור שהועברו</div><div class="v">כ-3,920 ₪</div>
+      <div class="n">14 בקשות לפי המחירון, מהן 6 כבר טופלו. זו הערכה: לא כל בקשה הופכת לתור.</div></div>
     <div class="card kpi"><div class="l">זמן מענה ממוצע</div><div class="v">38 שנ'</div><div class="n">גם בלילה ובסופי שבוע</div></div>
     <div class="card kpi"><div class="l">פניות מחוץ לשעות הפעילות</div><div class="v">23 <small style="font-size:15px;color:#5A5F6B;font-weight:400">מתוך 41</small></div><div class="n">56% מהפניות</div></div>
     <div class="card kpi"><div class="l">פניות שהפכו לבקשת תור</div><div class="v">34%</div><div class="n">14 מתוך 41</div></div>
   </section>
 
   <section class="card" aria-label="פייפליין פניות">
-    <h2>פניות לפי שלב <small>41 פניות בשבוע לדוגמה</small></h2>
+    <h2>פניות לפי שלב <small>41 פניות בשבוע לדוגמה: 8 מחכות לך, 6 כבר טופלו</small></h2>
     <div class="pipe">
-      <div class="stage"><div class="h">חדשה <span>4</span></div>
-        <div class="mini"><b>רונית אלמוג</b><i>אינסטגרם · לפני 6 דק'</i></div>
-        <div class="mini"><b>גל שמעוני</b><i>אתר · לפני 21 דק'</i></div>
-        <div class="more">ועוד 2</div></div>
-      <div class="stage"><div class="h">נענתה <span>17</span></div>
+      <div class="stage go"><div class="h">הועברה אליך, מחכה לתשובה <span>8</span></div>
+        <div class="mini"><b>דנה כהן</b><i>בקשה לתור · יום שלישי · נענתה תוך 22 שנ'</i></div>
+        <div class="mini"><b>ליאת סבן</b><i>בקשה לתור · יום חמישי · נענתה תוך 45 שנ'</i></div>
+        <div class="more">ועוד 6</div></div>
+      <div class="stage"><div class="h">נענתה על ידי דנית <span>27</span></div>
+        <div class="mini"><b>רונית אלמוג</b><i>אינסטגרם · שעות פתיחה · לפני 6 דק'</i></div>
         <div class="mini"><b>מיכל אבני</b><i>וואטסאפ · מחירון</i></div>
-        <div class="mini"><b>עמית גל</b><i>וואטסאפ · שעות פתיחה</i></div>
-        <div class="more">ועוד 15</div></div>
-      <div class="stage go"><div class="h">הועברה לבעל העסק <span>14</span></div>
-        <div class="mini"><b>דנה כהן</b><i>בקשה לתור · יום שלישי</i></div>
-        <div class="mini"><b>נועה ברק</b><i>בקשה לתור · יום חמישי</i></div>
-        <div class="more">ועוד 12</div></div>
-      <div class="stage"><div class="h">נסגרה <span>6</span></div>
-        <div class="mini"><b>יעל הרוש</b><i>קבעה מול בעל העסק</i></div>
-        <div class="mini"><b>טל אורן</b><i>שאלה שנענתה</i></div>
-        <div class="more">ועוד 4</div></div>
+        <div class="more">ועוד 25</div></div>
+      <div class="stage"><div class="h">טופלה מול בעל העסק <span>6</span></div>
+        <div class="mini"><b>יעל הרוש</b><i>בקשה לתור · טופלה</i></div>
+        <div class="more">ועוד 5</div></div>
     </div>
   </section>
 
@@ -147,26 +143,26 @@
     <section class="card" aria-label="פניות אחרונות">
       <h2>פניות אחרונות</h2>
       <table>
-        <thead><tr><th>שם</th><th>מקור</th><th>נושא</th><th>זמן מענה</th><th>סטטוס</th></tr></thead>
+        <thead><tr><th>שם ומתי</th><th>מקור</th><th>נושא</th><th>זמן מענה</th><th>סטטוס</th></tr></thead>
         <tbody>
-          <tr><td class="nm">דנה כהן</td><td class="src">וואטסאפ</td><td class="why">בקשה לתור<span class="night">מחוץ לשעות הפעילות</span></td><td class="num tm">22 שנ'</td><td class="stc"><span class="st s-own">הועברה לבעל העסק</span></td></tr>
-          <tr><td class="nm">מיכל אבני</td><td class="src">וואטסאפ</td><td class="why">שאלת מחיר</td><td class="num tm">31 שנ'</td><td class="stc"><span class="st s-ans">נענתה</span></td></tr>
-          <tr><td class="nm">נועה ברק</td><td class="src">אתר</td><td class="why">בקשה לתור<span class="night">מחוץ לשעות הפעילות</span></td><td class="num tm">45 שנ'</td><td class="stc"><span class="st s-own">הועברה לבעל העסק</span></td></tr>
-          <tr><td class="nm">רונית אלמוג</td><td class="src">אינסטגרם</td><td class="why">שעות פתיחה</td><td class="num tm">עוד לא נענתה</td><td class="stc"><span class="st s-new">חדשה</span></td></tr>
-          <tr><td class="nm">עמית גל</td><td class="src">וואטסאפ</td><td class="why">שאלה על טיפול</td><td class="num tm">29 שנ'</td><td class="stc"><span class="st s-ans">נענתה</span></td></tr>
-          <tr><td class="nm">יעל הרוש</td><td class="src">וואטסאפ</td><td class="why">בקשה לתור</td><td class="num tm">40 שנ'</td><td class="stc"><span class="st s-done">נסגרה</span></td></tr>
+          <tr><td class="nm">רונית אלמוג<span class="night">לפני 6 דק'</span></td><td class="src">אינסטגרם</td><td class="why">שעות פתיחה</td><td class="num tm">18 שנ'</td><td class="stc"><span class="st s-ans">נענתה</span></td></tr>
+          <tr><td class="nm">דנה כהן<span class="night">אתמול, 22:40</span></td><td class="src">וואטסאפ</td><td class="why">בקשה לתור<span class="night">מחוץ לשעות הפעילות</span></td><td class="num tm">22 שנ'</td><td class="stc"><span class="st s-own">הועברה אליך</span></td></tr>
+          <tr><td class="nm">מיכל אבני<span class="night">אתמול, 18:05</span></td><td class="src">וואטסאפ</td><td class="why">שאלת מחיר</td><td class="num tm">31 שנ'</td><td class="stc"><span class="st s-ans">נענתה</span></td></tr>
+          <tr><td class="nm">ליאת סבן<span class="night">שלשום, 23:15</span></td><td class="src">אתר</td><td class="why">בקשה לתור<span class="night">מחוץ לשעות הפעילות</span></td><td class="num tm">45 שנ'</td><td class="stc"><span class="st s-own">הועברה אליך</span></td></tr>
+          <tr><td class="nm">עמית גל<span class="night">שלשום, 11:20</span></td><td class="src">וואטסאפ</td><td class="why">שאלה על טיפול</td><td class="num tm">29 שנ'</td><td class="stc"><span class="st s-ans">נענתה</span></td></tr>
+          <tr><td class="nm">יעל הרוש<span class="night">לפני 3 ימים</span></td><td class="src">וואטסאפ</td><td class="why">בקשה לתור</td><td class="num tm">40 שנ'</td><td class="stc"><span class="st s-done">טופלה</span></td></tr>
         </tbody>
       </table>
     </section>
     <section class="card" aria-label="פניות לפי יום">
       <h2>פניות לפי יום <small>השבוע</small></h2>
       <div class="bars" role="img" aria-label="פניות לפי יום בשבוע: א 8, ב 7, ג 6, ד 7, ה 9, ו 4">
-        <div class="bc"><div class="d" style="height:44%"></div><div class="o" style="height:44%"></div><em>א</em></div>
-        <div class="bc"><div class="d" style="height:33%"></div><div class="o" style="height:44%"></div><em>ב</em></div>
-        <div class="bc"><div class="d" style="height:33%"></div><div class="o" style="height:33%"></div><em>ג</em></div>
-        <div class="bc"><div class="d" style="height:33%"></div><div class="o" style="height:44%"></div><em>ד</em></div>
-        <div class="bc"><div class="d" style="height:44%"></div><div class="o" style="height:55%"></div><em>ה</em></div>
-        <div class="bc"><div class="d" style="height:11%"></div><div class="o" style="height:33%"></div><em>ו</em></div>
+        <div class="bc"><div class="d" style="height:44%"></div><div class="o" style="height:44%"></div><em>א<br><b>8</b></em></div>
+        <div class="bc"><div class="d" style="height:33%"></div><div class="o" style="height:44%"></div><em>ב<br><b>7</b></em></div>
+        <div class="bc"><div class="d" style="height:33%"></div><div class="o" style="height:33%"></div><em>ג<br><b>6</b></em></div>
+        <div class="bc"><div class="d" style="height:33%"></div><div class="o" style="height:44%"></div><em>ד<br><b>7</b></em></div>
+        <div class="bc"><div class="d" style="height:44%"></div><div class="o" style="height:55%"></div><em>ה<br><b>9</b></em></div>
+        <div class="bc"><div class="d" style="height:11%"></div><div class="o" style="height:33%"></div><em>ו<br><b>4</b></em></div>
       </div>
       <div class="legend"><span><i style="background:#BFE3DE"></i>בשעות הפעילות</span><span><i style="background:#0F766E"></i>מחוץ לשעות הפעילות</span></div>
       <p class="est">בעסק אמיתי כל הפניות האלה מגיעות מהשיחות של הלקוחות, ובקשות לתור עוברות אל בעל העסק, שקובע מולם.</p>
