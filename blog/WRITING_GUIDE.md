@@ -28,7 +28,7 @@ One post = one search intent (the topic's `keyword`). Quality over volume: Googl
 - Offer facts, if mentioned at all: 490 ש"ח a month, no setup fee; nothing to pay until Danit answers the business's customers, and from that day two weeks free; cancel with one message. No guarantee. The official WhatsApp connection needs Meta approval: never promise a date or a number of days. Only the character Danit. A call with Barak is "שיחה של 20 דקות", never "שיחת וידאו".
 - Length: 900-1400 Hebrew words in `body_html`. Use 5-7 `<h2>` sections.
 - Include the topic `keyword` naturally in `h1`, `meta_title`, first paragraph and one `<h2>`.
-- Internal links (1-3, inside body): `/demo.html`, `/lead-responder.html` (clinics/beauty/booking topics only), `/ai-automation-small-business.html`, `/ai-process-consulting.html`, `/ai-automation-call-center.html`, `/portfolio.html`, or `/blog/<existing-slug>.html`.
+- Internal links (1-3, inside body): `/demo.html`, `/clinics.html` (clinics/beauty/booking topics only), `/trades.html` (home-services topics only), `/ai-automation-small-business.html`, `/ai-process-consulting.html`, `/ai-automation-call-center.html`, `/portfolio.html`, or `/blog/<existing-slug>.html`.
 
 ## JSON schema
 ```
