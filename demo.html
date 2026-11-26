@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600;700&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--navy:#0B2540;--turq:#2DE1D0;--rose:#9D3B57;--paper:#EFE7DE;--in:#fff;--out:#DCF8C6;--ink:#111B21;--mute:#667781}
+  :root{--navy:#0B2540;--turq:#2DE1D0;--rose:#9D3B57;--paper:#F3ECE3;--in:#fff;--out:#DCF3EE;--ink:#111B21;--mute:#667781}
   *{margin:0;padding:0;box-sizing:border-box}
   button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #0F766E;outline-offset:2px}
   html,body{height:100%}
@@ -45,18 +45,18 @@
   .who{min-width:0}
   .who b{font-size:16px;display:block;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .who span{font-size:12.5px;color:#B9D3E8;white-space:nowrap}
-  .who span.st::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#5BE38A;margin-left:5px;vertical-align:middle}
-  .tag{margin-inline-start:auto;font-size:11.5px;font-weight:700;color:#FFE6A8;border:1px solid rgba(255,230,168,.45);border-radius:20px;padding:4px 10px;white-space:nowrap}
+  .who span.st::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#5BE38A;margin-left:5px;vertical-align:middle}.who span.st::before{background:#7FE0D6}
+  .tag{margin-inline-start:auto;font-size:11.5px;font-weight:700;color:#F4D9E0;border:1px solid rgba(244,217,224,.45);border-radius:20px;padding:4px 10px;white-space:nowrap}
   .chat{flex:1;overflow-y:auto;padding:14px 12px 8px;display:flex;flex-direction:column;gap:6px;overscroll-behavior:contain}
   .day{align-self:center;background:#E1F2FB;color:#3B5566;font-size:11.5px;font-weight:500;padding:4px 12px;border-radius:8px;margin:2px 0 6px;
     text-align:center;max-width:90%;line-height:1.45}
-  .msg{max-width:84%;padding:7px 10px 5px;border-radius:10px;font-size:15px;line-height:1.5;position:relative;box-shadow:0 1px 1px rgba(0,0,0,.12);
+  .msg{max-width:84%;padding:8px 12px 6px;border-radius:14px;font-size:15.5px;line-height:1.55;position:relative;box-shadow:0 1px 2px rgba(13,36,64,.10);
     white-space:pre-wrap;word-wrap:break-word;animation:pop .2s ease}
   @keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   .in{align-self:flex-start;background:var(--in);border-top-right-radius:3px}
   .out{align-self:flex-end;background:var(--out);border-top-left-radius:3px}
   .msg .t{font-size:10.5px;color:#5B6B75;float:left;margin:5px 0 -2px;padding-right:9px;font-variant-numeric:tabular-nums}
-  .out .t .ck{color:#53BDEB;font-weight:700}
+  .out .t .ck{color:#0F766E;display:inline-block}
   .typing{align-self:flex-start;background:#fff;border-radius:10px;border-top-right-radius:3px;padding:11px 13px;display:none;gap:4px;box-shadow:0 1px 1px rgba(0,0,0,.12)}
   .typing.show{display:flex}
   .typing i{width:7px;height:7px;border-radius:50%;background:#AEBAC1;animation:bl 1.2s infinite}
@@ -94,24 +94,24 @@
 <body>
 <a class="brand" href="/" aria-label="FlowOps AI, לדף הבית"><img src="logo-light.png" alt="FlowOps AI" width="520" height="100"></a>
 <div class="intro">
-  <span class="live">עונה בזמן אמת · בינה מלאכותית אמיתית</span>
+  <span class="live">שיחה אמיתית, לא תסריט</span>
   <h1 id="h1">זו דנית. היא עונה ללקוחות של העסק, רק לפי מה שכתבתם לה.</h1>
-  <span id="introSub">אין פה תסריט מוכן. כל תשובה נכתבת עכשיו, בזמן אמת, לפי מה שאתם כותבים. נסו לשאול אותה כל דבר.</span>
+  <span id="introSub">אין פה תסריט מוכן. כל תשובה נכתבת באותו רגע, לפי מה שאתם כותבים. אפשר לשאול אותה כל דבר.</span>
 </div>
 
 <div class="phone">
   <div class="top">
     <div class="av" id="av"><img src="/danit-avatar.jpg" alt="דנית" width="42" height="42"></div>
-    <div class="who"><b id="biz">עסק לדוגמה</b><span class="st" id="status">דנית, העוזרת הדיגיטלית · מקוונת</span></div>
+    <div class="who"><b id="biz">עסק לדוגמה</b><span class="st" id="status">דנית, העוזרת הדיגיטלית</span></div>
     <span class="tag">עסק לדוגמה</span>
   </div>
   <div class="chat" id="chat" aria-live="polite">
-    <div class="day" id="dayNote">בחרו תחום, ודנית תענה כמו נציגה של עסק לדוגמה בתחום שלכם. בעסק אמיתי היא עונה בוואטסאפ שלכם, לפי המחירון שלכם.</div>
+    <div class="day" id="dayNote">בחרו תחום, ודנית תענה כמו נציגה של עסק לדוגמה בתחום שלכם. בעסק אמיתי היא עונה בוואטסאפ של העסק, לפי המחירון שלכם.</div>
     <div class="typing" id="typing"><i></i><i></i><i></i></div>
   </div>
   <div class="quick" id="quick"></div>
   <div class="bar">
-    <input id="inp" placeholder="או כתבו את התחום, למשל: מוסך" aria-label="כתבו הודעה" autocomplete="off" enterkeyhint="send">
+    <input id="inp" placeholder="או כתבו את התחום שלכם, למשל: מוסך" aria-label="כתבו הודעה" autocomplete="off" enterkeyhint="send">
     <button class="send" id="send" aria-label="שלח"><svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></button>
   </div>
 </div>
@@ -125,12 +125,12 @@ const API = 'https://82-70-212-53.sslip.io/demo-chat';
 // קישורים ישנים עם ?p=trades או ?p=clinic מגיעים לאותו דמו.
 const QS = new URLSearchParams(location.search);
 const PERSONA = 'any';
-const P = { wa: 'דמו, ראיתי את דנית ורוצה כזאת לעסק שלי', status: 'דנית, הנציגה הדיגיטלית · מקוונת', typing: 'מקלידה...',
-  open: 'היי, כאן דנית.\nאני עובדת דיגיטלית (בינה מלאכותית), ואראה לכם איך אני עונה ללקוחות של עסק כמו שלכם.\nבאיזה תחום העסק שלכם?',
+const P = { wa: 'דמו, ראיתי את דנית ורוצה כזאת לעסק שלי', status: 'דנית, הנציגה הדיגיטלית', typing: 'מקלידה',
+  open: 'היי, כאן דנית.\nאני עובדת דיגיטלית, מבוססת בינה מלאכותית. אני עונה ללקוחות של עסקים בוואטסאפ, ועכשיו אראה לכם איך זה נראה אצל עסק כמו שלכם.\nבאיזה תחום העסק שלכם?',
   booked: 'בקשה לתור, לדוגמה', remind: 'בעסק אמיתי הבקשה עוברת אליכם, ואתם קובעים',
   cta: 'דנית עונה בשם העסק שלכם רק לפי השירותים והמחירים שנתתם לה, ומעבירה אליכם בקשות לתור וכל מה שצריך אתכם. 490 ש"ח לחודש, שבועיים בחינם.',
   ctaBtn: 'רוצים אחת כזו? כתבו לנו בוואטסאפ', foot: 'רוצים עובדת דיגיטלית כמו דנית? כתבו לנו',
-  ph2: 'כתבו לדנית כמו לקוח...' };
+  ph2: 'כתבו כמו לקוח של העסק' };
 const WA = 'https://wa.me/972548080657?text=' + encodeURIComponent(P.wa);
 const chat = document.getElementById('chat'), typing = document.getElementById('typing'), quick = document.getElementById('quick'),
       inp = document.getElementById('inp'), sendBtn = document.getElementById('send'), status = document.getElementById('status');
@@ -141,13 +141,14 @@ const OPEN = P.open;
 const FIELDS = ['מספרה', 'סטודיו', 'אינסטלציה', 'חנות', 'משרד', 'קליניקה'];
 let field = '';   // תחום העסק שהגולש בחר
 
+const clean = s => s.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}\u{20E3}\u{200E}\u{200F}\u{202A}-\u{202E}\u{2066}-\u{2069}]/gu, '').replace(/\*\*|__/g, '').replace(/[ \t]+\n/g, '\n').replace(/[ \t]{2,}/g, ' ').trim();
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const clock = () => { const d = new Date(); return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); };
 const scroll = () => { chat.scrollTop = chat.scrollHeight; };
 function bubble(text, who) {
   const m = document.createElement('div');
   m.className = 'msg ' + who;
-  m.innerHTML = esc(text) + '<span class="t">' + clock() + (who === 'out' ? ' <span class="ck">✓✓</span>' : '') + '</span>';
+  m.innerHTML = esc(text) + '<span class="t">' + clock() + (who === 'out' ? ' <svg class="ck" viewBox="0 0 18 10" width="14" height="8" aria-hidden="true"><path d="M1 5.5 4 8.5 9.5 1.5M7.5 8.5 13 1.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' : '') + '</span>';
   chat.insertBefore(m, typing); scroll();
 }
 function card(html, cls) { const c = document.createElement('div'); c.className = cls; c.innerHTML = html; chat.insertBefore(c, typing); scroll(); }
@@ -160,7 +161,7 @@ function chips(list) {
 function fieldChips() {
   chips(FIELDS);
   const o = document.createElement('button'); o.type = 'button'; o.className = 'qbtn'; o.textContent = 'תחום אחר';
-  o.onclick = () => { inp.placeholder = 'כתבו את התחום, למשל: מוסך'; inp.focus(); };
+  o.onclick = () => { inp.placeholder = 'כתבו את התחום שלכם, למשל: מוסך'; inp.focus(); };
   quick.appendChild(o);
 }
 // ההודעה הראשונה (התחום) נשארת תמיד בראש השיחה שנשלחת לשרת
@@ -187,11 +188,11 @@ async function ask(text) {
   let reply = '';
   try {
     const r = await fetch(API, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ src: QS.get('src') || '', persona: PERSONA, messages: payload() }) });
-    reply = ((await r.json()).reply || '').trim();
+    reply = clean((await r.json()).reply || '');
   } catch (e) { reply = ''; }
   if (!reply) {
     setTyping(false);
-    card('<span>החיבור נתקע לרגע. נסו לשלוח שוב.</span>', 'day');
+    card('<span>משהו נתקע אצלי לרגע. אפשר לשלוח שוב?</span>', 'day');
     history.pop(); busy = false; sendBtn.disabled = false;
     if (isField) fieldChips();
     return;

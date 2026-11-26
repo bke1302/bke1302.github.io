@@ -1,272 +1,183 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl"><head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>דמו חי | מוקד בקרה — אוטומציה ו-CRM בפעולה | FlowOps AI</title>
-<meta name="description" content="דוגמה חיה למוקד בקרה של FlowOps: עובד דיגיטלי מטפל בלידים שנכנסים, הם מסתדרים אוטומטית ומתעדכנים בזמן אמת. ראו כמה זמן זה חוסך.">
-<meta property="og:title" content="דמו חי — אוטומציה ו-CRM בפעולה | FlowOps">
-<meta property="og:description" content="ראו מערכת שמטפלת בלידים אוטומטית בזמן אמת, חוסכת שעות ולא מפספסת אף פנייה.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>הדגמה: מוקד בקרה לפניות של העסק | FlowOps AI</title>
+<meta name="description" content="הדגמה של מוקד בקרה, עם נתונים לדוגמה: כל הפניות של העסק במקום אחד, לפי שלבים, עם מקור, זמן מענה וסטטוס.">
+<meta property="og:title" content="הדגמה: מוקד בקרה לפניות של העסק | FlowOps AI">
+<meta property="og:description" content="הדגמה עם נתונים לדוגמה: פניות לפי שלבים, זמן מענה ומה הועבר לבעל העסק.">
 <meta property="og:image" content="https://flowopsai.co.il/og-image-v3.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://flowopsai.co.il/demo-crm.html">
 <meta property="og:site_name" content="FlowOps AI">
 <meta property="og:locale" content="he_IL">
-<meta name="theme-color" content="#0A1424">
+<meta name="theme-color" content="#FBF8F4">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://flowopsai.co.il/demo-crm.html">
 <link rel="icon" href="/flowops-mark.png">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#080F1C;--bg2:#0d1a30;--card:rgba(20,34,58,.72);--card2:rgba(28,44,72,.6);
-    --line:rgba(120,170,230,.13);--line2:rgba(120,170,230,.22);
-    --txt:#EAF1FB;--muted:#93A6C2;--dim:#6B7F9E;
-    --blue:#1E6FB8;--blue-l:#6FB4F0;--teal:#0EA47E;--teal-l:#2FC79A;--cyan:#42E8E0;
-    --gold:#E6B24D;--violet:#8C77FF;--red:#E36A6A;
-  }
+  :root{--bg:#FBF8F4;--ink:#0D2440;--mute:#5A5F6B;--line:#E9E1D8;--card:#fff;--teal:#0F766E;--tealbg:#E3F3F1;--rose:#9D3B57;--rosebg:#F7E6E0}
   *{margin:0;padding:0;box-sizing:border-box}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
-  body{font-family:'Heebo',sans-serif;color:var(--txt);min-height:100vh;padding:20px 16px 150px;line-height:1.5;
-    background:
-      radial-gradient(900px 500px at 85% -10%,rgba(30,111,184,.28),transparent 60%),
-      radial-gradient(700px 500px at 5% 0%,rgba(14,164,126,.15),transparent 55%),
-      var(--bg);
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:1100px;margin:0 auto}
-  svg{display:block}
-  .ic{width:18px;height:18px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round}
-  /* header */
-  header{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-bottom:5px}
-  .mk{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,var(--blue),var(--teal));
-    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:21px;color:#fff;
-    box-shadow:0 8px 22px rgba(30,111,184,.45),inset 0 1px 0 rgba(255,255,255,.25)}
-  h1{font-size:20px;font-weight:800;letter-spacing:-.3px}h1 b{color:var(--blue-l);font-weight:800}
-  .live{margin-right:auto;display:flex;align-items:center;gap:8px;background:rgba(47,199,154,.12);
-    border:1px solid rgba(47,199,154,.35);color:#82E6C0;font-size:12.5px;font-weight:700;padding:6px 14px;border-radius:30px}
-  .live .d{width:8px;height:8px;border-radius:50%;background:var(--teal-l);box-shadow:0 0 10px var(--teal-l);animation:pl 1.7s infinite}
-  @keyframes pl{0%{box-shadow:0 0 0 0 rgba(47,199,154,.55)}70%{box-shadow:0 0 0 10px rgba(47,199,154,0)}100%{box-shadow:0 0 0 0 rgba(47,199,154,0)}}
-  .sub{color:var(--muted);font-size:13.5px;margin:3px 0 20px;max-width:760px}
-  /* KPIs */
-  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
-  @media(max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}}
-  .kpi{background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    border:1px solid var(--line);border-radius:18px;padding:16px 17px;position:relative;overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.25)}
-  .kpi .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
-  .kpi .tile{width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center}
-  .kpi .tile .ic{width:19px;height:19px}
-  .t-blue{background:rgba(95,201,240,.14);color:#8FD2FF}
-  .t-teal{background:rgba(47,199,154,.15);color:#6FE3BD}
-  .t-gold{background:rgba(230,178,77,.15);color:#F0CC82}
-  .t-violet{background:rgba(140,119,255,.16);color:#B6A6FF}
-  .kpi .spark{opacity:.5}
-  .kpi .num{font-size:31px;font-weight:900;line-height:1.1;letter-spacing:-1px}
-  .kpi.blue .num{background:linear-gradient(90deg,#8FD2FF,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .kpi.teal .num{background:linear-gradient(90deg,#6FE3BD,var(--teal-l));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .kpi .lbl{font-size:12.5px;color:var(--muted);margin-top:1px}
-  .kpi .delta{font-size:11.5px;color:var(--teal-l);font-weight:700;margin-top:5px;display:flex;align-items:center;gap:4px}
-  .kpi .delta .ic{width:13px;height:13px;stroke-width:2.4}
-  /* layout */
-  .cols{display:grid;grid-template-columns:1.32fr 1fr;gap:15px}
-  @media(max-width:820px){.cols{grid-template-columns:1fr}}
-  .cols>*,.kpis>*{min-width:0}  /* 26/11 QA: grid children no longer widen the page on mobile */
-  .panel{background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    border:1px solid var(--line);border-radius:20px;padding:17px 18px;box-shadow:0 12px 34px rgba(0,0,0,.28)}
-  .panel h2{font-size:13px;font-weight:800;margin-bottom:13px;display:flex;align-items:center;gap:9px;
-    color:#fff;text-transform:none;letter-spacing:.2px}
-  .panel h2 .hi{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;
-    background:rgba(95,201,240,.13);color:var(--blue-l)}
-  .panel h2 .hi .ic{width:16px;height:16px}
-  .panel h2 .cnt{margin-right:auto;font-size:11px;font-weight:700;color:var(--dim);
-    background:rgba(255,255,255,.05);padding:3px 9px;border-radius:20px}
-  /* leads */
-  .lead{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:14px;background:var(--card2);
-    margin-bottom:9px;border:1px solid transparent;animation:slide .5s cubic-bezier(.2,.8,.2,1);transition:.3s}
-  @keyframes slide{from{opacity:0;transform:translateY(-12px) scale(.98)}to{opacity:1;transform:none}}
-  .lead:hover{border-color:var(--line2);background:var(--card)}
-  .lead.fresh{border-color:rgba(66,232,224,.45);box-shadow:0 0 0 1px rgba(66,232,224,.18),0 8px 22px rgba(66,232,224,.08)}
-  .av{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
-    font-weight:800;font-size:15px;color:#fff;position:relative}
-  .av .sb{position:absolute;bottom:-2px;right:-2px;width:16px;height:16px;border-radius:50%;border:2px solid var(--bg2);
-    display:flex;align-items:center;justify-content:center}
-  .av .sb .ic{width:9px;height:9px;stroke-width:2.6}
-  .lead .info{flex:1;min-width:0}
-  .lead .nm{font-weight:700;font-size:14.5px}
-  .lead .meta{font-size:11.5px;color:var(--muted);margin-top:1px;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .badge{font-size:11px;font-weight:700;padding:5px 11px;border-radius:30px;white-space:nowrap;
-    flex-shrink:0;display:flex;align-items:center;gap:5px;transition:.3s}
-  .badge .ic{width:12px;height:12px;stroke-width:2.4}
-  .b-new{background:rgba(95,201,240,.14);color:#9FD7FF;border:1px solid rgba(95,201,240,.35)}
-  .b-auto{background:rgba(47,199,154,.14);color:#82E6C0;border:1px solid rgba(47,199,154,.38)}
-  .b-hot{background:rgba(230,178,77,.16);color:#F2CE83;border:1px solid rgba(230,178,77,.45)}
-  /* feed */
-  .feed{display:flex;flex-direction:column}
-  .ev{display:flex;gap:11px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.045);animation:slide .45s ease}
-  .ev:last-child{border-bottom:none}
-  .ev .et{width:33px;height:33px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-  .ev .et .ic{width:16px;height:16px}
-  .e-wa{background:rgba(37,211,102,.14);color:#5FE08C}
-  .e-crm{background:rgba(30,111,184,.18);color:#7FBEF0}
-  .e-rem{background:rgba(230,178,77,.16);color:#F0CC82}
-  .e-score{background:rgba(140,119,255,.17);color:#B6A6FF}
-  .e-tag{background:rgba(66,232,224,.14);color:#74EDE6}
-  .ev .tx{font-size:13px;line-height:1.45}.ev .tx b{color:#fff;font-weight:700}
-  .ev .tm{font-size:10.5px;color:var(--dim);margin-top:2px}
-  /* chart */
-  .bars{display:flex;align-items:flex-end;gap:9px;height:96px;margin-top:4px;margin-bottom:24px;padding:0 2px}
-  .bcol{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;position:relative}
-  .bar{min-height:4px;transition:height .9s cubic-bezier(.2,.8,.2,1)}
-  .bar.in{background:linear-gradient(180deg,var(--blue-l),rgba(30,111,184,.55));border-radius:0 0 5px 5px}
-  .bar.au{background:linear-gradient(180deg,#7BE7C3,var(--teal));border-radius:5px 5px 0 0}
-  .blab{position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-size:10px;color:var(--dim)}
-  .legend{display:flex;gap:18px;margin-top:8px;font-size:11.5px;color:var(--muted)}
-  .legend span{display:flex;align-items:center;gap:7px}
-  .legend i{width:11px;height:11px;border-radius:4px}
-  /* CTA */
-  .cta{position:fixed;bottom:0;left:0;right:0;z-index:20;padding:13px 18px;display:flex;align-items:center;
-    justify-content:center;gap:14px;flex-wrap:wrap;
-    background:linear-gradient(135deg,rgba(11,37,64,.96),rgba(30,111,184,.96));backdrop-filter:blur(10px);
-    border-top:1px solid rgba(111,180,240,.28);box-shadow:0 -10px 34px rgba(0,0,0,.45)}
-  .cta .txt{text-align:center}.cta b{font-size:14.5px;font-weight:800}.cta .txt span{color:#cfe6ff;font-size:12px;display:block}
-  .cta a{text-decoration:none;font-weight:800;font-size:13.5px;padding:11px 19px;border-radius:26px;
-    display:flex;align-items:center;gap:7px;transition:.2s}
-  .cta a.wa{background:#25D366;color:#fff;box-shadow:0 8px 20px rgba(37,211,102,.35)}
-  .cta a.wa:hover{filter:brightness(1.08);transform:translateY(-2px)}
-  .cta a.gh{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.4)}
-  .cta a.gh:hover{background:rgba(255,255,255,.16)}
-  .cta a .ic{width:16px;height:16px}
-</style></head><body>
-<!-- icon defs -->
-<svg width="0" height="0" style="position:absolute"><defs>
-  <g id="i-inbox"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5.5 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.5A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.5z"/></g>
-  <g id="i-cpu"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></g>
-  <g id="i-clock"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
-  <g id="i-flame"><path d="M12 2s4 4 4 8a4 4 0 0 1-8 0c0-1 .5-2 1-2.5C9 9 8 11 8 13a4 4 0 0 0 8 0c0-4-4-7-4-11z"/></g>
-  <g id="i-msg"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></g>
-  <g id="i-db"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></g>
-  <g id="i-bell"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9z"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></g>
-  <g id="i-star"><path d="M12 2l3 6.5 7 .9-5 4.8 1.3 7-6.3-3.4L5.7 21l1.3-7-5-4.8 7-.9z"/></g>
-  <g id="i-tag"><path d="M20.6 13.4 13 21l-9-9V4h8l8.6 8.6a1.4 1.4 0 0 1 0 2z"/><circle cx="7.5" cy="7.5" r="1.3"/></g>
-  <g id="i-check"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4 12 14.1l-3-3"/></g>
-  <g id="i-up"><path d="M7 17 17 7M9 7h8v8"/></g>
-  <g id="i-globe"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></g>
-  <g id="i-check2"><path d="M20 6 9 17l-5-5"/></g>
-</defs></svg>
+  a:focus-visible,button:focus-visible{outline:3px solid #0F766E;outline-offset:2px}
+  body{font-family:'Heebo','Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;
+    padding:0 0 110px;-webkit-font-smoothing:antialiased}
+  .demo-bar{background:var(--ink);color:#fff;text-align:center;font-size:13.5px;line-height:1.5;padding:9px 16px}
+  .demo-bar b{color:#F4D9E0;font-weight:700}
+  .wrap{max-width:1080px;margin:0 auto;padding:22px 16px 0}
+  header{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+  header img{height:22px;width:auto;display:block}
+  .sep{width:1px;height:22px;background:var(--line)}
+  h1{font-family:'Rubik','Heebo',sans-serif;font-size:22px;font-weight:600;letter-spacing:-.2px}
+  .biz{margin-inline-start:auto;font-size:13.5px;color:var(--mute);text-align:left}
+  .biz b{color:var(--ink);font-weight:700}
+  .pill{display:inline-block;font-size:12px;font-weight:700;color:var(--rose);background:var(--rosebg);border-radius:999px;padding:2px 11px}
+  .lead-in{font-size:15px;color:#3D4350;max-width:720px;margin:6px 0 20px}
+  .lead-in b{color:var(--ink)}
 
+  .hero{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:12px;margin-bottom:14px}
+  .hero>*{min-width:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+  .kpi .l{font-size:13px;color:var(--mute)}
+  .kpi .v{font-family:'Rubik','Heebo',sans-serif;font-size:30px;font-weight:600;line-height:1.15;margin-top:4px;font-variant-numeric:tabular-nums}
+  .kpi .n{font-size:12.5px;color:var(--mute);margin-top:4px;line-height:1.45}
+  .kpi.main{background:var(--ink);border-color:var(--ink);color:#fff}
+  .kpi.main .l,.kpi.main .n{color:#B9C7D8}
+  .kpi.main .v{color:#7FE0D6;font-size:34px}
+  h2{font-family:'Rubik','Heebo',sans-serif;font-size:16px;font-weight:600;margin-bottom:12px;display:flex;align-items:baseline;gap:10px}
+  h2 small{font-family:'Heebo',sans-serif;font-size:12.5px;font-weight:400;color:var(--mute)}
+
+  .pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .pipe>*{min-width:0}
+  .stage{background:#F6F1EA;border-radius:12px;padding:12px}
+  .stage .h{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:700;margin-bottom:9px}
+  .stage .h span{font-family:'Rubik','Heebo',sans-serif;font-size:18px;font-weight:600;font-variant-numeric:tabular-nums}
+  .stage.go{background:var(--tealbg)}
+  .mini{background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:13px;margin-top:7px;line-height:1.4}
+  .mini b{display:block;font-weight:700}
+  .mini i{font-style:normal;font-size:12px;color:var(--mute)}
+  .more{font-size:12px;color:var(--mute);margin-top:8px}
+
+  .cols{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-top:14px}
+  .cols>*{min-width:0}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{text-align:right;font-weight:500;font-size:12px;color:var(--mute);padding:0 8px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+  td{padding:10px 8px;border-bottom:1px solid #F0EAE2;vertical-align:middle}
+  tr:last-child td{border-bottom:0}
+  td.nm{font-weight:700}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .st{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;white-space:nowrap}
+  .s-new{background:#EEF1F5;color:#3D4350}
+  .s-ans{background:#E3F3F1;color:#0F766E}
+  .s-own{background:#F7E6E0;color:#9D3B57}
+  .s-done{background:#F0EAE2;color:#5A5F6B}
+  .night{font-size:11.5px;color:var(--mute);display:block}
+  .bars{display:flex;align-items:flex-end;gap:10px;height:130px;margin:6px 0 24px}
+  .bc{flex:1;height:100%;position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:2px}
+  .bc .o,.bc .d{border-radius:4px;min-height:3px}
+  .bc .o{background:#0F766E}.bc .d{background:#BFE3DE}
+  .bc em{position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-style:normal;font-size:12px;color:var(--mute)}
+  .legend{display:flex;gap:16px;font-size:12.5px;color:var(--mute);flex-wrap:wrap}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline-end:6px;vertical-align:middle}
+  .foot-note{font-size:12.5px;color:var(--mute);margin-top:16px;line-height:1.6}
+  .est{font-size:12.5px;color:var(--mute);margin-top:10px;line-height:1.55}
+
+  .cta{position:fixed;bottom:0;left:0;right:0;z-index:20;background:var(--ink);color:#fff;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;box-shadow:0 -8px 24px rgba(13,36,64,.2)}
+  .cta .tx{text-align:center}.cta b{font-size:15px;display:block;font-family:'Rubik','Heebo',sans-serif;font-weight:600}
+  .cta span{font-size:12.5px;color:#B9C7D8}
+  .cta a{text-decoration:none;font-weight:700;font-size:14px;padding:10px 20px;border-radius:24px;color:#fff;border:1px solid rgba(255,255,255,.4)}
+  .cta a.wa{background:#0F766E;border-color:#0F766E}
+  @media(max-width:860px){.hero{grid-template-columns:1fr 1fr}.hero .kpi.main,.hero .kpi:last-child{grid-column:1/-1}.pipe{grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr}.biz{margin-inline-start:0;text-align:right;width:100%}}
+  @media(max-width:600px){
+    h1{font-size:19px}.kpi .v{font-size:25px}.kpi.main .v{font-size:30px}
+    table,thead,tbody,tr,td{display:block;width:100%}thead{display:none}
+    tr{padding:11px 0;border-bottom:1px solid #F0EAE2;display:grid;grid-template-columns:1fr auto;gap:2px 10px}
+    tr:last-child{border-bottom:0}
+    td{padding:0;border:0}
+    td.nm{grid-column:1}td.stc{grid-column:2;grid-row:1;text-align:left}
+    td.src,td.why,td.tm{grid-column:1/-1;font-size:12.5px;color:var(--mute)}
+    td.tm::before{content:"מענה: "}
+    .cta .tx span{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div class="demo-bar"><b>הדגמה.</b> כל השמות, המספרים והפניות בדף הזה הם נתוני דוגמה של עסק שלא קיים.</div>
 <div class="wrap">
   <header>
-    <div class="mk">F</div>
-    <div><h1>מוקד בקרה <b>חי</b> · FlowOps</h1></div>
-    <div class="live"><span class="d"></span> שידור חי · בזמן אמת</div>
+    <a href="/" aria-label="FlowOps AI, לדף הבית"><img src="logo-light.png" alt="FlowOps AI" width="520" height="100"></a>
+    <span class="sep" aria-hidden="true"></span>
+    <h1>מוקד בקרה</h1>
+    <div class="biz"><b>סלון לדוגמה</b> · שבוע לדוגמה <span class="pill">נתוני דוגמה</span></div>
   </header>
-  <div class="sub">ככה נראית מערכת אוטומציה ו-CRM של FlowOps עובדת מאחורי הקלעים: לידים נכנסים מכל ערוץ, מסתדרים אוטומטית, ולא מפספסים אף אחד.</div>
+  <p class="lead-in">כל הפניות של העסק <b>במקום אחד</b>: מאיפה הגיעו, תוך כמה זמן נענו, ומה מחכה לבעל העסק. בלי לחפש בין שיחות וואטסאפ.</p>
 
-  <div class="kpis">
-    <div class="kpi blue"><div class="top"><div class="tile t-blue"><svg class="ic" viewBox="0 0 24 24"><use href="#i-inbox"/></svg></div>
-      <svg width="46" height="20" class="spark" viewBox="0 0 46 20"><polyline points="0,15 9,11 18,13 27,6 36,8 46,2" fill="none" stroke="#6FB4F0" stroke-width="2"/></svg></div>
-      <div class="num" id="k1">0</div><div class="lbl">לידים היום</div><div class="delta" id="d1">&nbsp;</div></div>
-    <div class="kpi teal"><div class="top"><div class="tile t-teal"><svg class="ic" viewBox="0 0 24 24"><use href="#i-cpu"/></svg></div>
-      <svg width="46" height="20" class="spark" viewBox="0 0 46 20"><polyline points="0,14 9,12 18,9 27,10 36,5 46,4" fill="none" stroke="#2FC79A" stroke-width="2"/></svg></div>
-      <div class="num" id="k2">0%</div><div class="lbl">טופלו אוטומטית</div><div class="delta">ללא מגע יד אדם</div></div>
-    <div class="kpi teal"><div class="top"><div class="tile t-gold"><svg class="ic" viewBox="0 0 24 24"><use href="#i-clock"/></svg></div>
-      <svg width="46" height="20" class="spark" viewBox="0 0 46 20"><polyline points="0,16 9,13 18,11 27,8 36,7 46,3" fill="none" stroke="#E6B24D" stroke-width="2"/></svg></div>
-      <div class="num" id="k3">0</div><div class="lbl">שעות שנחסכו היום</div><div class="delta"><svg class="ic" viewBox="0 0 24 24"><use href="#i-up"/></svg> חיסכון מצטבר</div></div>
-    <div class="kpi"><div class="top"><div class="tile t-violet"><svg class="ic" viewBox="0 0 24 24"><use href="#i-flame"/></svg></div>
-      <svg width="46" height="20" class="spark" viewBox="0 0 46 20"><polyline points="0,12 9,14 18,8 27,11 36,6 46,9" fill="none" stroke="#8C77FF" stroke-width="2"/></svg></div>
-      <div class="num" id="k4" style="color:#F2CE83">0</div><div class="lbl">לידים חמים</div><div class="delta" style="color:#F0CC82">מחכים לנציג</div></div>
-  </div>
+  <section class="hero" aria-label="מדדים עיקריים">
+    <div class="card kpi main"><div class="l">הערכת שווי בקשות לתור שהועברו</div><div class="v">כ-3,920 ₪</div>
+      <div class="n">14 בקשות, לפי המחירון. זו הערכה: לא כל בקשה הופכת לתור.</div></div>
+    <div class="card kpi"><div class="l">זמן מענה ממוצע</div><div class="v">38 שנ'</div><div class="n">גם בלילה ובסופי שבוע</div></div>
+    <div class="card kpi"><div class="l">פניות מחוץ לשעות הפעילות</div><div class="v">23 <small style="font-size:15px;color:#5A5F6B;font-weight:400">מתוך 41</small></div><div class="n">56% מהפניות</div></div>
+    <div class="card kpi"><div class="l">פניות שהפכו לבקשת תור</div><div class="v">34%</div><div class="n">14 מתוך 41</div></div>
+  </section>
+
+  <section class="card" aria-label="פייפליין פניות">
+    <h2>פניות לפי שלב <small>41 פניות בשבוע לדוגמה</small></h2>
+    <div class="pipe">
+      <div class="stage"><div class="h">חדשה <span>4</span></div>
+        <div class="mini"><b>רונית אלמוג</b><i>אינסטגרם · לפני 6 דק'</i></div>
+        <div class="mini"><b>גל שמעוני</b><i>אתר · לפני 21 דק'</i></div>
+        <div class="more">ועוד 2</div></div>
+      <div class="stage"><div class="h">נענתה <span>17</span></div>
+        <div class="mini"><b>מיכל אבני</b><i>וואטסאפ · מחירון</i></div>
+        <div class="mini"><b>עמית גל</b><i>וואטסאפ · שעות פתיחה</i></div>
+        <div class="more">ועוד 15</div></div>
+      <div class="stage go"><div class="h">הועברה לבעל העסק <span>14</span></div>
+        <div class="mini"><b>דנה כהן</b><i>בקשה לתור · יום שלישי</i></div>
+        <div class="mini"><b>נועה ברק</b><i>בקשה לתור · יום חמישי</i></div>
+        <div class="more">ועוד 12</div></div>
+      <div class="stage"><div class="h">נסגרה <span>6</span></div>
+        <div class="mini"><b>יעל הרוש</b><i>קבעה מול בעל העסק</i></div>
+        <div class="mini"><b>טל אורן</b><i>שאלה שנענתה</i></div>
+        <div class="more">ועוד 4</div></div>
+    </div>
+  </section>
 
   <div class="cols">
-    <div class="panel">
-      <h2><span class="hi"><svg class="ic" viewBox="0 0 24 24"><use href="#i-inbox"/></svg></span> לידים נכנסים <span class="cnt" id="leadcnt">בזמן אמת</span></h2>
-      <div id="leads"></div>
-    </div>
-    <div>
-      <div class="panel" style="margin-bottom:15px">
-        <h2><span class="hi" style="background:rgba(47,199,154,.13);color:#6FE3BD"><svg class="ic" viewBox="0 0 24 24"><use href="#i-cpu"/></svg></span> פעילות אוטומציה</h2>
-        <div class="feed" id="feed"></div>
+    <section class="card" aria-label="פניות אחרונות">
+      <h2>פניות אחרונות</h2>
+      <table>
+        <thead><tr><th>שם</th><th>מקור</th><th>נושא</th><th>זמן מענה</th><th>סטטוס</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">דנה כהן</td><td class="src">וואטסאפ</td><td class="why">בקשה לתור<span class="night">מחוץ לשעות הפעילות</span></td><td class="num tm">22 שנ'</td><td class="stc"><span class="st s-own">הועברה לבעל העסק</span></td></tr>
+          <tr><td class="nm">מיכל אבני</td><td class="src">וואטסאפ</td><td class="why">שאלת מחיר</td><td class="num tm">31 שנ'</td><td class="stc"><span class="st s-ans">נענתה</span></td></tr>
+          <tr><td class="nm">נועה ברק</td><td class="src">אתר</td><td class="why">בקשה לתור<span class="night">מחוץ לשעות הפעילות</span></td><td class="num tm">45 שנ'</td><td class="stc"><span class="st s-own">הועברה לבעל העסק</span></td></tr>
+          <tr><td class="nm">רונית אלמוג</td><td class="src">אינסטגרם</td><td class="why">שעות פתיחה</td><td class="num tm">עוד לא נענתה</td><td class="stc"><span class="st s-new">חדשה</span></td></tr>
+          <tr><td class="nm">עמית גל</td><td class="src">וואטסאפ</td><td class="why">שאלה על טיפול</td><td class="num tm">29 שנ'</td><td class="stc"><span class="st s-ans">נענתה</span></td></tr>
+          <tr><td class="nm">יעל הרוש</td><td class="src">וואטסאפ</td><td class="why">בקשה לתור</td><td class="num tm">40 שנ'</td><td class="stc"><span class="st s-done">נסגרה</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="card" aria-label="פניות לפי יום">
+      <h2>פניות לפי יום <small>השבוע</small></h2>
+      <div class="bars" role="img" aria-label="פניות לפי יום בשבוע: א 8, ב 7, ג 6, ד 7, ה 9, ו 4">
+        <div class="bc"><div class="d" style="height:44%"></div><div class="o" style="height:44%"></div><em>א</em></div>
+        <div class="bc"><div class="d" style="height:33%"></div><div class="o" style="height:44%"></div><em>ב</em></div>
+        <div class="bc"><div class="d" style="height:33%"></div><div class="o" style="height:33%"></div><em>ג</em></div>
+        <div class="bc"><div class="d" style="height:33%"></div><div class="o" style="height:44%"></div><em>ד</em></div>
+        <div class="bc"><div class="d" style="height:44%"></div><div class="o" style="height:55%"></div><em>ה</em></div>
+        <div class="bc"><div class="d" style="height:11%"></div><div class="o" style="height:33%"></div><em>ו</em></div>
       </div>
-      <div class="panel">
-        <h2><span class="hi" style="background:rgba(66,232,224,.13);color:#74EDE6"><svg class="ic" viewBox="0 0 24 24"><use href="#i-up"/></svg></span> לידים לפי שעה</h2>
-        <div class="bars" id="bars"></div>
-        <div class="legend">
-          <span><i style="background:var(--blue-l)"></i> נכנסו</span>
-          <span><i style="background:var(--teal)"></i> טופלו אוטומטית</span>
-        </div>
-      </div>
-    </div>
+      <div class="legend"><span><i style="background:#BFE3DE"></i>בשעות הפעילות</span><span><i style="background:#0F766E"></i>מחוץ לשעות הפעילות</span></div>
+      <p class="est">בעסק אמיתי כל הפניות האלה מגיעות מהשיחות של הלקוחות, ובקשות לתור עוברות אל בעל העסק, שקובע מולם.</p>
+    </section>
   </div>
+  <p class="foot-note">זו הדגמה עם נתוני דוגמה, והדף אינו מחובר לעסק אמיתי. הדוח השבועי שבעל העסק מקבל מוצג בנפרד, ב<a href="report-example.html" style="color:#0D2440">דוח לדוגמה</a>.</p>
 </div>
 
 <div class="cta">
-  <div class="txt"><b>רוצים מערכת כזו לעסק שלכם?</b><span>אוטומציה שעובדת 24/7 ולא מפספסת אף ליד</span></div>
-  <a class="wa" href="https://wa.me/972548080657?text=ראיתי%20את%20דמו%20מוקד%20הבקרה%20ואשמח%20לשמוע%20עוד" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24"><use href="#i-msg"/></svg> דברו איתנו</a>
-  <a class="gh" href="demo.html"><svg class="ic" viewBox="0 0 24 24"><use href="#i-msg"/></svg> דמו צ'אט</a>
-  <a class="gh" href="/">לאתר</a>
+  <div class="tx"><b>רוצים מערכת כזו לעסק שלכם?</b><span>מענה לפניות גם מחוץ לשעות הפעילות</span></div>
+  <a class="wa" href="https://wa.me/972548080657?text=ראיתי%20את%20דמו%20מוקד%20הבקרה%20ואשמח%20לשמוע%20עוד" target="_blank" rel="noopener">דברו איתנו</a>
+  <a href="demo.html">שיחה עם דנית</a>
 </div>
-
-<script>
-const names=['דנה כהן','יוסי לוי','מיכל אבני','אבי רוזן','נועה ברק','שירה מזרחי','עמית גל','רותם שדה','ליאור פז','טל אורן','עדן נחום','גיא שפירא','הילה דרור','עומר קליין','מורן ביטון','יעל הרוש'];
-const srcs=[['wa','WhatsApp','#25D366','i-msg'],['web','אתר','#5FC9F0','i-globe'],['fb','פייסבוק','#1877F2','i-globe'],['ig','אינסטגרם','#E1306C','i-globe']];
-const reasons=['בקשת הצעת מחיר','שאלה על זמינות','בקשת תור','פנייה כללית','בקשת מידע','התעניינות בשירות'];
-const avColors=[['#1E6FB8','#0EA47E'],['#7C5CFF','#1E6FB8'],['#0EA47E','#42E8E0'],['#E6884D','#E6B24D'],['#E36A8C','#7C5CFF'],['#1E9BB8','#0EA47E']];
-const $=id=>document.getElementById(id);
-let leadsTotal=0,hot=0;
-const leadsBox=$('leads'),feed=$('feed');
-function nowt(){const d=new Date();return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0')}
-function pick(a){return a[Math.floor(Math.random()*a.length)]}
-function icon(id,cls){return `<svg class="ic ${cls||''}" viewBox="0 0 24 24"><use href="#${id}"/></svg>`}
-
-function addLead(){
-  if(document.hidden)return;
-  const nm=pick(names),[scls,sname,scol,sic]=pick(srcs),rs=pick(reasons),ac=pick(avColors);
-  const init=nm.split(' ').map(w=>w[0]).slice(0,2).join('');
-  const el=document.createElement('div');el.className='lead fresh';
-  el.innerHTML=`<div class="av" style="background:linear-gradient(135deg,${ac[0]},${ac[1]})">${init}
-      <span class="sb" style="background:${scol}">${icon(sic)}</span></div>
-    <div class="info"><div class="nm">${nm}</div>
-      <div class="meta">${sname} · ${rs} · ${nowt()}</div></div>
-    <div class="badge b-new">${icon('i-tag')} חדש</div>`;
-  leadsBox.prepend(el);
-  while(leadsBox.children.length>6)leadsBox.lastChild.remove();
-  leadsTotal++;$('k1').textContent=leadsTotal;$('d1').innerHTML=icon('i-up')+' '+Math.floor(leadsTotal*0.6)+' מעל אתמול';
-  pushEv('e-tag','i-tag',`ליד חדש <b>${nm}</b> זוהה ותויג אוטומטית`);
-  const badge=el.querySelector('.badge');
-  setTimeout(()=>{el.classList.remove('fresh');
-    pushEv('e-wa','i-msg',`נשלחה תשובה אוטומטית ל<b>${nm}</b> בוואטסאפ`);
-    badge.className='badge b-auto';badge.innerHTML=icon('i-check2')+' טופל אוטומטית';},1500+Math.random()*1200);
-  setTimeout(()=>pushEv('e-crm','i-db',`<b>${nm}</b> נוסף ל-CRM עם כל פרטי הפנייה`),2700+Math.random()*900);
-  if(Math.random()<0.34){
-    setTimeout(()=>{pushEv('e-score','i-star',`<b>${nm}</b> קיבל ניקוד גבוה, ליד חם! הועבר לנציג`);
-      badge.className='badge b-hot';badge.innerHTML=icon('i-flame')+' חם';
-      hot++;$('k4').textContent=hot;},3900+Math.random()*1100);
-  }else if(Math.random()<0.4){
-    setTimeout(()=>pushEv('e-rem','i-bell',`תזכורת מתוזמנת נשלחה ל<b>${nm}</b>`),4000);
-  }
-}
-function pushEv(ecls,iid,text){
-  const e=document.createElement('div');e.className='ev';
-  e.innerHTML=`<div class="et ${ecls}">${icon(iid)}</div><div><div class="tx">${text}</div><div class="tm">${nowt()}</div></div>`;
-  feed.prepend(e);while(feed.children.length>7)feed.lastChild.remove();
-}
-function tickKpi(){if(document.hidden)return;const auto=Math.min(95,80+Math.floor(Math.sin(Date.now()/9000)*6+6));
-  $('k2').textContent=auto+'%';$('k3').textContent=Math.round((leadsTotal*0.35+2)*10)/10}
-// chart
-const bars=$('bars'),labs=['09','11','13','15','17','19'];
-let chartData=labs.map(()=>({in:0,au:0}));
-function renderBars(){bars.innerHTML='';const max=Math.max(8,...chartData.map(d=>d.in));
-  chartData.forEach((d,i)=>{const c=document.createElement('div');c.className='bcol';
-    c.innerHTML=`<div class="bar au" style="height:${d.au/max*100}%"></div>
-      <div class="bar in" style="height:${(d.in-d.au)/max*100}%"></div><div class="blab">${labs[i]}</div>`;
-    bars.appendChild(c)})}
-function bumpChart(){if(document.hidden)return;const i=Math.floor(Math.random()*chartData.length);chartData[i].in++;
-  if(Math.random()<0.84)chartData[i].au++;renderBars()}
-for(let i=0;i<4;i++)chartData[i]={in:3+Math.floor(Math.random()*7),au:0};
-chartData.forEach(d=>d.au=Math.floor(d.in*0.84));renderBars();
-pushEv('e-crm','i-check',`המערכת מחוברת ופעילה · כל הערוצים מסונכרנים`);
-addLead();setTimeout(addLead,1400);
-setInterval(addLead,4200);setInterval(tickKpi,1500);setInterval(bumpChart,5000);
-</script>
 </body></html>
